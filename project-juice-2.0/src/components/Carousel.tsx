@@ -1,5 +1,9 @@
 function Carousel() {
-  return <></>;
+  return (
+    <>
+      <p>CAROUSEL</p>
+    </>
+  );
 }
 
 export default Carousel;
