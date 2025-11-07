@@ -1,12 +1,15 @@
 import logoWhite from "../../assets/Logo-White.png";
 import "./logo.css";
+import { Link } from "react-router-dom";
 
 function Logo() {
   return (
     <>
-      <a href="https://github.com/highimexy" target="_blank">
-        <img src={logoWhite} className="logo-pj" alt="project juice" />
-      </a>
+      <div>
+        <Link to="/">
+          <img src={logoWhite} className="logo-pj" alt="project juice" />
+        </Link>
+      </div>
     </>
   );
 }

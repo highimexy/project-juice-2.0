@@ -1,8 +1,13 @@
-function Hero() {
+type HeroProps = {
+  title?: string;
+  description?: string;
+};
+
+function Hero({ title = "Title", description = "Description" }: HeroProps) {
   return (
     <>
-      <h1 className="hero-h1">Project Juice</h1>
-      <p>Witam na stronie project.juice, znajdziesz na niej katalog smakow</p>
+      <h1 className="hero-h1">{title}</h1>
+      <p>{description}</p>
     </>
   );
 }

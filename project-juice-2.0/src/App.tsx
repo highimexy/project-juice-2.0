@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <Logo />
-      <Hero />
+      <Hero title={"Project Juice"} description={"Kliknij po wiecej smakow"} />
       <RandomBtn />
       <MainButton />
     </>

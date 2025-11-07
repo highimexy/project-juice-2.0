@@ -1,7 +1,11 @@
 function Carousel() {
   return (
     <>
-      <p>CAROUSEL</p>
+      <div className="carousel-card">
+        <div className="card-content">
+          <h2>SMAK LOREM</h2>
+        </div>
+      </div>
     </>
   );
 }
