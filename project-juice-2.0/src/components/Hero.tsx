@@ -1,8 +1,8 @@
 function Hero() {
   return (
     <>
-      <h1>project juiice</h1>
-      <p>Kliknij numer number danej seri i poznaj smaki</p>
+      <h1 className="hero-h1">Project Juice</h1>
+      <p>Witam na stronie project.juice, znajdziesz na niej katalog smakow</p>
     </>
   );
 }
