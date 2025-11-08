@@ -1,25 +1,27 @@
 /* ------------------------------------------- */
-/* --- NOWE STYLE: Wrapper i Przyciski --- */
+/* --- Style Wrappera i Przycisków --- */
 /* ------------------------------------------- */
 
 .carousel-wrapper {
-  /* Kluczowe: position: relative pozwala nam 
-     pozycjonować przyciski desktopowe "wewnątrz" */
   position: relative;
+  /* Kluczowe: Zapobiega poziomemu paskowi przewijania, 
+     gdy calc() jest aktywny */
+  overflow-x: clip;
 }
 
 /* --- Przyciski Mobilne (Domyślne) --- */
 .carousel-nav-mobile {
   gap: 10px;
   margin-top: 16px;
-  margin-bottom: 15px; /* Odstęp nad karuzelą */
+  margin-bottom: 15px;
+  padding-right: 16px;
+  box-sizing: border-box;
 }
 
 .carousel-nav-mobile button {
-  /* Używamy mniejszych przycisków dla nawigacji */
   background-color: #1a1a1a;
   border: 1px solid transparent;
-  border-radius: 50%; /* Okrągłe */
+  border-radius: 50%;
   width: 50px;
   height: 50px;
   padding: 0;
@@ -36,13 +38,11 @@
 
 /* --- Przyciski Desktopowe (Domyślnie ukryte) --- */
 .carousel-btn.desktop {
-  display: none; /* Ukryte na mobilce */
+  display: none;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-
-  /* Stylizacja (taka sama jak mobilne) */
   background-color: #1a1a1a;
   border: 1px solid transparent;
   border-radius: 50%;
@@ -59,7 +59,6 @@
   border-color: darkslategray;
 }
 
-/* Pozycjonowanie przycisków L/P */
 .carousel-btn.desktop.prev {
   left: 10px;
 }
@@ -68,18 +67,27 @@
 }
 
 /* ------------------------------------------- */
-/* --- TWOJE ISTNIEJĄCE STYLE (z modyfikacjami) --- */
+/* --- Kontener Karuzeli --- */
 /* ------------------------------------------- */
 
+.carousel-wrapper {
+  padding-left: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
 .carousel-container {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  margin-top: 16px;
   gap: 15px;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  scroll-behavior: smooth; /* Dla płynnego przewijania przez JS */
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  /* Domyślny padding (Mobile-first) pasuje do .content-wrapper */
+  padding-left: 16px;
+  padding-right: 0;
 }
 
 .carousel-container::-webkit-scrollbar {
@@ -94,7 +102,13 @@
   border: 1px solid transparent;
   flex-shrink: 0;
   scroll-snap-align: start;
-  width: 85%;
+  width: 350;
+  box-sizing: border-box;
+}
+
+.carousel-card:last-child {
+  scroll-snap-align: end;
+  margin-right: 16px;
 }
 
 .carousel-card:hover {
@@ -113,19 +127,63 @@
 /* --- RESPONSIVE MEDIA QUERY --- */
 /* ------------------------------------------- */
 
+/* --- Tablet (768px and up) --- */
 @media (min-width: 768px) {
-  .carousel-card {
-    /* Na tablecie i desktopie wracamy do Twojej stałej szerokości */
-    width: 358px;
+  .carousel-nav-mobile {
+    display: none;
   }
 
-  /* --- NOWE: Przełączanie widoczności przycisków --- */
-
-  .carousel-nav-mobile {
-    display: none; /* Ukryj nawigację mobilną */
+  .carousel-wrapper {
+    padding-left: 32px;
   }
 
   .carousel-btn.desktop {
-    display: block; /* Pokaż nawigację desktopową */
+    display: block;
+  }
+
+  .carousel-card:last-child {
+    margin-right: 32px;
+  }
+}
+
+/* ------------------------------------------------ */
+/* -------- Large Desktops (1024px to 1440px) -------- */
+/* ------------------------------------------------ */
+
+@media (min-width: 1024px) {
+  .carousel-nav-mobile {
+    display: none;
+  }
+  .carousel-wrapper {
+    padding-left: 62px;
+  }
+
+  .carousel-btn.desktop {
+    display: block;
+  }
+
+  .carousel-card:last-child {
+    margin-right: 62px;
+  }
+}
+
+/* ------------------------------------------------ */
+/* -------- Large Desktops (1200px and up) -------- */
+/* ------------------------------------------------ */
+
+@media (min-width: 1200px) {
+  .carousel-nav-mobile {
+    display: none;
+  }
+  .carousel-wrapper {
+    padding-left: 104px;
+  }
+
+  .carousel-btn.desktop {
+    display: block;
+  }
+
+  .carousel-card:last-child {
+    margin-right: 104px;
   }
 }

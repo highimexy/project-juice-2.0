@@ -9,13 +9,15 @@ function Dropdown() {
 
   return (
     <>
-      <div className="dropdown-container">
-        <div className="dropdown" onChange={handleTasteChange}>
-          <select value={taste}>
-            <option value="Opcja 1">Owocowe</option>
-            <option value="Opcja 2">Owocowe zimne</option>
-            <option value="Opcja 3">Deserowe</option>
-          </select>
+      <div className="content-wrapper">
+        <div className="dropdown-container">
+          <div className="dropdown" onChange={handleTasteChange}>
+            <select value={taste}>
+              <option value="Opcja 1">Owocowe</option>
+              <option value="Opcja 2">Owocowe zimne</option>
+              <option value="Opcja 3">Deserowe</option>
+            </select>
+          </div>
         </div>
       </div>
     </>

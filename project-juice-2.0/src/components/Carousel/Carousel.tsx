@@ -1,9 +1,9 @@
 import { useRef } from "react";
-import "./Carousel.css"; // Upewnij się, że importujesz CSS
+import "./Carousel.css"; // POPRAWKA: Importujemy własny, dedykowany plik CSS
 
 function Carousel() {
   const carouselRef = useRef(null);
-  
+
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   // 2. Funkcje do przewijania

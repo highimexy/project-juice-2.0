@@ -1,28 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+/* --- Ustawienia Główne --- */
+:root {
+  font-family: "Press Start 2P";
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .press-start-2p-regular {
   font-family: "Press Start 2P", system-ui;
   font-style: normal;
   font-weight: 500;
 }
 
-:root {
-  font-family: "Press Start 2P";
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 /* ------------------------------------------------ */
-/* --- Default Styles (Mobile-First) --- */
+/* --- Style Domyślne (Mobile-First) --- */
 /* ------------------------------------------------ */
 
 body {
-  margin: 16px;
+  margin: 0;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+/* Kontener na treść (h1, p, itp.), która ma mieć marginesy */
+.content-wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 h1 {
@@ -47,14 +56,13 @@ button {
   transition: border-color 0.25s;
 }
 
-/* Common styles for cards, buttons, dropdowns on mobile */
+/* Wspólne style dla przycisków, dropdownów (bez kart karuzeli) */
 button,
-.carousel-card,
 .dropdown select {
-  width: 100%; /* Full width on mobile */
-  max-width: 358px; /* Cap width */
-  box-sizing: border-box; /* Include padding in width */
-  font-size: 20px; /* Slightly smaller font for mobile */
+  width: 100%;
+  max-width: 358px;
+  box-sizing: border-box;
+  font-size: 20px;
 }
 
 button:hover {
@@ -69,7 +77,6 @@ button:focus-visible {
 .mainbtn-container button {
   margin-top: 25px;
   display: flex;
-  
 }
 
 .icon {
@@ -79,10 +86,6 @@ button:focus-visible {
 .hero-h1 {
   font-weight: 400;
 }
-
-
-
-
 
 .dropdown select {
   background-color: #1a1a1a;
@@ -100,33 +103,9 @@ button:focus-visible {
 /* ------------------------------------------------ */
 
 @media (min-width: 768px) {
-  body {
-    margin: 32px;
-  }
-
-  h1 {
-    font-size: 3em; /* Return to original size */
-  }
-
-  p {
-    font-size: 1.5em; /* Return to original size */
-  }
-
-  /* Restore fixed widths and original font size */
-  button,
-  .carousel-card,
-  .dropdown select {
-    font-size: 24px;
-    width: 358px;
-  }
-
-  .main-button {
-    flex-direction: row; /* Place buttons side-by-side */
-    justify-content: center;
-  }
-  .carousel-container {
-    display: flex;
-    gap: 16px;
+  .content-wrapper {
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
 
@@ -135,38 +114,19 @@ button:focus-visible {
 /* ------------------------------------------------ */
 
 @media (min-width: 1024px) {
-  body {
-    max-width: 100%;
-    margin-left: 62px;
-    margin-right: 62px;
+  .content-wrapper {
+    padding-left: 62px;
+    padding-right: 62px;
   }
-
-  .hero-h1 {
-    font-size: 3.5em; /* Example: make hero even bigger */
-  }
-
-  .carousel-container {
-    display: flex;
-    gap: 16px;
-  }
-  /* You could add grid/flex layouts for carousels here */
 }
 
 /* ------------------------------------------------ */
-/* --- Large Desktops (1200px and up) --- */
+/* -------- Large Desktops (1200px and up) -------- */
 /* ------------------------------------------------ */
 
 @media (min-width: 1200px) {
-  .hero-h1 {
-    font-size: 3.5em;
-  }
-  body {
-    max-width: 100%;
-    margin-left: 104px;
-    margin-right: 104px;
-  }
-  .carousel-container {
-    display: flex;
-    gap: 16px;
+  .content-wrapper {
+    padding-left: 104px;
+    padding-right: 104px;
   }
 }

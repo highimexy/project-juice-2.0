@@ -4,13 +4,15 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 function MainButton() {
   return (
     <>
-      <div className="mainbtn-container">
-        <Link to={"/Taste"}>
-          <button>
-            SMAKI
-            <FaArrowAltCircleRight  className="icon"/>
-          </button>
-        </Link>
+      <div className="content-wrapper">
+        <div className="mainbtn-container">
+          <Link to={"/Taste"}>
+            <button>
+              SMAKI
+              <FaArrowAltCircleRight className="icon" />
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Logo() {
   return (
     <>
-      <div>
+      <div className="content-wrapper">
         <Link to="/">
           <img src={logoWhite} className="logo-pj" alt="project juice" />
         </Link>

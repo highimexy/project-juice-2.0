@@ -1,4 +1,5 @@
 .logo-pj {
+  margin-top: 20px;
   height: 4em;
   will-change: filter;
   transition: filter 300ms;

@@ -6,8 +6,10 @@ type HeroProps = {
 function Hero({ title = "Title", description = "Description" }: HeroProps) {
   return (
     <>
-      <h1 className="hero-h1">{title}</h1>
-      <p>{description}</p>
+      <div className="content-wrapper">
+        <h1 className="hero-h1">{title}</h1>
+        <p>{description}</p>
+      </div>
     </>
   );
 }
