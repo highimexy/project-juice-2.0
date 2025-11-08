@@ -4,12 +4,9 @@
 
 .carousel-wrapper {
   position: relative;
-  /* Kluczowe: Zapobiega poziomemu paskowi przewijania, 
-     gdy calc() jest aktywny */
   overflow-x: clip;
 }
 
-/* --- Przyciski Mobilne (Domyślne) --- */
 .carousel-nav-mobile {
   gap: 10px;
   margin-top: 16px;
@@ -36,7 +33,6 @@
   border-color: darkslategray;
 }
 
-/* --- Przyciski Desktopowe (Domyślnie ukryte) --- */
 .carousel-btn.desktop {
   display: none;
   position: absolute;
@@ -88,9 +84,7 @@
   padding-right: 0;
   will-change: filter;
   transition: filter 300ms;
-
 }
-
 
 .carousel-container::-webkit-scrollbar {
   display: none;

@@ -135,7 +135,7 @@ button {
   transition: border-color 0.25s;
 }
 
-/* Wspólne style dla przycisków, dropdownów (bez kart karuzeli) */
+
 button,
 .dropdown select {
   width: 100%;

@@ -1,18 +1,18 @@
 import { useRef } from "react";
-import "./Carousel.css"; // POPRAWKA: Importujemy własny, dedykowany plik CSS
+import "./Carousel.css";
 
 function Carousel() {
   const carouselRef = useRef(null);
 
   const items = ["#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9", "#10"];
 
-  // 2. Funkcje do przewijania
+  {/* --- SWIPE --- */}
   const scroll = (direction) => {
     if (carouselRef.current) {
-      // Znajdź pierwszą kartę, aby poznać jej szerokość
+     
       const firstCard = carouselRef.current.querySelector(".carousel-card");
       if (firstCard) {
-        // Przewijamy o szerokość karty + odstęp (15px)
+  
         const scrollAmount = firstCard.offsetWidth + 15;
 
         carouselRef.current.scrollBy({
