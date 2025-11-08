@@ -5,6 +5,10 @@
 .carousel-wrapper {
   position: relative;
   overflow-x: clip;
+  /* Połączone reguły z obu Twoich definicji */
+  padding-left: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .carousel-nav-mobile {
@@ -66,11 +70,6 @@
 /* --- Kontener Karuzeli --- */
 /* ------------------------------------------- */
 
-.carousel-wrapper {
-  padding-left: 16px;
-  margin-bottom: 16px;
-  margin-top: 16px;
-}
 .carousel-container {
   display: flex;
   overflow-x: auto;
@@ -98,8 +97,14 @@
   border: 1px solid transparent;
   flex-shrink: 0;
   scroll-snap-align: start;
-  width: 350;
+  width: 350px; /* <-- POPRAWKA: Dodano 'px' */
   box-sizing: border-box;
+
+  /* --- POPRAWKA: Dodano flex do centrowania .card-content --- */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px; /* Przeniesiono padding tutaj z .card-content */
 }
 
 .carousel-card:last-child {
@@ -110,14 +115,29 @@
   border-color: darkslategray;
 }
 
+/* --- POPRAWKA: Cała sekcja zmieniona do centrowania --- */
 .card-content {
-  padding: 12px;
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centruje zawartość pionowo */
+  align-items: center; /* Centruje zawartość poziomo */
+  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .card-content h2 {
   margin-top: 0px;
+  margin-bottom: 15px; /* Dodano odstęp pod tytułem */
   font-size: 2em;
+}
+
+/* --- POPRAWKA: Dodano regułę do stylów obrazka --- */
+.card-content img {
+  max-width: 100%; /* Obrazek nie będzie szerszy niż kontener */
+  max-height: 280px; /* Ograniczenie wysokości obrazka */
+  height: auto; /* Zachowanie proporcji */
+  object-fit: contain; /* Obrazek zmieści się w całości, bez przycinania */
 }
 
 /* ------------------------------------------- */

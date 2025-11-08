@@ -1,10 +1,9 @@
 import { useRef } from "react";
 import "./Carousel.css";
 
-function Carousel() {
+function Carousel({items}) {
   const carouselRef = useRef(null);
 
-  const items = ["#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9", "#10"];
 
   {/* --- SWIPE --- */}
   const scroll = (direction) => {
@@ -34,9 +33,10 @@ function Carousel() {
       {/* --- KONTENER KARUZELI --- */}
       <div className="carousel-container" ref={carouselRef}>
         {items.map((item) => (
-          <div className="carousel-card" key={item}>
+          <div className="carousel-card" key={item.id}>
             <div className="card-content">
-              <h2>{item}</h2>
+              <h2>{item.id}</h2>
+              <img src={item.img} alt={item.id} />
             </div>
           </div>
         ))}
