@@ -87,6 +87,9 @@ body {
   width: 300px;
   margin: 0px;
 }
+.home img:hover {
+  filter: drop-shadow(0 0 2em darkslategray);
+}
 
 /* ------------------------------------------------ */
 /* --- Taste page --- */
@@ -103,6 +106,9 @@ body {
   justify-content: center;
 }
 
+.taste-image img:hover{
+  filter: drop-shadow(0 0 2em darkslategray);
+}
 /* ------------------------------------------------ */
 /* --- Style Domyślne (Mobile-First) --- */
 /* ------------------------------------------------ */

@@ -4,7 +4,7 @@ import "./Carousel.css"; // POPRAWKA: Importujemy własny, dedykowany plik CSS
 function Carousel() {
   const carouselRef = useRef(null);
 
-  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const items = ["#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8", "#9", "#10"];
 
   // 2. Funkcje do przewijania
   const scroll = (direction) => {
@@ -36,7 +36,7 @@ function Carousel() {
         {items.map((item) => (
           <div className="carousel-card" key={item}>
             <div className="card-content">
-              <h2>SMAK LOREM {item}</h2>
+              <h2>{item}</h2>
             </div>
           </div>
         ))}

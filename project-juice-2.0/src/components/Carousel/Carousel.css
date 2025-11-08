@@ -91,9 +91,6 @@
 
 }
 
-.carousel-container:hover {
-  filter: drop-shadow(0 0 2em darkslategray);
-}
 
 .carousel-container::-webkit-scrollbar {
   display: none;
@@ -116,15 +113,17 @@
 }
 
 .carousel-card:hover {
-  border-color: darkslategrayy;
+  border-color: darkslategray;
 }
 
 .card-content {
   padding: 12px;
+  width: 300px;
 }
 
 .card-content h2 {
   margin-top: 0px;
+  font-size: 2em;
 }
 
 /* ------------------------------------------- */
