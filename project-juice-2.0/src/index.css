@@ -45,8 +45,14 @@ body {
 
 .pnf-header {
   display: grid;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* wyśrodkowanie poziome */
+  align-items: center; /* wyśrodkowanie pionowe */
+  justify-items: center;
+}
+
+.pnf-header h1{
+  font-size: 20px;
+  margin-top: 20px;
 }
 
 .pnf-button {
@@ -54,6 +60,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.pnf-header img {
+  width: 200px;
 }
 
 /* ------------------------------------------------ */
@@ -72,6 +82,27 @@ body {
 .home h1 {
   font-size: 2em;
 }
+
+.home img {
+  width: 300px;
+  margin: 0px;
+}
+
+/* ------------------------------------------------ */
+/* --- Taste page --- */
+/* ------------------------------------------------ */
+
+.taste-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.taste-image img {
+  width: 280px;
+  margin-top: -20px;
+  justify-content: center;
+}
+
 /* ------------------------------------------------ */
 /* --- Style Domyślne (Mobile-First) --- */
 /* ------------------------------------------------ */
@@ -154,6 +185,7 @@ button:focus-visible {
     padding-left: 32px;
     padding-right: 32px;
   }
+
 }
 
 /* ------------------------------------------------ */
@@ -165,6 +197,12 @@ button:focus-visible {
     padding-left: 62px;
     padding-right: 62px;
   }
+}
+
+.taste-image-container {
+  display: flex;
+  justify-content: left;
+  margin-left: 16px;
 }
 
 /* ------------------------------------------------ */
@@ -190,11 +228,17 @@ button:focus-visible {
     gap: 10px;
   }
 
-  .home h1{
+  .home h1 {
     font-size: 4em;
   }
-  .home-left-side{
+  .home-left-side {
     max-width: 800px;
     padding: 0px;
+  }
+
+  .taste-image-container {
+    display: flex;
+    justify-content: left;
+    margin-left: 56px;
   }
 }
