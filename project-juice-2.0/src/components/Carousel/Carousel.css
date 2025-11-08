@@ -1,0 +1,131 @@
+/* ------------------------------------------- */
+/* --- NOWE STYLE: Wrapper i Przyciski --- */
+/* ------------------------------------------- */
+
+.carousel-wrapper {
+  /* Kluczowe: position: relative pozwala nam 
+     pozycjonować przyciski desktopowe "wewnątrz" */
+  position: relative;
+}
+
+/* --- Przyciski Mobilne (Domyślne) --- */
+.carousel-nav-mobile {
+  gap: 10px;
+  margin-top: 16px;
+  margin-bottom: 15px; /* Odstęp nad karuzelą */
+}
+
+.carousel-nav-mobile button {
+  /* Używamy mniejszych przycisków dla nawigacji */
+  background-color: #1a1a1a;
+  border: 1px solid transparent;
+  border-radius: 50%; /* Okrągłe */
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  font-size: 24px;
+  font-family: "Press Start 2P";
+  color: rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.carousel-nav-mobile button:hover {
+  border-color: darkslategray;
+}
+
+/* --- Przyciski Desktopowe (Domyślnie ukryte) --- */
+.carousel-btn.desktop {
+  display: none; /* Ukryte na mobilce */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+
+  /* Stylizacja (taka sama jak mobilne) */
+  background-color: #1a1a1a;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  font-family: "Press Start 2P";
+  color: rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.carousel-btn.desktop:hover {
+  border-color: darkslategray;
+}
+
+/* Pozycjonowanie przycisków L/P */
+.carousel-btn.desktop.prev {
+  left: 10px;
+}
+.carousel-btn.desktop.next {
+  right: 10px;
+}
+
+/* ------------------------------------------- */
+/* --- TWOJE ISTNIEJĄCE STYLE (z modyfikacjami) --- */
+/* ------------------------------------------- */
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin-top: 16px;
+  gap: 15px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth; /* Dla płynnego przewijania przez JS */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-card {
+  background-color: #1a1a1a;
+  height: 400px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  width: 85%;
+}
+
+.carousel-card:hover {
+  border-color: darkslategray;
+}
+
+.card-content {
+  padding: 12px;
+}
+
+.card-content h2 {
+  margin-top: 0px;
+}
+
+/* ------------------------------------------- */
+/* --- RESPONSIVE MEDIA QUERY --- */
+/* ------------------------------------------- */
+
+@media (min-width: 768px) {
+  .carousel-card {
+    /* Na tablecie i desktopie wracamy do Twojej stałej szerokości */
+    width: 358px;
+  }
+
+  /* --- NOWE: Przełączanie widoczności przycisków --- */
+
+  .carousel-nav-mobile {
+    display: none; /* Ukryj nawigację mobilną */
+  }
+
+  .carousel-btn.desktop {
+    display: block; /* Pokaż nawigację desktopową */
+  }
+}

@@ -4,7 +4,7 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 function MainButton() {
   return (
     <>
-      <div className="main-button">
+      <div className="mainbtn-container">
         <Link to={"/Taste"}>
           <button>
             SMAKI

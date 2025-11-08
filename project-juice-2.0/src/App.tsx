@@ -8,7 +8,6 @@ function Home() {
     <>
       <Logo />
       <Hero title={"Project Juice"} description={"Kliknij po wiecej smakow"} />
-      <RandomBtn />
       <MainButton />
     </>
   );
