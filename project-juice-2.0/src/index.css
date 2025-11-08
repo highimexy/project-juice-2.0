@@ -50,7 +50,7 @@ body {
   justify-items: center;
 }
 
-.pnf-header h1{
+.pnf-header h1 {
   font-size: 20px;
   margin-top: 20px;
 }
@@ -106,8 +106,9 @@ body {
   justify-content: center;
 }
 
-.taste-image img:hover{
+.taste-image img:hover {
   filter: drop-shadow(0 0 2em darkslategray);
+  transition-duration: 400ms;
 }
 /* ------------------------------------------------ */
 /* --- Style Domyślne (Mobile-First) --- */
@@ -134,7 +135,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-
 
 button,
 .dropdown select {
@@ -191,7 +191,6 @@ button:focus-visible {
     padding-left: 32px;
     padding-right: 32px;
   }
-
 }
 
 /* ------------------------------------------------ */

@@ -13,10 +13,7 @@ function RandomBtn({ items }) {
     <>
       <div className="content-wrapper ">
         <div className="randombtn-container">
-          {/* 6. Podpinamy naszą funkcję pod onClick */}
           <button onClick={handleRandomClick}>
-            {/* 7. Wyświetlamy wylosowany element. 
-                 Jeśli jest pusty (na początku), pokażemy tekst. */}
             Wylosowany sok: {selectedItem.id || "Kliknij, by losować!"}
           </button>
         </div>
