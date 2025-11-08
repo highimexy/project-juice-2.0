@@ -5,7 +5,7 @@ function RandomBtn() {
 
   return (
     <>
-      <div className="content-wrapper">
+      <div className="content-wrapper ">
         <div className="randombtn-container">
           <button onClick={() => setCount((count) => count + 1)}>
             Random juice number {count}

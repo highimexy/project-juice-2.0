@@ -84,10 +84,15 @@
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   box-sizing: border-box;
-
-  /* Domyślny padding (Mobile-first) pasuje do .content-wrapper */
   padding-left: 16px;
   padding-right: 0;
+  will-change: filter;
+  transition: filter 300ms;
+
+}
+
+.carousel-container:hover {
+  filter: drop-shadow(0 0 2em darkslategray);
 }
 
 .carousel-container::-webkit-scrollbar {
@@ -107,12 +112,11 @@
 }
 
 .carousel-card:last-child {
-  scroll-snap-align: end;
   margin-right: 16px;
 }
 
 .carousel-card:hover {
-  border-color: darkslategray;
+  border-color: darkslategrayy;
 }
 
 .card-content {

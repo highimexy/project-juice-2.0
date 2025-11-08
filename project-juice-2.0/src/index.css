@@ -15,6 +15,8 @@
   font-weight: 500;
 }
 
+
+
 /* ------------------------------------------------ */
 /* --- Style Domyślne (Mobile-First) --- */
 /* ------------------------------------------------ */
@@ -97,6 +99,12 @@ button:focus-visible {
   cursor: pointer;
   border: 1px solid transparent;
 }
+
+.dropdown select:hover {
+  border-color: darkslategray;
+}
+
+
 
 /* ------------------------------------------------ */
 /* --- Tablet (768px and up) --- */
