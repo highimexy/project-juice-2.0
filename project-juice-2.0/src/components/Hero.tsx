@@ -13,5 +13,5 @@ function Hero({ title = "Title", description = "Description" }: HeroProps) {
     </>
   );
 }
-
+ 
 export default Hero;

@@ -1,13 +1,14 @@
-import logoWhite from "../../assets/Logo-White.png";
+
+import logoAnimacja from "../../assets/ANIMACJA.gif";
 import "./logo.css";
 import { Link } from "react-router-dom";
 
 function Logo() {
   return (
     <>
-      <div className="content-wrapper">
+      <div className="logo">
         <Link to="/">
-          <img src={logoWhite} className="logo-pj" alt="project juice" />
+          <img src={logoAnimacja} className="logo-pj" alt="project juice" />
         </Link>
       </div>
     </>

@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-/* --- Ustawienia Główne --- */
+/* ------------------------------------------------ */
+/* --- ROOT // BODY --- */
+/* ------------------------------------------------ */
+
 :root {
   font-family: "Press Start 2P";
   font-synthesis: none;
@@ -15,12 +18,6 @@
   font-weight: 500;
 }
 
-
-
-/* ------------------------------------------------ */
-/* --- Style Domyślne (Mobile-First) --- */
-/* ------------------------------------------------ */
-
 body {
   margin: 0;
   color-scheme: light dark;
@@ -28,13 +25,56 @@ body {
   background-color: #242424;
 }
 
-/* Kontener na treść (h1, p, itp.), która ma mieć marginesy */
 .content-wrapper {
   padding-left: 16px;
   padding-right: 16px;
   box-sizing: border-box;
   width: 100%;
 }
+/* ------------------------------------------------ */
+/* --- NotFoundPage --- */
+/* ------------------------------------------------ */
+
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* wyśrodkowanie poziome */
+  align-items: center; /* wyśrodkowanie pionowe */
+  height: 100vh; /* wysokość całego ekranu */
+}
+
+.pnf-header {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.pnf-button {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------ */
+/* --- Home - Left/Right --- */
+/* ------------------------------------------------ */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 10px;
+}
+
+.home h1 {
+  font-size: 2em;
+}
+/* ------------------------------------------------ */
+/* --- Style Domyślne (Mobile-First) --- */
+/* ------------------------------------------------ */
 
 h1 {
   font-size: 2.5em;
@@ -42,7 +82,7 @@ h1 {
 }
 
 p {
-  font-size: 1.2em;
+  font-size: 0.9em;
   line-height: 1.4;
   color: darkslategray;
 }
@@ -86,6 +126,7 @@ button:focus-visible {
 }
 
 .hero-h1 {
+  margin: 0px;
   font-weight: 400;
 }
 
@@ -103,8 +144,6 @@ button:focus-visible {
 .dropdown select:hover {
   border-color: darkslategray;
 }
-
-
 
 /* ------------------------------------------------ */
 /* --- Tablet (768px and up) --- */
@@ -136,5 +175,26 @@ button:focus-visible {
   .content-wrapper {
     padding-left: 104px;
     padding-right: 104px;
+  }
+
+  .pnf-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    gap: 10px;
+  }
+
+  .home h1{
+    font-size: 4em;
+  }
+  .home-left-side{
+    max-width: 800px;
+    padding: 0px;
   }
 }

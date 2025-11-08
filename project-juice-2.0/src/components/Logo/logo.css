@@ -1,25 +1,17 @@
 .logo-pj {
-  margin-top: 20px;
-  height: 4em;
+  z-index: -1;
+  margin-top: -60px;
+  height: 20em;
   will-change: filter;
   transition: filter 300ms;
-}
-
-.logo-pj:hover {
   filter: drop-shadow(0 0 2em darkslategray);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  z-index: 1;
+}
+.logo-pj:hover {
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .logo-pj {
-    animation: logo-spin infinite 5s linear;
-  }
-}
+

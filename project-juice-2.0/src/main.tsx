@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import Taste from "./pages/Taste.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import NotFoundPage from "./notFoundPage.tsx";
+import NotFoundPage from "./NotFoundPage.tsx";
 import Contact from "./pages/Contact.tsx";
 
 const router = createBrowserRouter([
