@@ -1,17 +1,24 @@
 import { useRef } from "react";
 import "./Carousel.css";
 
-function Carousel({items}) {
-  const carouselRef = useRef(null);
 
+interface Item {
+  id: string;
+  img: string;
+}
+
+interface CarouselProps {
+  items: Item[];
+}
+
+function Carousel({ items }: CarouselProps) {
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   {/* --- SWIPE --- */}
-  const scroll = (direction) => {
+  const scroll = (direction: 'left' | 'right') =>  {
     if (carouselRef.current) {
-     
-      const firstCard = carouselRef.current.querySelector(".carousel-card");
+      const firstCard = carouselRef.current.querySelector<HTMLElement>(".carousel-card");
       if (firstCard) {
-  
         const scrollAmount = firstCard.offsetWidth + 15;
 
         carouselRef.current.scrollBy({
