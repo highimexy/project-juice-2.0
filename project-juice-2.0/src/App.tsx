@@ -1,6 +1,7 @@
 import Hero from "./components/Hero.tsx";
 import MainButton from "./components/MainButton.tsx";
 import logoAnimacjaLewo from "./assets/home-export.gif"
+import Transition from "./Transition.tsx";
 
 function Home() {
   return (
@@ -11,7 +12,7 @@ function Home() {
             <Hero
               title={"Project Juice"}
               description={
-                "Witamy na projectjuice.pl domu trójmiejskich, craftowych soczków do e-papierosów. Tworzymy unikalne, rzemieślnicze liquidy inspirowane pasją, smakiem i jakością."
+                "Witamy na projectjuice.pl domu trojmiejskich, craftowych liquidow do e-papierosów. Tworzymy unikalne, rzemieślnicze liquidy inspirowane pasja, smakiem i jakosci."
               }
             />
             <MainButton />
@@ -25,4 +26,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Transition(Home);

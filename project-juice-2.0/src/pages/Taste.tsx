@@ -4,6 +4,7 @@ import Hero from "../components/Hero.tsx";
 import Dropdown from "../components/Dropdown.tsx";
 import { Link } from "react-router-dom";
 import logoAnimacja from "../assets/ANIMACJA.gif";
+import TransitionOposite from "../TransitionOposite.tsx"
 
 import smak1 from "../assets/smak1.png";
 import smak2 from "../assets/smak2.png";
@@ -48,4 +49,4 @@ function Taste() {
   );
 }
 
-export default Taste;
+export default TransitionOposite(Taste);
