@@ -8,7 +8,7 @@ function MainButton() {
         <div className="mainbtn-container">
           <Link to={"/Taste"}>
             <button>
-              SMAKI
+              Odkryj nasze smaki
               <FaArrowAltCircleRight className="icon" />
             </button>
           </Link>

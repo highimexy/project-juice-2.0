@@ -18,7 +18,7 @@ function Home() {
             <MainButton />
           </div>
           <div className="home-rigt-side">
-             <img src={logoAnimacjaLewo} className="logo-pj" alt="project juice" />
+             <img src={logoAnimacjaLewo} className="logo-pj-home" alt="project juice" />
           </div>
         </div>
       </div>

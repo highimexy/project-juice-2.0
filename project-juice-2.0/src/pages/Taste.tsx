@@ -2,9 +2,8 @@ import Carousel from "../components/Carousel/Carousel.tsx";
 import RandomBtn from "../components/RandomBtn.tsx";
 import Hero from "../components/Hero.tsx";
 import Dropdown from "../components/Dropdown.tsx";
-import { Link } from "react-router-dom";
-import logoAnimacja from "../assets/ANIMACJA.gif";
-import TransitionOposite from "../TransitionOposite.tsx"
+import TransitionOposite from "../TransitionOposite.tsx";
+import Navigation from "../components/Navigation.tsx";
 
 import smak1 from "../assets/smak1.png";
 import smak2 from "../assets/smak2.png";
@@ -33,16 +32,21 @@ function Taste() {
   return (
     <>
       <div className="taste-image-container">
-        <div className="taste-image">
-          <Link to={"/"}>
-            <img src={logoAnimacja} className="logo-pj" alt="project juice" />
-          </Link>
-        </div>
+        <Navigation />
       </div>
       <div>
-        <Hero title={"Smaki"} description="Ponizej znajdziesz liste edycji" />
-        <Dropdown />
-        <RandomBtn items={items}  />
+        <div className="taste-hero">
+          <div>
+            <Dropdown />
+            <RandomBtn items={items} />
+          </div>
+          <div className="hero-container">
+            <Hero
+              title={"<-Grupy smakow"}
+              description="Beben maszyny losujacej jest pusty, nastepuje zwolnienie blokady..."
+            />
+          </div>
+        </div>
         <Carousel items={items} />
       </div>
     </>

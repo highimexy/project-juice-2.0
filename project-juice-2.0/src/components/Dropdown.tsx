@@ -9,7 +9,7 @@ function Dropdown() {
 
   return (
     <>
-      <div className="content-wrapper ">
+      <div className="content-wrapper-left">
         <div className="dropdown-container">
           <div className="dropdown" onChange={handleTasteChange}>
             <select value={taste}>

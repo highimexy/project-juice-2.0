@@ -2,7 +2,7 @@ import { useState } from "react";
 
 interface Item {
   id: string;
-  img: string; 
+  img: string;
 }
 
 interface RandomBtnProps {
@@ -21,10 +21,11 @@ function RandomBtn({ items }: RandomBtnProps) {
 
   return (
     <>
-      <div className="content-wrapper ">
+      <div className="content-wrapper-left">
         <div className="randombtn-container">
           <button onClick={handleRandomClick}>
-            Wylosowany sok: {selectedItem?.id || "Kliknij, by losować!"}
+            Wylosuj smak! <br></br>
+            {selectedItem?.id || "???"}
           </button>
         </div>
       </div>
