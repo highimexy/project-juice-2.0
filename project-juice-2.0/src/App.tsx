@@ -1,6 +1,6 @@
 import Hero from "./components/Hero.tsx";
 import MainButton from "./components/MainButton.tsx";
-import logoAnimacjaLewo from "./assets/home-export.gif"
+import logoAnimacja from "./assets/ANIMACJA.gif"
 import Transition from "./Transition.tsx";
 
 function Home() {
@@ -18,7 +18,7 @@ function Home() {
             <MainButton />
           </div>
           <div className="home-rigt-side">
-             <img src={logoAnimacjaLewo} className="logo-pj-home" alt="project juice" />
+             <img src={logoAnimacja} className="logo-pj-home" alt="project juice" />
           </div>
         </div>
       </div>
