@@ -12,6 +12,7 @@ function Navbar() {
     <>
       <div className="navigation-container">
         <div className="nav-left">
+          <h1 className="nav-h1">JUIICE</h1>
           <a
             href="#"
             className="taste-image-link"
@@ -19,7 +20,6 @@ function Navbar() {
           >
             <img src={logoAnimacja} className="logo-pj" alt="project juice" />
           </a>
-          <h1 className="nav-h1">Project Juice</h1>
         </div>
 
         <div className="menu-container desktop-menu">

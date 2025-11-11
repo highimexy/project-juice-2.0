@@ -10,9 +10,9 @@ function Home() {
         <div className="home">
           <div className="home-left-side">
             <Hero
-              title={"Project Juice"}
+              title={"JUIICE"}
               description={
-                "Witamy na projectjuice.pl domu trojmiejskich, craftowych liquidow do e-papierosów. Tworzymy unikalne, rzemieślnicze liquidy inspirowane pasja, smakiem i jakosci."
+                "Witamy na domu trojmiejskich, craftowych liquidow do e-papierosów. Tworzymy unikalne, rzemieślnicze liquidy inspirowane pasja, smakiem i jakosci."
               }
             />
             <MainButton />

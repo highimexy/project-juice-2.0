@@ -31,7 +31,7 @@ function Taste() {
   ];
   return (
     <>
-      <div className="taste-image-container">
+      <div className="">
         <Navigation />
       </div>
       <div>
