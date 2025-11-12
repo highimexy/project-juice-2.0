@@ -49,7 +49,7 @@ function Carousel({ items }: CarouselProps) {
         ))}
       </div>
 
-      {/* --- PRZYCISKI DESKTOPOWE --- */}
+      {/* --- PRZYCISKI DESKTOPOWEe --- */}
       <button
         className="carousel-btn desktop prev"
         onClick={() => scroll("left")}
