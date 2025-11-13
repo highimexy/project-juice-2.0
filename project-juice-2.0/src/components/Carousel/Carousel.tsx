@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState } from "react"; 
 import "./Carousel.css";
-
+import CarouselCard from "./CarouselCard"; 
 
 interface Item {
   id: string;
   img: string;
+  title?: string;
+  details?: string;
 }
 
 interface CarouselProps {
@@ -13,14 +15,13 @@ interface CarouselProps {
 
 function Carousel({ items }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
-  {/* --- SWIPE --- */}
-  const scroll = (direction: 'left' | 'right') =>  {
+  const scroll = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
       const firstCard = carouselRef.current.querySelector<HTMLElement>(".carousel-card");
       if (firstCard) {
         const scrollAmount = firstCard.offsetWidth + 15;
-
         carouselRef.current.scrollBy({
           left: direction === "left" ? -scrollAmount : scrollAmount,
           behavior: "smooth",
@@ -29,27 +30,34 @@ function Carousel({ items }: CarouselProps) {
     }
   };
 
+
+  const handleShowDetails = (id: string) => {
+    setActiveCardId(id); 
+  };
+
+  const handleHideDetails = () => {
+    setActiveCardId(null); 
+  };
+
   return (
     <div className="carousel-wrapper">
-      {/* --- PRZYCISKI MOBILNE --- */}
       <div className="carousel-nav-mobile">
         <button onClick={() => scroll("left")}>&lt;</button>
         <button onClick={() => scroll("right")}>&gt;</button>
       </div>
 
-      {/* --- KONTENER KARUZELI --- */}
       <div className="carousel-container" ref={carouselRef}>
         {items.map((item) => (
-          <div className="carousel-card" key={item.id}>
-            <div className="card-content">
-              <h2>{item.id}</h2>
-              <img src={item.img} alt={item.id} />
-            </div>
-          </div>
+          <CarouselCard
+            key={item.id}
+            item={item}
+            isFlipped={item.id === activeCardId}
+            onShowDetails={() => handleShowDetails(item.id)}
+            onHideDetails={handleHideDetails}
+          />
         ))}
       </div>
 
-      {/* --- PRZYCISKI DESKTOPOWEe --- */}
       <button
         className="carousel-btn desktop prev"
         onClick={() => scroll("left")}

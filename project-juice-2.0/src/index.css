@@ -115,6 +115,7 @@ body {
 /* --- Navigation / Navbar --- */
 /* ------------------------------------------------ */
 
+
 .navigation-container {
   display: flex;
 
@@ -159,7 +160,13 @@ body {
   font-size: 1em;
   width: 160px;
 }
+.mobile-menu-header h1{
+  font-size: 1.5em;
+}
 
+.mobile-menu-header {
+  display: flex;
+}
 /* --- Ukrywamy menu desktopowe na mobile --- */
 .desktop-menu {
   display: none;
@@ -300,6 +307,7 @@ button,
 
 button:hover {
   border-color: darkslategray;
+  color: darkslategray;
 }
 
 button:focus,
@@ -334,6 +342,7 @@ button:focus-visible {
 
 .dropdown select:hover {
   border-color: darkslategray;
+  color: darkslategray;
 }
 
 /* ------------------------------------------------ */
