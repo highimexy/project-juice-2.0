@@ -368,6 +368,12 @@ button:focus-visible {
     display: flex;
   }
 
+  button,
+  .dropdown select {
+    width: 350px;
+    box-sizing: border-box;
+    font-size: 20px;
+  }
   .home {
     display: flex;
   }
