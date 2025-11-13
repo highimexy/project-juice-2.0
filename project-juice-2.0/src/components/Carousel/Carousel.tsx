@@ -31,7 +31,7 @@ function Carousel({ items }: CarouselProps) {
 
   return (
     <div className="carousel-wrapper">
-      {/* --- PRZYCISKI MOBILNE --- */}
+      {/* --- PRZYCISKI MOBILNE ---- */}
       <div className="carousel-nav-mobile">
         <button onClick={() => scroll("left")}>&lt;</button>
         <button onClick={() => scroll("right")}>&gt;</button>
