@@ -1,4 +1,3 @@
-import React from "react";
 
 interface Item {
   id: string;
@@ -18,12 +17,8 @@ function CarouselCard({
   item,
   isFlipped,
   onShowDetails,
-  onHideDetails,
 }: CarouselCardProps) {
-  const handleClose = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onHideDetails();
-  };
+
 
   const cardClassName = `carousel-card ${isFlipped ? "pokaz-tresc" : ""}`;
 
