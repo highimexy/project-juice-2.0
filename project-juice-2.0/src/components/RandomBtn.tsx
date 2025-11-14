@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface Item {
   id: string;
   img: string;
@@ -7,16 +5,17 @@ interface Item {
 
 interface RandomBtnProps {
   items: Item[];
+  selectedId: string | null; 
+  onRandomSelect: (id: string) => void; 
 }
 
-function RandomBtn({ items }: RandomBtnProps) {
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+function RandomBtn({ items, selectedId, onRandomSelect }: RandomBtnProps) {
 
   const handleRandomClick = () => {
     const totalItems = items.length;
     const randomIndex = Math.floor(Math.random() * totalItems);
     const randomItem = items[randomIndex];
-    setSelectedItem(randomItem);
+    onRandomSelect(randomItem.id);
   };
 
   return (
@@ -25,7 +24,7 @@ function RandomBtn({ items }: RandomBtnProps) {
         <div className="randombtn-container">
           <button onClick={handleRandomClick}>
             Wylosuj smak! <br></br>
-            {selectedItem?.id || "???"}
+            {selectedId || "???"}
           </button>
         </div>
       </div>

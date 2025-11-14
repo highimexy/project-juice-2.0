@@ -9,9 +9,9 @@ interface Item {
 
 interface CarouselCardProps {
   item: Item;
-  isFlipped: boolean; // Otrzymane z góry
-  onShowDetails: () => void; // Otrzymane z góry
-  onHideDetails: () => void; // Otrzymane z góry
+  isFlipped: boolean;
+  onShowDetails: () => void;
+  onHideDetails: () => void;
 }
 
 function CarouselCard({
@@ -28,14 +28,19 @@ function CarouselCard({
   const cardClassName = `carousel-card ${isFlipped ? "pokaz-tresc" : ""}`;
 
   return (
-    <div className={cardClassName} key={item.id} onClick={onShowDetails}>
+    <div
+      className={cardClassName}
+      key={item.id}
+      onClick={onShowDetails}
+      data-id={item.id}
+    >
       <div className="card-content">
         <h2>{item.title || item.id}</h2>
-        <img src={item.img} alt={item.id} />
+        <img src={item.img} alt={item.title || item.id} />
       </div>
 
       <div className="ukryta-tresc">
-        <h4>Oto szczegóły!</h4>
+        <h4>{item.title}</h4>
         <p>{item.details || "Nowe smaki incoming!"}</p>
       </div>
     </div>
