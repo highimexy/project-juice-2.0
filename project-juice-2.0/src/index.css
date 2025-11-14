@@ -375,6 +375,9 @@ button:focus-visible {
   .hero-h1 {
     display: flex;
   }
+  .hero-container h1{
+    margin: 0px;
+  }
 
   button,
   .dropdown select {
