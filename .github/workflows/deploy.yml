@@ -17,10 +17,11 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           
-          # POPRAWKA 3: Było 'scripts:'
           script: |
-            # POPRAWKA 4: Było 'docer'
             cd ~/project-juice-docker
             git pull
+
+            cd project-juice-2.0
+
             docker-compose down
             docker-compose up -d --build
