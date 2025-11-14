@@ -1,21 +1,24 @@
-import { useState } from "react";
+import React from "react";
 
-function Dropdown() {
-  const [taste, setTaste] = useState("");
+interface DropdownProps {
+  selectedTaste: string;
+  onTasteChange: (newTaste: string) => void;
+}
 
-  function handleTasteChange(event: any) {
-    setTaste(event.target.value);
-  }
+function Dropdown({ selectedTaste, onTasteChange }: DropdownProps) {
+  const handleTasteChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    onTasteChange(event.target.value);
+  };
 
   return (
     <>
       <div className="content-wrapper-left">
         <div className="dropdown-container">
-          <div className="dropdown" onChange={handleTasteChange}>
-            <select value={taste}>
-              <option value="Opcja 1">Owocowe</option>
-              <option value="Opcja 2">Owocowe zimne</option>
-              <option value="Opcja 3">Deserowe</option>
+          <div className="dropdown">
+            <select value={selectedTaste} onChange={handleTasteChange}>
+              <option value="owocowe">Owocowe</option>
+              <option value="owocowe-zimne">Owocowe zimne</option>
+              <option value="deserowe">Deserowe</option>
             </select>
           </div>
         </div>

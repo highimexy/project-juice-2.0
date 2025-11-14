@@ -88,6 +88,9 @@ body {
 /* ------------------------------------------------ */
 /* --- Home - Left/Right --- */
 /* ------------------------------------------------ */
+.loading-gif {
+  max-width: 800px; /* Znacząco mniejszy rozmiar na mobile */
+}
 
 .home {
   display: flex;
@@ -114,7 +117,6 @@ body {
 /* ------------------------------------------------ */
 /* --- Navigation / Navbar --- */
 /* ------------------------------------------------ */
-
 
 .navigation-container {
   display: flex;
@@ -160,7 +162,7 @@ body {
   font-size: 1em;
   width: 160px;
 }
-.mobile-menu-header h1{
+.mobile-menu-header h1 {
   font-size: 1.5em;
 }
 
@@ -263,9 +265,6 @@ body {
   transition-duration: 400ms;
 }
 
-.hero-h1 {
-  display: none;
-}
 /* ------------------------------------------------ */
 /* --- Style Domyślne (Mobile-First) --- */
 /* ------------------------------------------------ */
@@ -493,5 +492,9 @@ button:focus-visible {
   .mobile-menu-overlay {
     padding-left: 104px;
     padding-right: 104px;
+  }
+
+  .loading-gif {
+    max-width: 1440px; /* Znacząco mniejszy rozmiar na mobile */
   }
 }

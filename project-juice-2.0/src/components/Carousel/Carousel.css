@@ -73,6 +73,7 @@
 
 .carousel-container {
   display: flex;
+  justify-content: flex-start;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 15px;
@@ -80,7 +81,6 @@
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   box-sizing: border-box;
-  padding-left: 16px;
   padding-right: 0;
   will-change: filter;
   transition: filter 300ms;
