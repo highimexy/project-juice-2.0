@@ -1,4 +1,3 @@
-import React from "react";
 
 interface Item {
   id: string;
@@ -14,17 +13,7 @@ interface CarouselCardProps {
   onHideDetails: () => void;
 }
 
-function CarouselCard({
-  item,
-  isFlipped,
-  onShowDetails,
-  onHideDetails,
-}: CarouselCardProps) {
-  const handleClose = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onHideDetails();
-  };
-
+function CarouselCard({ item, isFlipped, onShowDetails }: CarouselCardProps) {
   const cardClassName = `carousel-card ${isFlipped ? "pokaz-tresc" : ""}`;
 
   return (
