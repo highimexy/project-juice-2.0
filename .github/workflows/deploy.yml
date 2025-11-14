@@ -1,4 +1,4 @@
-name: Deploy to hetzner
+name: Deploy to Hetzner
 
 on:
   push:
@@ -7,18 +7,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
-    stels:
-      -name: SSH and Deploy
-       uses: appleboy/ssh-action@master
-       with:
+    
+    steps:
+      - name: SSH and Deploy
+        uses: appleboy/ssh-action@master
+        with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           
-          scripts: |
-            cd ~/project-juice-docer
+          # POPRAWKA 3: Było 'scripts:'
+          script: |
+            # POPRAWKA 4: Było 'docer'
+            cd ~/project-juice-docker
             git pull
             docker-compose down
             docker-compose up -d --build
