@@ -150,7 +150,7 @@ function Taste() {
           </div>
           <div className="content-wrapper">
             <div className="hero-container">
-              <h1>Zasadyyyy</h1>
+              <h1>Zasadyyyydddd</h1>
               <p>
                 Ilosc = 30ml <br />
                 Moc = 12mg|18mg, <br />
