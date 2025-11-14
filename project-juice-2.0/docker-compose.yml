@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  web:
+    # Nazwa obrazu, jaki zbudujemy
+    image: project-juice:latest
+    # Mówi, że Dockerfile jest w tym samym folderze
+    build: .
+    ports:
+      # Mapuj port 80 serwera na port 80 kontenera
+      - "80:80"
+    restart: always
