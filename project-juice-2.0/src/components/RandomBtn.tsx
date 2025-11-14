@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+// Usuwamy import 'useState' - nie jest już potrzebny
 interface Item {
   id: string;
   img: string;
@@ -7,16 +6,19 @@ interface Item {
 
 interface RandomBtnProps {
   items: Item[];
+  selectedId: string | null; // <-- NOWY PROP: Co jest wybrane
+  onRandomSelect: (id: string) => void; // <-- NOWY PROP: Funkcja do wywołania
 }
 
-function RandomBtn({ items }: RandomBtnProps) {
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+function RandomBtn({ items, selectedId, onRandomSelect }: RandomBtnProps) {
+  // const [selectedItem, setSelectedItem] = useState<Item | null>(null); // <-- USUWAMY LOKALNY STAN
 
   const handleRandomClick = () => {
     const totalItems = items.length;
     const randomIndex = Math.floor(Math.random() * totalItems);
     const randomItem = items[randomIndex];
-    setSelectedItem(randomItem);
+    // Zamiast ustawiać lokalny stan, informujemy rodzica
+    onRandomSelect(randomItem.id);
   };
 
   return (
@@ -25,7 +27,8 @@ function RandomBtn({ items }: RandomBtnProps) {
         <div className="randombtn-container">
           <button onClick={handleRandomClick}>
             Wylosuj smak! <br></br>
-            {selectedItem?.id || "???"}
+            {/* Czytamy 'selectedId' z propsów, a nie z lokalnego stanu */}
+            {selectedId || "???"}
           </button>
         </div>
       </div>

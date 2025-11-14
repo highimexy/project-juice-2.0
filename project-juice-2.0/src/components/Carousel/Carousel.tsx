@@ -1,6 +1,6 @@
-import { useRef, useState } from "react"; 
+import { useRef, useEffect } from "react"; 
 import "./Carousel.css";
-import CarouselCard from "./CarouselCard"; 
+import CarouselCard from "./CarouselCard";
 
 interface Item {
   id: string;
@@ -11,15 +11,32 @@ interface Item {
 
 interface CarouselProps {
   items: Item[];
+  activeCardId: string | null;
+  onActiveCardChange: (id: string | null) => void;
 }
 
-function Carousel({ items }: CarouselProps) {
+function Carousel({ items, activeCardId, onActiveCardChange }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [activeCardId, setActiveCardId] = useState<string | null>(null);
+  useEffect(() => {
+    if (activeCardId && carouselRef.current) {
+      const cardElement = carouselRef.current.querySelector<HTMLElement>(
+        `[data-id="${activeCardId}"]`
+      );
 
-  const scroll = (direction: 'left' | 'right') => {
+      if (cardElement) {
+        cardElement.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
+      }
+    }
+  }, [activeCardId]);
+
+  const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
-      const firstCard = carouselRef.current.querySelector<HTMLElement>(".carousel-card");
+      const firstCard =
+        carouselRef.current.querySelector<HTMLElement>(".carousel-card");
       if (firstCard) {
         const scrollAmount = firstCard.offsetWidth + 15;
         carouselRef.current.scrollBy({
@@ -30,19 +47,19 @@ function Carousel({ items }: CarouselProps) {
     }
   };
 
-
   const handleShowDetails = (id: string) => {
-    setActiveCardId(id); 
+    onActiveCardChange(id);
   };
 
   const handleHideDetails = () => {
-    setActiveCardId(null); 
+    onActiveCardChange(null);
   };
 
   return (
     <div className="carousel-wrapper">
       <div className="carousel-nav-mobile">
         <button onClick={() => scroll("left")}>&lt;</button>
+
         <button onClick={() => scroll("right")}>&gt;</button>
       </div>
 
@@ -64,6 +81,7 @@ function Carousel({ items }: CarouselProps) {
       >
         &lt;
       </button>
+
       <button
         className="carousel-btn desktop next"
         onClick={() => scroll("right")}
