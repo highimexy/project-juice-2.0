@@ -1,11 +1,29 @@
 version: '3.8'
+
 services:
-  web:
-    # Nazwa obrazu, jaki zbudujemy
+  # 1. Nasza aplikacja React (dawniej 'web')
+  # Zmieniamy jej nazwę na 'app', żeby było czytelniej
+  app:
     image: project-juice:latest
-    # Mówi, że Dockerfile jest w tym samym folderze
     build: .
-    ports:
-      # Mapuj port 80 serwera na port 80 kontenera
-      - "80:80"
     restart: always
+    # WAŻNE: Usunęliśmy sekcję 'ports'!
+    # Ten kontener nie jest już publicznie dostępny.
+
+  # 2. Nasz nowy manager proxy (NPM)
+  proxy:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: always
+    ports:
+      # Porty publiczne, które musi przejąć proxy
+      - '80:80'
+      - '443:443'
+      # Port do panelu admina NPM
+      - '81:81'
+    volumes:
+      # Te wolumeny zapiszą dane NPM (ustawienia i certyfikaty)
+      - ./npm-data:/data
+      - ./letsencrypt:/etc/letsencrypt
+
+# Docker automatycznie stworzy sieć, w której 'proxy' będzie
+# mogło znaleźć 'app' po nazwie.
