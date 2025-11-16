@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import { RiArrowRightSLine } from "react-icons/ri";
 
 function MainButton() {
   return (
     <>
-      <div className="content-wrapper">
         <div className="mainbtn-container">
-          <Link to={"/Taste"}>
+          <Link className="no-underline " to={"/Taste"}>
             <button>
-              Odkryj nasze smaki
-              <FaArrowAltCircleRight className="icon" />
+              Odkryj smaki
+              <RiArrowRightSLine className="icon" />
             </button>
           </Link>
         </div>
-      </div>
     </>
   );
 }

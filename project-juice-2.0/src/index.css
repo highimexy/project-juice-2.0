@@ -101,19 +101,20 @@ body {
   gap: 10px;
 }
 
-.home h1 {
-  font-size: 2em;
+.arc-heading {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 4em darkslategray);
 }
 
-.home img {
-  width: 300px;
-  margin: 0px;
-  filter: drop-shadow(0 0 2em darkslategray);
+.arc-text {
+  fill: #e2e1e1;
+  font-size: 32px;
+  letter-spacing: 1px;
+  
 }
-.home img:hover {
-  filter: drop-shadow(0 0 2em darkslategray);
-}
-
 /* ------------------------------------------------ */
 /* --- Navigation / Navbar --- */
 /* ------------------------------------------------ */
@@ -140,14 +141,8 @@ body {
   line-height: 0;
 }
 
-.logo-pj {
-  width: 60px;
-  height: 60px;
-  filter: drop-shadow(0 0 2em darkslategray);
-}
-
 .nav-h1 {
-  font-size: 1.2em;
+  font-size: 1.6em;
   margin: 0;
 }
 
@@ -265,6 +260,10 @@ body {
   transition-duration: 400ms;
 }
 
+.taste-content {
+  display: flex;
+  flex-direction: column;
+}
 /* ------------------------------------------------ */
 /* --- Style Domyślne (Mobile-First) --- */
 /* ------------------------------------------------ */
@@ -317,15 +316,17 @@ button:focus-visible {
 .mainbtn-container button {
   margin-top: 25px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.no-underline {
+  text-decoration: none;
 }
 
 .icon {
-  margin-left: 16px;
-}
-
-.hero-h1 {
-  margin: 0px;
-  font-weight: 400;
+  height: 30px;
+  width: 30px;
 }
 
 .dropdown select {
@@ -372,10 +373,7 @@ button:focus-visible {
 /* ------------------------------------------------ */
 
 @media (min-width: 1024px) {
-  .hero-h1 {
-    display: flex;
-  }
-  .hero-container h1{
+  .hero-container h1 {
     margin: 0px;
   }
 
@@ -385,9 +383,7 @@ button:focus-visible {
     box-sizing: border-box;
     font-size: 20px;
   }
-  .home {
-    display: flex;
-  }
+
   .content-wrapper {
     padding-left: 62px;
     padding-right: 62px;
@@ -396,6 +392,13 @@ button:focus-visible {
     display: flex;
     justify-content: left;
     margin-left: 16px;
+  }
+
+  .taste-content {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
   }
 
   .content-wrapper-left {
@@ -418,16 +421,6 @@ button:focus-visible {
     display: none;
   }
 
-  .logo-pj {
-    width: 180px;
-    height: 180px;
-  }
-
-  .nav-h1 {
-    font-size: 1.5em;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-  }
   .taste-hero {
     display: flex;
   }
@@ -449,33 +442,14 @@ button:focus-visible {
     justify-content: center;
   }
 
-  .home {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    gap: 10px;
-  }
-  .home img {
-    width: 550px;
-    padding-right: -40px;
-  }
-
   .home h1 {
     font-size: 4em;
-  }
-  .home-left-side {
-    max-width: 800px;
-    padding: 0px;
   }
 
   .taste-image-container {
     display: flex;
     justify-content: left;
     margin-left: 56px;
-  }
-
-  .taste-hero {
-    display: flex;
   }
 
   button,

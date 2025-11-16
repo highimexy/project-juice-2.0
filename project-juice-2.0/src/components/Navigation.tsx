@@ -1,4 +1,3 @@
-import logoAnimacja from "../assets/ANIMACJA.gif";
 import { useState } from "react";
 
 function Navbar() {
@@ -12,14 +11,20 @@ function Navbar() {
     <>
       <div className="navigation-container">
         <div className="nav-left">
-          <h1 className="nav-h1">JUIICE</h1>
-          <a
-            href="#"
-            className="taste-image-link"
-            onClick={(e) => e.preventDefault()}
-          >
-            <img src={logoAnimacja} className="logo-pj" alt="project juice" />
-          </a>
+          <svg className="arc-heading" viewBox="0 0 300 100">
+            <path
+              id="arc-path"
+              d="M 20,80 Q 150,0 280,80"
+              fill="none"
+              stroke="none"
+            />
+
+            <text className="arc-text">
+              <textPath href="#arc-path" startOffset="50%" text-anchor="middle">
+                juiice.pl
+              </textPath>
+            </text>
+          </svg>
         </div>
 
         <div className="menu-container desktop-menu">

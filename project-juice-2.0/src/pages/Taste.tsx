@@ -135,7 +135,7 @@ function Taste() {
       <div className="">
         <Navigation />
       </div>
-      <div>
+      <div className="taste-content">
         <div className="taste-hero">
           <div>
             <Dropdown
@@ -150,7 +150,7 @@ function Taste() {
           </div>
           <div className="content-wrapper">
             <div className="hero-container">
-              <h1>Zasadyyyydddd</h1>
+              <h1>Zasady</h1>
               <p>
                 Ilosc = 30ml <br />
                 Moc = 12mg|18mg, <br />
