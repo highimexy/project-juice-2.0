@@ -20,8 +20,24 @@ function Home() {
               </textPath>
             </text>
           </svg>
+          <div className="description-container">
+            <div className="home-h1-container">
+              <h1 className="home-h1-1">GLEBIA.</h1>
+              <h1 className="home-h1-2">CHARAKTER.</h1>
+              <h1 className="home-h1-3">PELNIA.</h1>
+            </div>
+            <div className="home-p-container">
+              {" "}
+              <p>
+                To nie jest kolejny liquid z "zabki". To kompozycja. Stworzona,
+                by dostarczyć idealnie zbalansowane doznania – od pierwszej,
+                wyrazistej nuty, aż po bogaty, satysfakcjonujacy finisz. Tu nie
+                ma miejsca na przypadek. Tylko mistrzowska receptura i czysta
+                przyjemnosc. Poczuj roznice. Odkryj swoj smak.
+              </p>
+            </div>
+          </div>
 
-          <p>Description</p>
           <MainButton />
         </div>
       </div>
