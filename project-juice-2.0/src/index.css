@@ -298,7 +298,7 @@ button {
 button,
 .dropdown select {
   width: 100%;
-  max-width: 358px;
+  max-width: 350px;
   box-sizing: border-box;
   font-size: 20px;
 }
@@ -314,6 +314,7 @@ button:focus-visible {
 }
 
 .mainbtn-container button {
+  width: 300px;
   margin-top: 25px;
   display: flex;
   align-items: center;
@@ -327,6 +328,8 @@ button:focus-visible {
 .icon {
   height: 30px;
   width: 30px;
+  margin-right: -10px;
+  
 }
 
 .dropdown select {
@@ -454,7 +457,6 @@ button:focus-visible {
 
   button,
   .dropdown select {
-    width: 350px;
     box-sizing: border-box;
     font-size: 20px;
   }
