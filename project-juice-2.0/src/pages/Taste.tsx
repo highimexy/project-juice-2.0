@@ -151,11 +151,9 @@ function Taste() {
           <div className="content-wrapper">
             <div className="hero-container">
               <h1>Zasady</h1>
-              <p>
-                Ilosc = 30ml <br />
-                Moc = 12mg|18mg, <br />
-                Nazwa = Rodzaj - Number
-              </p>
+              <p className="taste-hero-1">Ilosc = 30ml </p>
+              <p className="taste-hero-2">Moc = 12mg|18m</p>
+              <p className="taste-hero-3">Nazwa = Rodzaj - Number</p>
             </div>
           </div>
         </div>
