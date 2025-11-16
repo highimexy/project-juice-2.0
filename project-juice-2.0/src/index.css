@@ -127,7 +127,7 @@ body {
 }
 .home-h1-container h1 {
   margin: 10px 0px 0px 0px;
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 .home-h1-1 {
@@ -418,7 +418,7 @@ button:focus-visible {
     width: 100%;
     max-width: 600px;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: -1rem;
     filter: drop-shadow(0 0 4em darkslategray);
   }
 
