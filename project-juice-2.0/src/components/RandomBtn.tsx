@@ -23,7 +23,7 @@ function RandomBtn({ items, selectedId, onRandomSelect }: RandomBtnProps) {
       <div className="content-wrapper-left">
         <div className="randombtn-container">
           <button onClick={handleRandomClick}>
-            Wylosuj smak!! <br></br>
+            Wylosuj smak<br></br>
             {selectedId || "???"}
           </button>
         </div>

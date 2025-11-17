@@ -28,7 +28,7 @@ function Home() {
             </div>
             <div className="home-p-container">
               {" "}
-              <p>
+              <p className="filter-drop">
                 To nie jest kolejny liquid z "zabki". To kompozycja. Stworzona,
                 by dostarczyć idealnie zbalansowane doznania od pierwszej,
                 wyrazistej nuty, aż po bogaty, satysfakcjonujacy finisz. Tu nie

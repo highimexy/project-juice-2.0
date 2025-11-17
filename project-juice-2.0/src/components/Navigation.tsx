@@ -28,9 +28,9 @@ function Navbar() {
         </div>
 
         <div className="menu-container desktop-menu">
-          <button>Kontakt</button>
-          <button>Polecane</button>
-          <button>???</button>
+          <button className="home-h1-1">Kontakt</button>
+          <button className="home-h1-2">Polecane</button>
+          <button className="home-h1-3">???</button>
         </div>
 
         <button
@@ -61,9 +61,9 @@ function Navbar() {
           </button>
         </div>
         <div className="mobile-menu-links">
-          <button onClick={toggleMenu}>Kontakt</button>
-          <button onClick={toggleMenu}>Polecane</button>
-          <button onClick={toggleMenu}>???</button>
+          <button className="home-h1-1" onClick={toggleMenu}>Kontakt</button>
+          <button className="home-h1-2" onClick={toggleMenu}>Polecane</button>
+          <button className="home-h1-3" onClick={toggleMenu}>???</button>
         </div>
       </div>
     </>
