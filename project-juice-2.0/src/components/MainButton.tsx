@@ -7,7 +7,7 @@ function MainButton() {
         <div className="mainbtn-container">
           <Link className="no-underline " to={"/Taste"}>
             <button>
-              Odkryj smaki
+              Odkryj swoj smak
               <RiArrowRightSLine className="icon" />
             </button>
           </Link>

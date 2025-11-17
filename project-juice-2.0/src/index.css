@@ -309,7 +309,7 @@ body {
 /* ------------------------------------------------ */
 
 .filter-drop {
-  filter: drop-shadow(0 0 2em rgb(33, 33, 33));
+  filter: drop-shadow(0 5px 2em rgb(0, 0, 0));
 }
 
 .randombtn-container button {
