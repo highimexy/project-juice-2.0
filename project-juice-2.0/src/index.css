@@ -184,9 +184,6 @@ body {
   width: 160px;
 }
 
-.nav-button-1 {
-  color: #1a1a1a;
-}
 .mobile-menu-header h1 {
   font-size: 1.5em;
 }
@@ -312,7 +309,7 @@ body {
 /* ------------------------------------------------ */
 
 .filter-drop {
-    filter: drop-shadow(0 0 2em rgb(33, 33, 33));
+  filter: drop-shadow(0 0 2em rgb(33, 33, 33));
 }
 
 .randombtn-container button {
@@ -350,8 +347,7 @@ button,
 }
 
 button:hover {
-  border-color: darkslategray;
-  color: darkslategray;
+  border: 2px solid white;
 }
 
 button:focus,
@@ -389,8 +385,7 @@ button:focus-visible {
 }
 
 .dropdown select:hover {
-  border-color: darkslategray;
-  color: darkslategray;
+  border: 2px solid white;
 }
 
 /* ------------------------------------------------ */
