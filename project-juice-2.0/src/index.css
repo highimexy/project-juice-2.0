@@ -320,11 +320,13 @@ body {
 h1 {
   font-size: 2.5em;
   line-height: 1.1;
+  cursor: default;
 }
 
 p {
   font-size: 0.9em;
   line-height: 1.4;
+   cursor: default;
 }
 
 button {
@@ -336,6 +338,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  border: 2px solid #1a1a1a;
 }
 
 button,
@@ -375,13 +378,12 @@ button:focus-visible {
 
 .dropdown select {
   background-color: #1a1a1a;
-  border: none;
+  border: 2px solid #1a1a1a;
   border-radius: 8px;
   padding: 12px;
   font-family: "Press Start 2P";
   margin-bottom: 15px;
   cursor: pointer;
-  border: 1px solid transparent;
 }
 
 .dropdown select:hover {
@@ -420,6 +422,7 @@ button:focus-visible {
     fill: #e2e1e1;
     font-size: 32px;
     letter-spacing: 1px;
+    cursor: default;
   }
   .home-h1-container {
     display: flex;
