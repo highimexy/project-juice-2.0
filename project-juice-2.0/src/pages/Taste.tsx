@@ -5,19 +5,19 @@ import Dropdown from "../components/Dropdown.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
 import Navigation from "../components/Navigation.tsx";
 
-import smak1 from "../assets/smak1.png";
-import smak2 from "../assets/smak2.png";
-import smak3 from "../assets/smak3.png";
-import smak4 from "../assets/smak4.png";
-import smak5 from "../assets/smak5.png";
-import smak6 from "../assets/smak6.png";
-import smak7 from "../assets/smak7.png";
-import smak8 from "../assets/smak8.png";
-import smak9 from "../assets/smak9.png";
-import smak10 from "../assets/smak10.png";
+import smak1 from "../assets/smak1.webp";
+import smak2 from "../assets/smak2.webp";
+import smak3 from "../assets/smak3.webp";
+import smak4 from "../assets/smak4.webp";
+import smak5 from "../assets/smak5.webp";
+import smak6 from "../assets/smak6.webp";
+import smak7 from "../assets/smak7.webp";
+import smak8 from "../assets/smak8.webp";
+import smak9 from "../assets/smak9.webp";
+import smak10 from "../assets/smak10.webp";
 
-import smakZimny1 from "../assets/smak1.png";
-import smakDeser1 from "../assets/smak2.png";
+import smakZimny1 from "../assets/smak1.webp";
+import smakDeser1 from "../assets/smak2.webp";
 
 const TASTE_CATEGORIES = {
   OWOCOWE: "owocowe",
