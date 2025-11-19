@@ -87,6 +87,33 @@ body {
 }
 
 /* ------------------------------------------------ */
+/* --- PAGE // CONTACT --- */
+/* ------------------------------------------------ */
+
+.basic-tile-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-formulage {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  gap:15px
+}
+
+.email-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-input p {
+  margin: 0px;
+  font-size: 0.8em;
+}
+
+/* ------------------------------------------------ */
 /* --- Home - Left/Right --- */
 /* ------------------------------------------------ */
 .loading-gif {
@@ -326,7 +353,7 @@ h1 {
 p {
   font-size: 0.9em;
   line-height: 1.4;
-   cursor: default;
+  cursor: default;
 }
 
 button {

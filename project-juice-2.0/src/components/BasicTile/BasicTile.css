@@ -1,0 +1,40 @@
+.basic-tile {
+  background-color: #1a1a1a;
+  height: 400px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid #1a1a1a;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  width: 350px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  transition: border-color 0.25s;
+}
+
+
+.card {
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 4px 4px #171717;
+    border: 3px solid #111111;
+}
+
+.card:hover{
+    box-shadow: 8px 8px #161616;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.title-text {
+    margin-left: 0.5rem;
+    color: #374151;
+    font-size: 18px;
+}
+
