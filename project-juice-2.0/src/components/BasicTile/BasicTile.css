@@ -15,26 +15,28 @@
   transition: border-color 0.25s;
 }
 
-
 .card {
-    padding: 1rem;
-    border-radius: 20px;
-    box-shadow: 4px 4px #171717;
-    border: 3px solid #111111;
+  justify-content: center;
+  display: flex;
+  width: 350px;
+  height: 400px;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 4px 4px #171717;
+  border: 3px solid #111111;
 }
 
-.card:hover{
-    box-shadow: 8px 8px #161616;
+.card:hover {
+  box-shadow: 8px 8px #161616;
 }
 
 .title {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .title-text {
-    margin-left: 0.5rem;
-    color: #374151;
-    font-size: 18px;
+  margin-left: 0.5rem;
+  color: #374151;
+  font-size: 18px;
 }
-
