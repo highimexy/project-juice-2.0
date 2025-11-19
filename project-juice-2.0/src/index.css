@@ -92,6 +92,7 @@ body {
 
 .basic-tile-main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -99,8 +100,8 @@ body {
 .contact-formulage {
   display: flex;
   flex-direction: column;
-  width: 350px;
-  gap:15px
+  gap:15px;
+  width: 300px;
 }
 
 .email-input {
@@ -113,6 +114,10 @@ body {
   font-size: 0.8em;
 }
 
+.contact-hero{
+  text-align: center;
+  gap: 10px;
+}
 /* ------------------------------------------------ */
 /* --- Home - Left/Right --- */
 /* ------------------------------------------------ */
