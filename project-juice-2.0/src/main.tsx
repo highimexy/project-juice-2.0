@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage.tsx";
 import Contact from "./pages/Contact.tsx";
 import RootLayout from "./RootLayout.tsx"; 
+import Polecane from "./pages/Polecane.tsx";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
         element: <Taste />,
       },
       {
-        path: "contact",
+        path: "kontakt",
         element: <Contact />,
+      },
+      {
+        path:"polecane",
+        element: <Polecane />
       },
       {
         path: "*", 

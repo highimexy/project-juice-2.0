@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,25 +12,35 @@ function Navbar() {
     <>
       <div className="navigation-container">
         <div className="nav-left">
-          <svg className="arc-heading" viewBox="0 0 300 100">
-            <path
-              id="arc-path"
-              d="M 20,80 Q 150,0 280,80"
-              fill="none"
-              stroke="none"
-            />
+          <Link to={"/Taste"}>
+            <svg className="arc-heading" viewBox="0 0 300 100">
+              <path
+                id="arc-path"
+                d="M 20,80 Q 150,0 280,80"
+                fill="none"
+                stroke="none"
+              />
 
-            <text className="arc-text">
-              <textPath href="#arc-path" startOffset="50%" text-anchor="middle">
-                juiice.pl
-              </textPath>
-            </text>
-          </svg>
+              <text className="arc-text">
+                <textPath
+                  href="#arc-path"
+                  startOffset="50%"
+                  text-anchor="middle"
+                >
+                  juiice.pl
+                </textPath>
+              </text>
+            </svg>
+          </Link>
         </div>
 
         <div className="menu-container desktop-menu">
-          <button className="home-h1-1">Kontakt</button>
-          <button className="home-h1-2">Polecane</button>
+          <Link to={"/Kontakt"}>
+            <button className="home-h1-1">Kontakt</button>
+          </Link>
+          <Link to={"/Polecane"}>
+            <button className="home-h1-2">Polecane</button>
+          </Link>
           <button className="home-h1-3">???</button>
         </div>
 
@@ -61,9 +72,19 @@ function Navbar() {
           </button>
         </div>
         <div className="mobile-menu-links">
-          <button className="home-h1-1" onClick={toggleMenu}>Kontakt</button>
-          <button className="home-h1-2" onClick={toggleMenu}>Polecane</button>
-          <button className="home-h1-3" onClick={toggleMenu}>???</button>
+          <Link to={"/Kontakt"}>
+            <button className="home-h1-1" onClick={toggleMenu}>
+              Kontakt
+            </button>
+          </Link>
+          <Link to={"/Polecane"}>
+            <button className="home-h1-2" onClick={toggleMenu}>
+              Polecane
+            </button>
+          </Link>
+          <button className="home-h1-3" onClick={toggleMenu}>
+            ???
+          </button>
         </div>
       </div>
     </>

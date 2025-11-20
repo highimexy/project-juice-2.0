@@ -87,13 +87,28 @@ body {
 }
 
 /* ------------------------------------------------ */
+/* --- PAGE // POLECANE --- */
+/* ------------------------------------------------ */
+
+.polecane{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.polecane p {
+  margin: 5px 0px 0px 0px;
+}
+/* ------------------------------------------------ */
 /* --- PAGE // CONTACT --- */
 /* ------------------------------------------------ */
 
-.contact{
+.contact {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 40px;
 }
 
 .basic-tile-main {
@@ -113,13 +128,11 @@ body {
 .email-input {
   display: flex;
   flex-direction: column;
-  
 }
 
 .email-input p {
   margin: 0px;
   font-size: 0.8em;
-  
 }
 
 .contact-hero {
@@ -135,14 +148,13 @@ body {
   font-size: 1.2rem;
   font-family: "Press Start 2P", system-ui;
   padding: 0px 8px 0px 8px;
-  
 }
 
-.contact-input::placeholder{
+.contact-input::placeholder {
   color: #1111118e;
 }
 
-.contact-send{
+.contact-send {
   font-size: 1em;
   width: 300px;
 }
@@ -351,6 +363,7 @@ body {
 .taste-content {
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
 }
 
 .taste-hero-1 {
