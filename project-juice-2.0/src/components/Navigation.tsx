@@ -41,7 +41,9 @@ function Navbar() {
           <Link to={"/Polecane"}>
             <button className="home-h1-2">Polecane</button>
           </Link>
-          <button className="home-h1-3">???</button>
+          <Link to={"/???"}>
+            <button className="home-h1-3">???</button>
+          </Link>
         </div>
 
         <button
@@ -82,9 +84,11 @@ function Navbar() {
               Polecane
             </button>
           </Link>
-          <button className="home-h1-3" onClick={toggleMenu}>
-            ???
-          </button>
+          <Link to={"/???"}>
+            <button className="home-h1-3" onClick={toggleMenu}>
+              ???
+            </button>
+          </Link>
         </div>
       </div>
     </>

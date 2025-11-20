@@ -1,13 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.tsx"; 
+import App from "./App.tsx";
 import Taste from "./pages/Taste.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage.tsx";
 import Contact from "./pages/Contact.tsx";
-import RootLayout from "./RootLayout.tsx"; 
+import RootLayout from "./RootLayout.tsx";
 import Polecane from "./pages/Polecane.tsx";
+import Slot from "./pages/Slot.tsx";
 
 const router = createBrowserRouter([
   {
@@ -15,8 +16,8 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        index: true, 
-        element: <App />, 
+        index: true,
+        element: <App />,
       },
       {
         path: "taste",
@@ -27,11 +28,15 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path:"polecane",
-        element: <Polecane />
+        path: "polecane",
+        element: <Polecane />,
       },
       {
-        path: "*", 
+        path: "???",
+        element: <Slot />,
+      },
+      {
+        path: "*",
         element: <NotFoundPage />,
       },
     ],
