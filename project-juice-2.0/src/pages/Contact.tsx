@@ -39,7 +39,7 @@ function Contact() {
         const data = await response.json();
 
         if (response.ok) {
-            setMessage('✅ ' + data.msg);
+            setMessage(data.msg);
             setFormData({ email: "", imie: "", zamowienie: "" }); // Wyczyszczenie formularza
         } else {
             setMessage('❌ ' + (data.msg || 'Błąd serwera. Spróbuj ponownie.'));
