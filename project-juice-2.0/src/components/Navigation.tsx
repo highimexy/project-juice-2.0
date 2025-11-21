@@ -41,7 +41,7 @@ function Navbar() {
           <Link to={"/Polecane"}>
             <button className="home-h1-2">Polecane</button>
           </Link>
-          <Link to={"/???"}>
+          <Link to={"/Slot"}>
             <button className="home-h1-3">???</button>
           </Link>
         </div>
@@ -84,7 +84,7 @@ function Navbar() {
               Polecane
             </button>
           </Link>
-          <Link to={"/???"}>
+          <Link to={"/Slot"}>
             <button className="home-h1-3" onClick={toggleMenu}>
               ???
             </button>

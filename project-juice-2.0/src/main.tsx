@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Polecane />,
       },
       {
-        path: "???",
+        path: "slot",
         element: <Slot />,
       },
       {
