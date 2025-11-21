@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 /* ------------------------------------------------ */
 /* --- ROOT // BODY --- */
 /* ------------------------------------------------ */
 
 :root {
-  font-family: "Press Start 2P";
+  font-family: "Unbounded";
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,6 +17,20 @@
   font-family: "Press Start 2P", system-ui;
   font-style: normal;
   font-weight: 500;
+}
+
+.space-grotesk {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.unbounded {
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 body {
@@ -90,7 +105,7 @@ body {
 /* --- PAGE // POLECANE --- */
 /* ------------------------------------------------ */
 
-.polecane{
+.polecane {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -132,7 +147,8 @@ body {
 
 .email-input p {
   margin: 0px;
-  font-size: 0.8em;
+  font-size: 1em;
+  font-family: Unbounded;
 }
 
 .contact-hero {
@@ -146,7 +162,7 @@ body {
   border-radius: 4px;
   height: 40px;
   font-size: 1.3rem;
-  font-family: "Press Start 2P", system-ui;
+  font-family: Unbounded;
   padding: 0px 8px 0px 8px;
   padding-top: 2px;
 }
@@ -184,7 +200,8 @@ body {
 
 .arc-text {
   fill: #e2e1e1;
-  font-size: 32px;
+  font-size: 48px;
+  font-weight: 800;
   letter-spacing: 1px;
 }
 
@@ -398,21 +415,25 @@ h1 {
 }
 
 p {
-  font-size: 0.9em;
+  font-size: 1.4em;
   line-height: 1.4;
   cursor: default;
+  font-family: Space Grotesk;
+  font-weight: 700;
+  padding: 0px;
 }
 
 button {
+  font-family: Unbounded;
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 12px;
-  font-weight: 500;
-  font-family: inherit;
+  font-weight: 900;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
   border: 2px solid #1a1a1a;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 button,
@@ -454,10 +475,11 @@ button:focus-visible {
   background-color: #1a1a1a;
   border: 2px solid #1a1a1a;
   border-radius: 8px;
-  padding: 12px;
-  font-family: "Press Start 2P";
+  padding: 10px;
   margin-bottom: 15px;
   cursor: pointer;
+  font-weight: 900;
+  font-family: Unbounded;
 }
 
 .dropdown select:hover {
@@ -494,7 +516,8 @@ button:focus-visible {
 
   .arc-text {
     fill: #e2e1e1;
-    font-size: 32px;
+    font-size: 48px;
+    font-weight: 800;
     letter-spacing: 1px;
     cursor: default;
   }

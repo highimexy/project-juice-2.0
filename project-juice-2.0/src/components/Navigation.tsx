@@ -27,7 +27,7 @@ function Navbar() {
                   startOffset="50%"
                   text-anchor="middle"
                 >
-                  juiice.pl
+                  JUiiCE.PL
                 </textPath>
               </text>
             </svg>
