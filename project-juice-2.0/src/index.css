@@ -145,9 +145,10 @@ body {
   border: 3px solid #111111;
   border-radius: 4px;
   height: 40px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-family: "Press Start 2P", system-ui;
   padding: 0px 8px 0px 8px;
+  padding-top: 2px;
 }
 
 .contact-input::placeholder {
