@@ -23,9 +23,21 @@ function Wheel() {
   ];
 
   return (
-    <>
-      <div className=""></div>
-    </>
+    <div className="wheel-container">
+      <div className="pointer"></div>
+
+      <div className="wheel">
+        {WHEEL_DATA.map((segment) => (
+          <div
+            key={segment.id}
+            className="segment"
+            style={{ backgroundColor: segment.color }}
+          >
+            <span className="segment-value">{segment.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
