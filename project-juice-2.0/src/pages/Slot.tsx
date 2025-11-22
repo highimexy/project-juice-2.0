@@ -1,4 +1,5 @@
 import Navigation from "../components/Navigation.tsx";
+import Wheel from "../components/Wheel/Wheel.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
 
 function Slot() {
@@ -17,6 +18,7 @@ function Slot() {
           i jest szansa na otrzymanie procentowych zniżek
         </p>
       </div>
+      <Wheel />
     </>
   );
 }
