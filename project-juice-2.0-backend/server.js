@@ -1,39 +1,38 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
-import cors from 'cors'; // Jeśli potrzebujesz do komunikacji frontend-backend
+import cors from 'cors'; 
 
-dotenv.config(); // Ładuje zmienne z pliku .env
+dotenv.config(); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors()); // Zezwolenie na CORS (dla komunikacji z frontendem)
-app.use(express.json()); // Umożliwia Expressowi parsowanie JSON-a z ciała żądania
+app.use(cors()); 
+app.use(express.json()); 
 
-// Konfiguracja Nodemailer
+// Nodemailer
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // Użyj 'gmail' lub innego serwisu (np. 'smtp.sendgrid.net')
+  service: 'gmail', 
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
 });
 
-// Endpoint do wysyłki e-maila
+// Endpoint 
 app.post('/send-email', async (req, res) => {
   const { email, imie, zamowienie } = req.body; // Odbieramy dane z formularza
 
-  // Prosta walidacja
+  // walidacja
   if (!email || !imie || !zamowienie) {
     return res.status(400).json({ msg: 'Prosze wypelnic wszystkie pola.' });
   }
 
-  // Treść wiadomości
+  // Treść 
   const mailOptions = {
-    from: process.env.EMAIL_USER, // Kto wysyła (może być inny, ale musi być autoryzowany)
-    to: process.env.EMAIL_RECEIVER, // Kto odbiera (Twój e-mail firmowy)
+    from: process.env.EMAIL_USER, 
+    to: process.env.EMAIL_RECEIVER, 
     subject: `Nowe zgłoszenie kontaktowe od ${imie} (juiice.pl)`,
     html: `
       <h2>Nowa Wiadomość Kontaktowa</h2>
