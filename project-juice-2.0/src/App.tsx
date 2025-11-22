@@ -16,7 +16,7 @@ function Home() {
 
             <text className="arc-text ">
               <textPath href="#arc-path" startOffset="50%" text-anchor="middle">
-                juiice.pl
+                JUiiCE.PL
               </textPath>
             </text>
           </svg>
