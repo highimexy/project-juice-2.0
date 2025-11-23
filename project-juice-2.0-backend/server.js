@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 
 // Endpoint 
 app.post('/send-email', async (req, res) => {
-  const { email, imie, zamowienie } = req.body; // Odbieramy dane z formularza
+  const { email, imie, zamowienie } = req.body; 
 
   // walidacja
   if (!email || !imie || !zamowienie) {
@@ -53,7 +53,6 @@ app.post('/send-email', async (req, res) => {
   }
 });
 
-// Uruchomienie serwera
 app.listen(PORT, () => {
   console.log(`Server działa na porcie ${PORT}`);
 });
