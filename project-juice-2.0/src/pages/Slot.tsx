@@ -41,9 +41,7 @@ function Slot() {
         <div
           style={{
             textAlign: "center",
-            marginBottom: "20px",
-            minHeight: "40px",
-            fontSize: "1.5em",
+            fontSize: "1.2em",
             fontWeight: "bold",
             color: wynik && wynik.includes("Nic") ? "#cc0000" : "#009900",
           }}
@@ -61,7 +59,7 @@ function Slot() {
         <WheelCustom
           segments={segments}
           onFinished={handleSpinFinished}
-          size={290}
+          size={250}
         />
       </div>
     </>
