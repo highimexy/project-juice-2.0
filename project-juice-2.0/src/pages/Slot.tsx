@@ -7,17 +7,17 @@ function Slot() {
   const [wynik, setWynik] = useState<string | null>(null);
 
   const segments = [
-    { label: "10% Zniżki", color: "#585580" },
+    { label: "- 10%", color: "#585580" },
     { label: "Nic", color: "#1a1a1a" },
-    { label: "Uścisk prezesa", color: "#804141" },
+    { label: "+10ml", color: "#804141" },
     { label: "Nic", color: "#1a1a1a" },
-    { label: "20% Zniżki", color: "#640577" },
+    { label: "- 15%", color: "#640577" },
     { label: "Nic", color: "#1a1a1a" },
-    { label: "Uścisk prezesa", color: "#585580" },
+    { label: "+10ml", color: "#585580" },
     { label: "Nic", color: "#1a1a1a" },
-    { label: "5% Zniżki", color: "#804141" },
+    { label: "- 5%", color: "#804141" },
     { label: "Nic", color: "#1a1a1a" },
-    { label: "Uścisk prezesa", color: "#640577" },
+    { label: "+10ml", color: "#640577" },
     { label: "Nic", color: "#1a1a1a" },
   ];
 
