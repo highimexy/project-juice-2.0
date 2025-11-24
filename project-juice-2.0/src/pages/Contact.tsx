@@ -7,48 +7,63 @@ function Contact() {
   const [formData, setFormData] = useState({
     email: "",
     imie: "",
-    zamowienie: "", 
+    zamowienie: "",
   });
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
+  // 1. DODANO NOWY STAN DO TYPU KOMUNIKATU
+  const [messageType, setMessageType] = useState("info");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.placeholder.toLowerCase()]: e.target.value });
+    // Uwaga: Używanie placeholder jako klucza jest wrażliwe na zmiany tekstu
+    setFormData({
+      ...formData,
+      [e.target.placeholder.toLowerCase()]: e.target.value,
+    });
   };
 
   const handleSubmit = async () => {
     setIsSending(true);
-    setMessage('');
-    
+    setMessage("");
+    setMessageType("info"); // Reset typu wiadomości przed wysyłką
+
     // Walidacja
     if (!formData.email || !formData.imie || !formData.zamowienie) {
-        setMessage('Prosze wypelnic wszystkie pola!');
-        setIsSending(false);
-        return;
+      setMessage("Prosze wypelnic wszystkie pola!");
+      // 2. USTAWIENIE TYPU NA 'error'
+      setMessageType("error");
+      setIsSending(false);
+      return;
     }
 
     try {
-        const response = await fetch('http://localhost:5000/send-email', { 
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
+      const response = await fetch("http://localhost:5000/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (response.ok) {
-            setMessage(data.msg);
-            setFormData({ email: "", imie: "", zamowienie: "" }); // Wyczyszczenie formularza
-        } else {
-            setMessage('❌ ' + (data.msg || 'Błąd serwera. Spróbuj ponownie.'));
-        }
+      if (response.ok) {
+        setMessage(data.msg);
+        // 2. USTAWIENIE TYPU NA 'success'
+        setMessageType("success");
+        setFormData({ email: "", imie: "", zamowienie: "" });
+      } else {
+        setMessage("❌ " + (data.msg || "Błąd serwera. Spróbuj ponownie."));
+        // 2. USTAWIENIE TYPU NA 'error' DLA BŁĘDÓW SERWERA
+        setMessageType("error");
+      }
     } catch (error) {
-        console.error("Błąd wysyłki:", error);
-        setMessage('❌ Błąd połączenia z serwerem.');
+      console.error("Błąd wysyłki:", error);
+      setMessage("❌ Błąd połączenia z serwerem.");
+      // 2. USTAWIENIE TYPU NA 'error' DLA BŁĘDÓW SIECI
+      setMessageType("error");
     } finally {
-        setIsSending(false);
+      setIsSending(false);
     }
   };
 
@@ -67,9 +82,7 @@ function Contact() {
           </p>
         </div>
         <BasicTile>
-          {/* Użyj form, ale obsługa jest na buttonie dla uproszczenia */}
           <div className="contact-formulage">
-            
             {/* EMAIL */}
             <div className="email-input">
               <p>Email:</p>
@@ -106,16 +119,24 @@ function Contact() {
               />
             </div>
 
-            {/* KOMUNIKAT ZWROTNY */}
-            {message && <p style={{ textAlign: 'center', fontWeight: 'bold' }}>{message}</p>}
+            {/* 3. KOMUNIKAT ZWROTNY - DYNAMICZNA KLASA CSS */}
+            {message && (
+              <p
+                className={`message-box ${
+                  messageType === "error" ? "message-error" : "message-success"
+                }`}
+              >
+                {message}
+              </p>
+            )}
 
             {/* BUTTON WYSYŁANIA */}
-            <button 
+            <button
               className="contact-send"
               onClick={handleSubmit}
               disabled={isSending} // Zapobiega wielokrotnemu kliknięciu
             >
-              {isSending ? 'Wysyłanie...' : 'Wyslij Wiadomosc'}
+              {isSending ? "Wysyłanie..." : "Wyslij Wiadomosc"}
             </button>
           </div>
         </BasicTile>

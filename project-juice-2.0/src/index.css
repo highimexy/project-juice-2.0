@@ -118,7 +118,20 @@ body {
 /* ------------------------------------------------ */
 /* --- PAGE // CONTACT --- */
 /* ------------------------------------------------ */
+/* Style podstawowe dla komunikatu */
+.message-box {
+  text-align: center;
+  font-weight: bold;
+  margin: 0px;
+}
 
+.message-error {
+  color: #cc0000;
+}
+
+.message-success {
+  color: #009900;
+}
 .contact {
   display: flex;
   flex-direction: column;
@@ -639,5 +652,20 @@ button:focus-visible {
   .description-container p {
     display: flex;
     text-align: center;
+  }
+}
+
+@media (min-width: 1600px) {
+  .content-wrapper-left {
+    padding-left: 200px;
+    padding-right: 0px;
+  }
+  .content-wrapper {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  .navigation-container,
+  .mobile-menu-overlay {
+    padding: 40px 200px 40px 200px;
   }
 }

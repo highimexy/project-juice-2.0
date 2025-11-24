@@ -29,15 +29,14 @@ function Home() {
             <div className="home-p-container">
               {" "}
               <p>
-                To nie jest kolejny chujowy liquid z drugiej reki. <br></br>To kompozycja. Stworzona,
-                by dostarczyć idealnie zbalansowane doznania od pierwszej,
-                wyrazistej nuty, aż po bogaty, satysfakcjonujacy finisz. Tu nie
-                ma miejsca na przypadek. Tylko mistrzowska receptura i czysta
-                przyjemnosc. Poczuj roznice.
+                To nie jest kolejny chujowy liquid z drugiej reki. <br></br>To
+                kompozycja. Stworzona, by dostarczyć idealnie zbalansowane
+                doznania od pierwszej, wyrazistej nuty, aż po bogaty,
+                satysfakcjonujacy finisz. Tu nie ma miejsca na przypadek. Tylko
+                mistrzowska receptura i czysta przyjemnosc. Poczuj roznice.
               </p>
             </div>
           </div>
-
           <MainButton />
         </div>
       </div>

@@ -163,7 +163,7 @@
 }
 
 /* ------------------------------------------------ */
-/* -------- Large Desktops (1024px to 1440px) -------- */
+/* -------- Large Desktops (1024px) -------- */
 /* ------------------------------------------------ */
 
 @media (min-width: 1024px) {
@@ -202,8 +202,36 @@
   .carousel-card:last-child {
     margin-right: 104px;
   }
+  .carousel-btn.desktop.prev {
+    left: 120px;
+  }
+  .carousel-btn.desktop.next {
+    right: 30px;
+  }
 }
 
+/* ------------------------------------------------ */
+/* -------- Large Desktops (1600px and up) -------- */
+/* ------------------------------------------------ */
+@media (min-width: 1600px) {
+  .carousel-wrapper {
+    padding-left: 200px;
+  }
+
+  .carousel-btn.desktop {
+    display: block;
+  }
+
+  .carousel-card:last-child {
+    margin-right: 200px;
+  }
+  .carousel-btn.desktop.prev {
+    left: 220px;
+  }
+  .carousel-btn.desktop.next {
+    right: 30px;
+  }
+}
 /* --- Hover + Click --- */
 
 .carousel-card {
