@@ -67,8 +67,8 @@ function Contact() {
       </div>
       <div className="contact content-wrapper">
         <div className="contact-hero">
-          <h1 className="contact-title">Skontaktuj sie z juiice.pl</h1>
-          <p className="taste-hero-1 pnf-h1 ">Wypelnij formularz </p>
+          <h1 className="contact-title">Formluarz kontakotwy</h1>
+          <p className="taste-hero-1 pnf-h1 ">Wypełnij formularz </p>
           <p className="taste-hero-2 pnf-h1">Szybka odpowiedz</p>
           <p className="taste-hero-3 pnf-h1 taste-hero-last">
             Niezapomniany smak
