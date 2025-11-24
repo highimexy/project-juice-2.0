@@ -11,11 +11,9 @@ function Contact() {
   });
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
-  // 1. DODANO NOWY STAN DO TYPU KOMUNIKATU
   const [messageType, setMessageType] = useState("info");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Uwaga: Używanie placeholder jako klucza jest wrażliwe na zmiany tekstu
     setFormData({
       ...formData,
       [e.target.placeholder.toLowerCase()]: e.target.value,
@@ -25,12 +23,10 @@ function Contact() {
   const handleSubmit = async () => {
     setIsSending(true);
     setMessage("");
-    setMessageType("info"); // Reset typu wiadomości przed wysyłką
+    setMessageType("info"); 
 
-    // Walidacja
     if (!formData.email || !formData.imie || !formData.zamowienie) {
       setMessage("Prosze wypelnic wszystkie pola!");
-      // 2. USTAWIENIE TYPU NA 'error'
       setMessageType("error");
       setIsSending(false);
       return;
@@ -49,18 +45,15 @@ function Contact() {
 
       if (response.ok) {
         setMessage(data.msg);
-        // 2. USTAWIENIE TYPU NA 'success'
         setMessageType("success");
         setFormData({ email: "", imie: "", zamowienie: "" });
       } else {
-        setMessage("❌ " + (data.msg || "Błąd serwera. Spróbuj ponownie."));
-        // 2. USTAWIENIE TYPU NA 'error' DLA BŁĘDÓW SERWERA
+        setMessage((data.msg || "Błąd serwera. Spróbuj ponownie."));
         setMessageType("error");
       }
     } catch (error) {
       console.error("Błąd wysyłki:", error);
-      setMessage("❌ Błąd połączenia z serwerem.");
-      // 2. USTAWIENIE TYPU NA 'error' DLA BŁĘDÓW SIECI
+      setMessage("Błąd połączenia z serwerem.");
       setMessageType("error");
     } finally {
       setIsSending(false);
@@ -110,12 +103,13 @@ function Contact() {
             {/* ZAMOWIENIE/TREŚĆ */}
             <div className="email-input">
               <p>Zamowienie:</p>
-              <input
-                className="contact-input"
+              <textarea 
+                className="order-input"
                 placeholder="Zamowienie"
-                type="text"
                 value={formData.zamowienie}
-                onChange={handleChange}
+                onChange={(e) =>
+                  setFormData({ ...formData, zamowienie: e.target.value })
+                }
               />
             </div>
 

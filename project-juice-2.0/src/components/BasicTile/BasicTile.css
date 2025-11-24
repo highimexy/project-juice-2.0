@@ -19,7 +19,6 @@
   justify-content: center;
   display: flex;
   width: 350px;
-  height: 400px;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 4px 4px #171717;
@@ -30,13 +29,3 @@
   box-shadow: 8px 8px #161616;
 }
 
-.title {
-  display: flex;
-  align-items: center;
-}
-
-.title-text {
-  margin-left: 0.5rem;
-  color: #374151;
-  font-size: 18px;
-}

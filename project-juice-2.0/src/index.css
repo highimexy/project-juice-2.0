@@ -184,6 +184,20 @@ body {
   color: #1111118e;
 }
 
+.order-input { 
+  border: 3px solid #111111;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  font-family: Unbounded;
+  padding: 0px 8px 0px 8px;
+  padding-top: 2px;
+  height: 300px;
+}
+
+.order-input::placeholder {
+  color: #1111118e;
+}
+
 .contact-send {
   font-size: 1em;
   width: 300px;
