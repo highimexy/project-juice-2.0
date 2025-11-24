@@ -59,7 +59,7 @@ function Slot() {
         <WheelCustom
           segments={segments}
           onFinished={handleSpinFinished}
-          size={250}
+          size={200}
         />
       </div>
     </>
