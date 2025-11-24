@@ -153,7 +153,9 @@ function Taste() {
               <h1>Zasady</h1>
               <p className="taste-hero-1 pnf-h1">Ilosc = 30ml </p>
               <p className="taste-hero-2 pnf-h1">Moc = 12mg|18mg</p>
-              <p className="taste-hero-3 pnf-h1 taste-hero-last">Nazwa = Rodzaj - Number</p>
+              <p className="taste-hero-3 pnf-h1 taste-hero-last">
+                Nazwa = Rodzaj - Number
+              </p>
             </div>
           </div>
         </div>
