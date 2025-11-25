@@ -16,8 +16,8 @@ function Dropdown({ selectedTaste, onTasteChange }: DropdownProps) {
         <div className="dropdown-container">
           <div className="dropdown">
             <select value={selectedTaste} onChange={handleTasteChange}>
-              <option value="owocowe">Owocowe</option>
-              <option value="owocowe-zimne">Owocowe zimne</option>
+              <option value="owocowe">Standardowe</option>
+              <option value="owocowe-zimne">Premium</option>
               <option value="deserowe">Deserowe</option>
             </select>
           </div>

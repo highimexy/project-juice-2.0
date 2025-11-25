@@ -13,14 +13,22 @@ interface CarouselCardProps {
   onHideDetails: () => void;
 }
 
-function CarouselCard({ item, isFlipped, onShowDetails }: CarouselCardProps) {
+function CarouselCard({ item, isFlipped, onShowDetails, onHideDetails }: CarouselCardProps) {
   const cardClassName = `carousel-card ${isFlipped ? "pokaz-tresc" : ""}`;
 
+  const handleClick = () => {
+    if (isFlipped) {
+      onHideDetails();
+    } else {
+      onShowDetails();
+    }
+  };
+  
   return (
     <div
       className={cardClassName}
       key={item.id}
-      onClick={onShowDetails}
+      onClick={handleClick}
       data-id={item.id}
     >
       <div className="card-content">
