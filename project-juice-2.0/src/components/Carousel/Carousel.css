@@ -129,6 +129,7 @@
 }
 
 .card-content img {
+  padding-top: 40px;
   max-width: 100%;
   max-height: 280px;
   height: auto;
