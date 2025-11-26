@@ -18,7 +18,6 @@ function Dropdown({ selectedTaste, onTasteChange }: DropdownProps) {
             <select value={selectedTaste} onChange={handleTasteChange}>
               <option value="owocowe">Standardowe</option>
               <option value="owocowe-zimne">Premium</option>
-              <option value="deserowe">Deserowe</option>
             </select>
           </div>
         </div>
