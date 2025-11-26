@@ -5,6 +5,10 @@ import Dropdown from "../components/Dropdown.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
 import Navigation from "../components/Navigation.tsx";
 
+import s1 from "../assets/standard/s1.webp"
+import s2 from "../assets/standard/s2.webp"
+import s3 from "../assets/standard/s3.webp"
+
 import p1 from "../assets/premium/1.webp"
 import p2 from "../assets/premium/2.webp"
 import p3 from "../assets/premium/3.webp"
@@ -36,7 +40,6 @@ import smak7 from "../assets/smak7.webp";
 import smak8 from "../assets/smak8.webp";
 import smak9 from "../assets/smak9.webp";
 import smak10 from "../assets/smak10.webp";
-import nowa from "../assets/smak1.png.png"
 
 const TASTE_CATEGORIES = {
   OWOCOWE: "owocowe",
@@ -45,9 +48,9 @@ const TASTE_CATEGORIES = {
 
 const allTastesData = {
   [TASTE_CATEGORIES.OWOCOWE]: [
-    { id: "S-1", img: nowa, title: "S | 1", details: "Truskawka (Strawberry)" },
-    { id: "S-2", img: smak2, title: "S | 2", details: "Niebieska Malina" },
-    { id: "S-3", img: smak3, title: "S | 3", details: "Arbuz (Watermelon)" },
+    { id: "S-1", img: s1, title: "S | 1", details: "Truskawka (Strawberry)" },
+    { id: "S-2", img: s2, title: "S | 2", details: "Niebieska Malina" },
+    { id: "S-3", img: s3, title: "S | 3", details: "Arbuz (Watermelon)" },
     { id: "S-4", img: smak4, title: "S | 4", details: "Mięta / Mentol (Mint / Menthol)" },
     { id: "S-5", img: smak5, title: "S | 5", details: "Niebieska Malina (Blue Raspberry)" },
     { id: "S-6", img: smak6, title: "S | 6", details: "Winogrono (Grape)" },
