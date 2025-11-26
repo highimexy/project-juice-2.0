@@ -10,6 +10,21 @@ import p2 from "../assets/premium/2.webp"
 import p3 from "../assets/premium/3.webp"
 import p4 from "../assets/premium/4.webp"
 import p5 from "../assets/premium/5.webp"
+import p6 from "../assets/premium/6.webp"
+import p7 from "../assets/premium/7.webp"
+import p8 from "../assets/premium/8.webp"
+import p9 from "../assets/premium/9.webp"
+import p10 from "../assets/premium/10.webp"
+import p11 from "../assets/premium/11.webp"
+import p12 from "../assets/premium/12.webp"
+import p13 from "../assets/premium/13.webp"
+import p14 from "../assets/premium/14.webp"
+import p15 from "../assets/premium/15.webp"
+import p16 from "../assets/premium/16.webp"
+import p17 from "../assets/premium/17.webp"
+import p18 from "../assets/premium/18.webp"
+
+
 
 import smak1 from "../assets/smak1.webp";
 import smak2 from "../assets/smak2.webp";
@@ -58,19 +73,19 @@ const allTastesData = {
     { id: "P-3", img: p3, title: "P | 3", details: "Limonka i cytrusy z mroźnym" },
     { id: "P-4", img: p4, title: "P | 4", details: "Złote kiwi, truskawka i granat z mroźnym orzeźwieniem" },
     { id: "P-5", img: p5, title: "P | 5", details: "Arbuz i cytryna z nutą maliny i mroźnym orzeźwieniem" },
-    { id: "P-6", img: smak6, title: "P | 6", details: "Czerwone owoce i lukrecja z delikatnym orzeźwieniem" },
-    { id: "P-7", img: smak7, title: "P | 7", details: "Ananas i liczi z mroźnym orzeźwieniem" },
-    { id: "P-8", img: smak8, title: "P | 8", details: "Napój typu cola z mroźnym orzeźwieniem" },
-    { id: "P-9", img: smak9, title: "P | 9", details: "Mieszanka czerwonych owoców (jagody, truskawki, maliny)" },
-    { id: "P-10", img: smak10, title: "P | 10", details: "Różowy grejpfrut z truskawką i nutą orzeźwienia" },
-    { id: "P-11", img: smak1, title: "P | 11", details: "Soczyste mango" },
-    { id: "P-12", img: smak2, title: "P | 12", details: "Słodki melon z bardzo mocnym orzeźwieniem" },
-    { id: "P-13", img: smak3, title: "P | 13", details: "Smoczy owoc z truskawką" },
-    { id: "P-14", img: smak4, title: "P | 14", details: "Smoczy owoc, guawa, kiwi i truskawka" },
-    { id: "P-15", img: smak5, title: "P | 15", details: "Granat i truskawka z mroźnym orzeźwieniem" },
-    { id: "P-16", img: smak6, title: "P | 16", details: "Egzotyczne mango z orzeźwieniem" },
-    { id: "P-17", img: smak7, title: "P | 17", details: "Malina z kruchym ciasteczkiem" },
-    { id: "P-18", img: smak8, title: "P | 18", details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem" },
+    { id: "P-6", img: p6, title: "P | 6", details: "Czerwone owoce i lukrecja z delikatnym orzeźwieniem" },
+    { id: "P-7", img: p7, title: "P | 7", details: "Ananas i liczi z mroźnym orzeźwieniem" },
+    { id: "P-8", img: p8, title: "P | 8", details: "Napój typu cola z mroźnym orzeźwieniem" },
+    { id: "P-9", img: p9, title: "P | 9", details: "Mieszanka czerwonych owoców (jagody, truskawki, maliny)" },
+    { id: "P-10", img: p10, title: "P | 10", details: "Różowy grejpfrut z truskawką i nutą orzeźwienia" },
+    { id: "P-11", img: p11, title: "P | 11", details: "Soczyste mango" },
+    { id: "P-12", img: p12, title: "P | 12", details: "Słodki melon z bardzo mocnym orzeźwieniem" },
+    { id: "P-13", img: p13, title: "P | 13", details: "Smoczy owoc z truskawką" },
+    { id: "P-14", img: p14, title: "P | 14", details: "Smoczy owoc, guawa, kiwi i truskawka" },
+    { id: "P-15", img: p15, title: "P | 15", details: "Granat i truskawka z mroźnym orzeźwieniem" },
+    { id: "P-16", img: p16, title: "P | 16", details: "Egzotyczne mango z orzeźwieniem" },
+    { id: "P-17", img: p17, title: "P | 17", details: "Malina z kruchym ciasteczkiem" },
+    { id: "P-18", img: p18, title: "P | 18", details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem" },
     { id: "P-19", img: smak9, title: "P | 19", details: "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem" },
     { id: "P-20", img: smak10, title: "P | 20", details: "Brzoskwinia, malina i kiwi" },
     { id: "P-21", img: smak10, title: "P | 21", details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem" },

@@ -125,7 +125,7 @@
 .card-content h2 {
   margin-top: 0px;
   margin-bottom: 15px;
-  font-size: 2.5em;
+  font-size: 3em;
 }
 
 .card-content img {
@@ -140,6 +140,12 @@
 .carousel-card:hover .card-content img {
   transform: scale(1.2);
 }
+
+.ukryta-tresc h4{
+  font-size: 2em;
+  margin: 0px;
+}
+
 /* ------------------------------------------- */
 /* --- RESPONSIVE MEDIA QUERY --- */
 /* ------------------------------------------- */
@@ -204,7 +210,7 @@
     margin-right: 104px;
   }
   .carousel-btn.desktop.prev {
-    left: 120px;
+    left: 45px;
   }
   .carousel-btn.desktop.next {
     right: 30px;
@@ -227,7 +233,7 @@
     margin-right: 200px;
   }
   .carousel-btn.desktop.prev {
-    left: 220px;
+    left: 140px;
   }
   .carousel-btn.desktop.next {
     right: 30px;
