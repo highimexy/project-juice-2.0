@@ -15,9 +15,8 @@ import smak7 from "../assets/smak7.webp";
 import smak8 from "../assets/smak8.webp";
 import smak9 from "../assets/smak9.webp";
 import smak10 from "../assets/smak10.webp";
-
-import smakZimny1 from "../assets/smak1.webp";
 import smakDeser1 from "../assets/smak2.webp";
+import nowa from "../assets/smak1.png.png"
 
 const TASTE_CATEGORIES = {
   OWOCOWE: "owocowe",
@@ -27,7 +26,7 @@ const TASTE_CATEGORIES = {
 
 const allTastesData = {
   [TASTE_CATEGORIES.OWOCOWE]: [
-    { id: "S-1", img: smak1, title: "S | 1", details: "Truskawka (Strawberry)" },
+    { id: "S-1", img: nowa, title: "S | 1", details: "Truskawka (Strawberry)" },
     { id: "S-2", img: smak2, title: "S | 2", details: "Niebieska Malina" },
     { id: "S-3", img: smak3, title: "S | 3", details: "Arbuz (Watermelon)" },
     { id: "S-4", img: smak4, title: "S | 4", details: "Mięta / Mentol (Mint / Menthol)" },
