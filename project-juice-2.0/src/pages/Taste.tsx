@@ -8,6 +8,22 @@ import Navigation from "../components/Navigation.tsx";
 import s1 from "../assets/standard/s1.webp"
 import s2 from "../assets/standard/s2.webp"
 import s3 from "../assets/standard/s3.webp"
+import s4 from "../assets/standard/s4.webp"
+import s5 from "../assets/standard/s5.webp"
+import s6 from "../assets/standard/s6.webp"
+import s7 from "../assets/standard/s7.webp"
+import s8 from "../assets/standard/s8.webp"
+import s9 from "../assets/standard/s9.webp"
+import s10 from "../assets/standard/s10.webp"
+import s11 from "../assets/standard/s11.webp"
+import s12 from "../assets/standard/s12.webp"
+import s13 from "../assets/standard/s13.webp"
+import s14 from "../assets/standard/s14.webp"
+import s15 from "../assets/standard/s15.webp"
+import s16 from "../assets/standard/s16.webp"
+import s17 from "../assets/standard/s17.webp"
+import s18 from "../assets/standard/s18.webp"
+import s19 from "../assets/standard/s19.webp"
 
 import p1 from "../assets/premium/1.webp"
 import p2 from "../assets/premium/2.webp"
@@ -28,18 +44,9 @@ import p16 from "../assets/premium/16.webp"
 import p17 from "../assets/premium/17.webp"
 import p18 from "../assets/premium/18.webp"
 
+import Question from "../assets/Q.webp"
 
 
-import smak1 from "../assets/smak1.webp";
-import smak2 from "../assets/smak2.webp";
-import smak3 from "../assets/smak3.webp";
-import smak4 from "../assets/smak4.webp";
-import smak5 from "../assets/smak5.webp";
-import smak6 from "../assets/smak6.webp";
-import smak7 from "../assets/smak7.webp";
-import smak8 from "../assets/smak8.webp";
-import smak9 from "../assets/smak9.webp";
-import smak10 from "../assets/smak10.webp";
 
 const TASTE_CATEGORIES = {
   OWOCOWE: "owocowe",
@@ -51,24 +58,23 @@ const allTastesData = {
     { id: "S-1", img: s1, title: "S | 1", details: "Truskawka (Strawberry)" },
     { id: "S-2", img: s2, title: "S | 2", details: "Niebieska Malina" },
     { id: "S-3", img: s3, title: "S | 3", details: "Arbuz (Watermelon)" },
-    { id: "S-4", img: smak4, title: "S | 4", details: "Mięta / Mentol (Mint / Menthol)" },
-    { id: "S-5", img: smak5, title: "S | 5", details: "Niebieska Malina (Blue Raspberry)" },
-    { id: "S-6", img: smak6, title: "S | 6", details: "Winogrono (Grape)" },
-    { id: "S-7", img: smak7, title: "S | 7", details: "Mango" },
-    { id: "S-8", img: smak8, title: "S | 8", details: "Zielone Jabłko (Green Apple)" },
-    { id: "S-9", img: smak9, title: "S | 9", details: "Jagoda (Blueberry)" },
-    { id: "S-10", img: smak10, title: "S | 10", details: "Brzoskwinia (Peach)" },
-    { id: "S-11", img: smak1, title: "S | 11", details: "Czarna Porzeczka (Blackcurrant)" },
-    { id: "S-12", img: smak2, title: "S | 12", details: "Cola" },
-    { id: "S-13", img: smak3, title: "S | 13", details: "Cytryna / Limonka (Lemon / Lime)" },
-    { id: "S-14", img: smak4, title: "S | 14", details: "Banan" },
-    { id: "S-15", img: smak5, title: "S | 15", details: "Wiśnia (Cherry)" },
-    { id: "S-16", img: smak6, title: "S | 16", details: "Wanilia (Vanilla)" },
-    { id: "S-17", img: smak7, title: "S | 17", details: "Energetyk (Energy Drink)" },
-    { id: "S-18", img: smak8, title: "S | 18", details: "Tytoń (Tobacco)" },
-    { id: "S-19", img: smak9, title: "S | 19", details: "Guma Balonowa (Bubblegum)" },
-    { id: "S-20", img: smak10, title: "S | 20", details: "Melon (Honeydew/Cantaloupe)" },
-    { id: "S-21", img: smak10, title: "???", details: "Każdy dowolny smak | Na zamówienie" },
+    { id: "S-4", img: s4, title: "S | 4", details: "Mięta / Mentol (Mint / Menthol)" },
+    { id: "S-5", img: s5, title: "S | 5", details: "Winogrono (Grape)" },
+    { id: "S-6", img: s6, title: "S | 6", details: "Mango" },
+    { id: "S-7", img: s7, title: "S | 7", details: "Zielone Jabłko (Green Apple)" },
+    { id: "S-8", img: s8, title: "S | 8", details: "Jagoda (Blueberry)" },
+    { id: "S-9", img: s9, title: "S | 9", details: "Brzoskwinia (Peach)" },
+    { id: "S-10", img: s10, title: "S | 10", details: "Czarna Porzeczka (Blackcurrant)" },
+    { id: "S-11", img: s11, title: "S | 11", details: "Cola" },
+    { id: "S-12", img: s12, title: "S | 12", details: "Cytryna / Limonka (Lemon / Lime)" },
+    { id: "S-13", img: s13, title: "S | 13", details: "Banan" },
+    { id: "S-14", img: s14, title: "S | 14", details: "Wiśnia (Cherry)" },
+    { id: "S-15", img: s15, title: "S | 15", details: "Wanilia (Vanilla)" },
+    { id: "S-16", img: s16, title: "S | 16", details: "Energetyk (Energy Drink)" },
+    { id: "S-17", img: s17, title: "S | 17", details: "Tytoń (Tobacco)" },
+    { id: "S-18", img: s18, title: "S | 18", details: "Guma Balonowa (Bubblegum)" },
+    { id: "S-19", img: s19, title: "S | 19", details: "Melon (Honeydew/Cantaloupe)" },
+    { id: "S-20", img: Question, title: "???", details: "Każdy dowolny smak | Na zamówienie" },
   ],
   [TASTE_CATEGORIES.OWOCOWE_ZIMNE]: [
     { id: "P-1", img: p1, title: "P | 1", details: "Kwaśne cukierkowe zielone jabłko" },
@@ -89,12 +95,12 @@ const allTastesData = {
     { id: "P-16", img: p16, title: "P | 16", details: "Egzotyczne mango z orzeźwieniem" },
     { id: "P-17", img: p17, title: "P | 17", details: "Malina z kruchym ciasteczkiem" },
     { id: "P-18", img: p18, title: "P | 18", details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem" },
-    { id: "P-19", img: smak9, title: "P | 19", details: "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem" },
-    { id: "P-20", img: smak10, title: "P | 20", details: "Brzoskwinia, malina i kiwi" },
-    { id: "P-21", img: smak10, title: "P | 21", details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem" },
-    { id: "P-22", img: smak10, title: "P | 22", details: "Wiśnia i truskawka z orzeźwieniem" },
-    { id: "P-23", img: smak10, title: "P | 23", details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem" },
-    { id: "P-24", img: smak10, title: "???", details: "Każdy dowolny smak | Na zamówienie" },
+    { id: "P-19", img: Question, title: "P | 19", details: "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem" },
+    { id: "P-20", img: Question, title: "P | 20", details: "Brzoskwinia, malina i kiwi" },
+    { id: "P-21", img: Question, title: "P | 21", details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem" },
+    { id: "P-22", img: Question, title: "P | 22", details: "Wiśnia i truskawka z orzeźwieniem" },
+    { id: "P-23", img: Question, title: "P | 23", details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem" },
+    { id: "P-24", img: Question, title: "???", details: "Każdy dowolny smak | Na zamówienie" },
   ],
   
 };
