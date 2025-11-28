@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors()); 
 app.use(express.json()); 
 
+app.get('/', (req, res) => {
+  res.send('Backend działa! 🚀 Wyślij POST na /send-email');
+});
+
 // Nodemailer
 const transporter = nodemailer.createTransport({
   service: 'gmail', 

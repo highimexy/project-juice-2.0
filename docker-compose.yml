@@ -12,9 +12,15 @@ services:
   # 2. BACKEND (Twoje nowe API)
   api:
     image: project-juice-api:latest
-    # ZMIANA: Wskazujemy folder z backendem
     build: ./project-juice-2.0-backend
     restart: always
+    # --- DODAJ TO ---
+    environment:
+      - EMAIL_USER="testwizardjeff03@gmail.com"
+      - EMAIL_PASS="wjwi vfqo luia sqzh"
+      - EMAIL_RECEIVER="testwizardjeff03@gmail.com"
+      - PORT=3000
+    # ----------------
     # Backend też nie potrzebuje portów na zewnątrz (Proxy -> api:3000)
 
   # 3. PROXY (Nginx Proxy Manager)
