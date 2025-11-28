@@ -4,13 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors'; 
 
 dotenv.config(); 
-// --- DODAJ TE LINIE DO DEBUGOWANIA ---
-console.log("--- DEBUG CREDENTIALS ---");
-console.log("EMAIL_USER:", `"${process.env.EMAIL_USER}"`); // Cudzysłowy pokażą, czy są spacje
-console.log("EMAIL_PASS length:", process.env.EMAIL_PASS ? process.env.EMAIL_PASS.length : "Brak");
-console.log("EMAIL_PASS first char:", process.env.EMAIL_PASS ? process.env.EMAIL_PASS[0] : "Brak");
-console.log("EMAIL_PASS last char:", process.env.EMAIL_PASS ? process.env.EMAIL_PASS.slice(-1) : "Brak");
-console.log("-------------------------");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
