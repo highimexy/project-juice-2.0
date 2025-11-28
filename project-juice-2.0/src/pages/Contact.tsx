@@ -33,7 +33,7 @@ function Contact() {
     }
 
     try {
-      const response = await fetch("https://api.juiice.pl/", {
+      const response = await fetch("https://api.juiice.pl", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
