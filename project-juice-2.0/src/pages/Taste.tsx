@@ -43,6 +43,11 @@ import p15 from "../assets/premium/15.webp"
 import p16 from "../assets/premium/16.webp"
 import p17 from "../assets/premium/17.webp"
 import p18 from "../assets/premium/18.webp"
+import p19 from "../assets/premium/19.webp"
+import p20 from "../assets/premium/20.webp"
+import p21 from "../assets/premium/21.webp"
+import p22 from "../assets/premium/22.webp"
+import p23 from "../assets/premium/23.webp"
 
 import Question from "../assets/Q.webp"
 
@@ -95,11 +100,11 @@ const allTastesData = {
     { id: "P-16", img: p16, title: "P | 16", details: "Egzotyczne mango z orzeźwieniem" },
     { id: "P-17", img: p17, title: "P | 17", details: "Malina z kruchym ciasteczkiem" },
     { id: "P-18", img: p18, title: "P | 18", details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem" },
-    { id: "P-19", img: Question, title: "P | 19", details: "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem" },
-    { id: "P-20", img: Question, title: "P | 20", details: "Brzoskwinia, malina i kiwi" },
-    { id: "P-21", img: Question, title: "P | 21", details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem" },
-    { id: "P-22", img: Question, title: "P | 22", details: "Wiśnia i truskawka z orzeźwieniem" },
-    { id: "P-23", img: Question, title: "P | 23", details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem" },
+    { id: "P-19", img: p19, title: "P | 19", details: "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem" },
+    { id: "P-20", img: p20, title: "P | 20", details: "Brzoskwinia, malina i kiwi" },
+    { id: "P-21", img: p21, title: "P | 21", details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem" },
+    { id: "P-22", img: p22, title: "P | 22", details: "Wiśnia i truskawka z orzeźwieniem" },
+    { id: "P-23", img: p23, title: "P | 23", details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem" },
     { id: "P-24", img: Question, title: "???", details: "Każdy dowolny smak | Na zamówienie" },
   ],
   
