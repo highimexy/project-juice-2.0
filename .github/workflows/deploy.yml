@@ -21,7 +21,5 @@ jobs:
             cd ~/project-juice-docker
             git pull
 
-            cd project-juice-2.0
-
             docker-compose down
             docker-compose up -d --build
