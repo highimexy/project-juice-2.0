@@ -29,7 +29,7 @@ function Home() {
             <div className="home-p-container">
               {" "}
               <p>
-                To nie jest kolejny chujowy liquid z drugiej reki. <br></br>To
+                To nie jest kolejny chujowy liquid z drugiej reki.. <br></br>To
                 kompozycja. Stworzona, by dostarczyć idealnie zbalansowane
                 doznania od pierwszej, wyrazistej nuty, aż po bogaty,
                 satysfakcjonujacy finisz. Tu nie ma miejsca na przypadek. Tylko
