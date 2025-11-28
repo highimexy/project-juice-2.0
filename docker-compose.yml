@@ -17,7 +17,7 @@ services:
     # --- DODAJ TO ---
     environment:
       - EMAIL_USER="testwizardjeff03@gmail.com"
-      - EMAIL_PASS="tccefwenykxmvdaz"
+      - EMAIL_PASS="cmqntczagsjyrezj"
       - EMAIL_RECEIVER="testwizardjeff03@gmail.com"
       - PORT=3000
     # ----------------
