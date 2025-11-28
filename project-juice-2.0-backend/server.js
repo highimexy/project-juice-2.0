@@ -16,12 +16,20 @@ app.get('/', (req, res) => {
 });
 
 // Nodemailer
+// Zamiast: service: 'gmail'
 const transporter = nodemailer.createTransport({
-  service: 'gmail', 
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false, // true dla 465, false dla innych portów
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  tls: {
+    ciphers: 'SSLv3'
+  },
+  // To jest kluczowe w Dockerze:
+  family: 4 // Wymuś IPv4
 });
 
 // Endpoint 
