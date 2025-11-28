@@ -16,9 +16,9 @@ services:
     restart: always
     # --- DODAJ TO ---
     environment:
-      - EMAIL_USER="testwizardjeff03@gmail.com"
+      - EMAIL_USER=testwizardjeff03@gmail.com
       - EMAIL_PASS=cmqntczagsjyrezj
-      - EMAIL_RECEIVER="testwizardjeff03@gmail.com"
+      - EMAIL_RECEIVER=testwizardjeff03@gmail.com
       - PORT=3000
     # ----------------
     # Backend też nie potrzebuje portów na zewnątrz (Proxy -> api:3000)
