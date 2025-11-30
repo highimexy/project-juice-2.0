@@ -56,7 +56,7 @@ function Carousel({ items, activeCardId, onActiveCardChange }: CarouselProps) {
   };
 
   return (
-    <div className="carousel-wrapper">
+    <div className="w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
       <div className="carousel-nav-mobile">
         <button onClick={() => scroll("left")}>&lt;</button>
 
