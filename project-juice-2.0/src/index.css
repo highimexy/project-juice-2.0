@@ -44,21 +44,6 @@ body {
 }
 
 /* ------------------------------------------------ */
-/* --- PAGE // POLECANE --- */
-/* ------------------------------------------------ */
-
-.polecane {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding-top: 100px;
-}
-
-.polecane p {
-  margin: 5px 0px 0px 0px;
-}
-
-/* ------------------------------------------------ */
 /* --- Style Domyślne (Mobile-First) --- */
 /* ------------------------------------------------ */
 

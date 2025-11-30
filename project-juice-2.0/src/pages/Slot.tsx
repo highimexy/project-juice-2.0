@@ -27,24 +27,32 @@ function Slot() {
 
   return (
     <>
-      <div className="">
+      <div>
         <Navigation />
       </div>
-      <div className="polecane content-wrapper">
-        <h1 className="polecane-title">Koło Fortuny!</h1>
-        <p className="taste-hero-1">Zakręć kołem i spróbuj wygrać zniżkę!</p>
-        <p className="taste-hero-2">
+      
+      {/* 1. Odpowiednik .polecane (flex col, center, pt-100)
+         2. Odpowiednik .content-wrapper (responsywne paddingi)
+      */}
+      <div className="flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+        <h1>Koło Fortuny!</h1>
+        
+        {/* Odpowiednik .polecane p (mt-5px) + kolor .taste-hero-1 */}
+        <p className="mt-[5px] text-[#585580]">
+            Zakręć kołem i spróbuj wygrać zniżkę!
+        </p>
+        
+        {/* Odpowiednik .polecane p (mt-5px) + kolor .taste-hero-2 */}
+        <p className="mt-[5px] text-[#640577]">
           Masz szansę na otrzymanie procentowych zniżek.
         </p>
 
         {/* WYNIK WIDOCZNY NAD KOŁEM */}
+        {/* Przeniesiono inline styles do Tailwinda */}
         <div
-          style={{
-            textAlign: "center",
-            fontSize: "1.2em",
-            fontWeight: "bold",
-            color: wynik && wynik.includes("Nic") ? "#cc0000" : "#009900",
-          }}
+          className={`text-center text-[1.2em] font-bold ${
+            wynik && wynik.includes("Nic") ? "text-[#cc0000]" : "text-[#009900]"
+          }`}
         >
           {wynik &&
             (wynik.includes("Nic")
@@ -53,9 +61,8 @@ function Slot() {
         </div>
       </div>
 
-      <div
-        style={{ display: "flex", justifyContent: "center", margin: "40px 0" }}
-      >
+      {/* Kontener Koła: Przeniesiono inline styles do Tailwinda */}
+      <div className="flex justify-center my-10">
         <WheelCustom
           segments={segments}
           onFinished={handleSpinFinished}
