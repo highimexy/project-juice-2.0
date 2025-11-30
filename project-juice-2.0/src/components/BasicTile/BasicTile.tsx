@@ -10,7 +10,7 @@ export const BasicTile = ({
 }) => {
   return (
     <div
-      className={`${bgcolor ? bgcolor : "bg-white "} 
+      className={`${bgcolor ? bgcolor : "bg-[#1a1a1a69] "} 
       h-full w-auto max-w-4xl
               card m-auto duration-300 hover:cursor-pointer`}
     >

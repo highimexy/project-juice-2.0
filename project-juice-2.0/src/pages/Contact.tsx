@@ -80,9 +80,9 @@ function Contact() {
         </div>
 
         <BasicTile>
-          <div className="flex flex-col gap-[15px] w-[300px]">
+          <div className="flex flex-col">
             <div className="flex flex-col">
-              <p className="m-0 text-[1em] font-['Unbounded']">Email:</p>
+              <p className="m-0">Email:</p>
               <input
                 className={`${inputClasses} h-40px`}
                 placeholder="Email"
