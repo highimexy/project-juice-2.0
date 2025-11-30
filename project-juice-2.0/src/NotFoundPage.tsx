@@ -5,13 +5,20 @@ function NotFoundPage() {
   return (
     <>
       <Navigation />
-      <div className="page-not-found">
-        <div className="pnf-header">
-          <h1 className="home-h1-1 pnf-h1">Error</h1>
-          <h1 className="home-h1-2 pnf-h1">404</h1>
-          <h1 className="home-h1-3 pnf-h1">Page not found</h1>
+      
+      {/* Odpowiednik .page-not-found */}
+      <div className="flex flex-col justify-center items-center h-[80vh]">
+        
+        {/* Odpowiednik .pnf-header */}
+        <div className="flex flex-col justify-center items-center text-center">
+          {/* Kolory z .home-h1-1/2/3 oraz .pnf-h1 (margin 0) */}
+          <h1 className="m-0 text-[#585580]">Error</h1>
+          <h1 className="m-0 text-[#640577]">404</h1>
+          <h1 className="m-0 text-[#804141]">Page not found</h1>
         </div>
-        <div className="pnf-button">
+
+        {/* Odpowiednik .pnf-button */}
+        <div className="mt-8 flex items-center justify-center">
           <Link to={"/"}>
             <button>Go back Home</button>
           </Link>

@@ -1,57 +1,56 @@
-import { useState, useMemo, useEffect } from "react"; // <-- WAŻNE: Dodajemy useMemo i useEffect
+import { useState, useMemo, useEffect } from "react";
 import Carousel from "../components/Carousel/Carousel.tsx";
 import RandomBtn from "../components/RandomBtn.tsx";
 import Dropdown from "../components/Dropdown.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
 import Navigation from "../components/Navigation.tsx";
 
-import s1 from "../assets/standard/s1.webp"
-import s2 from "../assets/standard/s2.webp"
-import s3 from "../assets/standard/s3.webp"
-import s4 from "../assets/standard/s4.webp"
-import s5 from "../assets/standard/s5.webp"
-import s6 from "../assets/standard/s6.webp"
-import s7 from "../assets/standard/s7.webp"
-import s8 from "../assets/standard/s8.webp"
-import s9 from "../assets/standard/s9.webp"
-import s10 from "../assets/standard/s10.webp"
-import s11 from "../assets/standard/s11.webp"
-import s12 from "../assets/standard/s12.webp"
-import s13 from "../assets/standard/s13.webp"
-import s14 from "../assets/standard/s14.webp"
-import s15 from "../assets/standard/s15.webp"
-import s16 from "../assets/standard/s16.webp"
-import s17 from "../assets/standard/s17.webp"
-import s18 from "../assets/standard/s18.webp"
-import s19 from "../assets/standard/s19.webp"
+// Imports
+import s1 from "../assets/standard/s1.webp";
+import s2 from "../assets/standard/s2.webp";
+import s3 from "../assets/standard/s3.webp";
+import s4 from "../assets/standard/s4.webp";
+import s5 from "../assets/standard/s5.webp";
+import s6 from "../assets/standard/s6.webp";
+import s7 from "../assets/standard/s7.webp";
+import s8 from "../assets/standard/s8.webp";
+import s9 from "../assets/standard/s9.webp";
+import s10 from "../assets/standard/s10.webp";
+import s11 from "../assets/standard/s11.webp";
+import s12 from "../assets/standard/s12.webp";
+import s13 from "../assets/standard/s13.webp";
+import s14 from "../assets/standard/s14.webp";
+import s15 from "../assets/standard/s15.webp";
+import s16 from "../assets/standard/s16.webp";
+import s17 from "../assets/standard/s17.webp";
+import s18 from "../assets/standard/s18.webp";
+import s19 from "../assets/standard/s19.webp";
 
-import p1 from "../assets/premium/1.webp"
-import p2 from "../assets/premium/2.webp"
-import p3 from "../assets/premium/3.webp"
-import p4 from "../assets/premium/4.webp"
-import p5 from "../assets/premium/5.webp"
-import p6 from "../assets/premium/6.webp"
-import p7 from "../assets/premium/7.webp"
-import p8 from "../assets/premium/8.webp"
-import p9 from "../assets/premium/9.webp"
-import p10 from "../assets/premium/10.webp"
-import p11 from "../assets/premium/11.webp"
-import p12 from "../assets/premium/12.webp"
-import p13 from "../assets/premium/13.webp"
-import p14 from "../assets/premium/14.webp"
-import p15 from "../assets/premium/15.webp"
-import p16 from "../assets/premium/16.webp"
-import p17 from "../assets/premium/17.webp"
-import p18 from "../assets/premium/18.webp"
-import p19 from "../assets/premium/19.webp"
-import p20 from "../assets/premium/20.webp"
-import p21 from "../assets/premium/21.webp"
-import p22 from "../assets/premium/22.webp"
-import p23 from "../assets/premium/23.webp"
+import p1 from "../assets/premium/1.webp";
+import p2 from "../assets/premium/2.webp";
+import p3 from "../assets/premium/3.webp";
+import p4 from "../assets/premium/4.webp";
+import p5 from "../assets/premium/5.webp";
+import p6 from "../assets/premium/6.webp";
+import p7 from "../assets/premium/7.webp";
+import p8 from "../assets/premium/8.webp";
+import p9 from "../assets/premium/9.webp";
+import p10 from "../assets/premium/10.webp";
+import p11 from "../assets/premium/11.webp";
+import p12 from "../assets/premium/12.webp";
+import p13 from "../assets/premium/13.webp";
+import p14 from "../assets/premium/14.webp";
+import p15 from "../assets/premium/15.webp";
+import p16 from "../assets/premium/16.webp";
+import p17 from "../assets/premium/17.webp";
+import p18 from "../assets/premium/18.webp";
+import p19 from "../assets/premium/19.webp";
+import p20 from "../assets/premium/20.webp";
+import p21 from "../assets/premium/21.webp";
+import p22 from "../assets/premium/22.webp";
+import p23 from "../assets/premium/23.webp";
 
-import Question from "../assets/Q.webp"
-
-
+import Question from "../assets/Q.webp";
 
 const TASTE_CATEGORIES = {
   OWOCOWE: "owocowe",
@@ -107,7 +106,6 @@ const allTastesData = {
     { id: "P-23", img: p23, title: "P | 23", details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem" },
     { id: "P-24", img: Question, title: "???", details: "Każdy dowolny smak | Na zamówienie" },
   ],
-  
 };
 
 function Taste() {
@@ -127,11 +125,17 @@ function Taste() {
 
   return (
     <>
-      <div className="">
+      <div>
         <Navigation />
       </div>
-      <div className="taste-content">
-        <div className="taste-hero">
+      
+      {/* Odpowiednik .taste-content */}
+      <div className="flex flex-col pt-5 lg:h-[80vh] lg:justify-center">
+        
+        {/* Odpowiednik .taste-hero */}
+        <div className="pt-[30px] lg:pt-0 lg:flex lg:items-center">
+          
+          {/* Kontener dla Przycisków */}
           <div>
             <Dropdown
               selectedTaste={selectedCategory}
@@ -143,17 +147,23 @@ function Taste() {
               onRandomSelect={setActiveCardId}
             />
           </div>
-          <div className="content-wrapper">
+
+          {/* Odpowiednik .content-wrapper (zachowane responsywne paddingi) */}
+          <div className="w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
             <div className="hero-container">
-              <h1>Zasady</h1>
-              <p className="taste-hero-1 pnf-h1">Ilosc = 30ml </p>
-              <p className="taste-hero-2 pnf-h1">Moc = 12mg|18mg</p>
-              <p className="taste-hero-3 pnf-h1 taste-hero-last">
+              {/* h1: mobile margin-y-15px, desktop margin-top-0 */}
+              <h1 className="mt-[15px] mb-[15px] lg:mt-0">Zasady</h1>
+              
+              {/* Odpowiedniki .pnf-h1 (m-0) oraz kolorów .taste-hero-X */}
+              <p className="m-0 text-[#585580]">Ilosc = 30ml </p>
+              <p className="m-0 text-[#640577]">Moc = 12mg|18mg</p>
+              <p className="m-0 text-[#804141] pb-[15px]">
                 Nazwa = Rodzaj - Number
               </p>
             </div>
           </div>
         </div>
+
         <Carousel
           items={currentItems}
           activeCardId={activeCardId}

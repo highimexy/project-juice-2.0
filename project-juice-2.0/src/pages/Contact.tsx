@@ -13,17 +13,21 @@ function Contact() {
   const [isSending, setIsSending] = useState(false);
   const [messageType, setMessageType] = useState("info");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.placeholder.toLowerCase()]: e.target.value,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // Uwaga: Opieranie się na placeholderze jest ryzykowne, ale zachowuję Twoją logikę.
+    // Upewnij się, że placeholdery pasują do kluczy w state (Email -> email).
+    if (e.target.placeholder) {
+        setFormData({
+            ...formData,
+            [e.target.placeholder.toLowerCase()]: e.target.value,
+        });
+    }
   };
 
   const handleSubmit = async () => {
     setIsSending(true);
     setMessage("");
-    setMessageType("info"); 
+    setMessageType("info");
 
     if (!formData.email || !formData.imie || !formData.zamowienie) {
       setMessage("Prosze wypelnic wszystkie pola!");
@@ -48,7 +52,7 @@ function Contact() {
         setMessageType("success");
         setFormData({ email: "", imie: "", zamowienie: "" });
       } else {
-        setMessage((data.msg || "Błąd serwera. Spróbuj ponownie."));
+        setMessage(data.msg || "Błąd serwera. Spróbuj ponownie.");
         setMessageType("error");
       }
     } catch (error) {
@@ -60,27 +64,36 @@ function Contact() {
     }
   };
 
+  // Wspólne style dla inputów
+  const inputClasses = "border-[3px] border-[#111111] rounded-[4px] text-[1.3rem] font-['Unbounded'] px-2 pt-0.5 placeholder-[#1111118e] w-full box-border bg-white text-black";
+
   return (
     <>
-      <div className="">
+      <div>
         <Navigation />
       </div>
-      <div className="contact content-wrapper">
-        <div className="contact-hero">
+      
+      {/* Wrapper + Contact Styles */}
+      <div className="flex flex-col items-center pt-10 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+        
+        {/* Hero Section */}
+        <div className="pt-6 text-center flex flex-col gap-2.5">
           <h1 className="contact-title">Formluarz kontakotwy</h1>
-          <p className="taste-hero-1 pnf-h1 ">Wypełnij formularz </p>
-          <p className="taste-hero-2 pnf-h1">Szybka odpowiedz</p>
-          <p className="taste-hero-3 pnf-h1 taste-hero-last">
+          <p className="m-0 text-[#585580]">Wypełnij formularz </p>
+          <p className="m-0 text-[#640577]">Szybka odpowiedz</p>
+          <p className="m-0 pb-[15px] text-[#804141]">
             Niezapomniany smak
           </p>
         </div>
+
         <BasicTile>
-          <div className="contact-formulage">
+          {/* Form Container */}
+          <div className="flex flex-col gap-[15px] w-[300px]">
             {/* EMAIL */}
-            <div className="email-input">
-              <p>Email:</p>
+            <div className="flex flex-col">
+              <p className="m-0 text-[1em] font-['Unbounded']">Email:</p>
               <input
-                className="contact-input"
+                className={`${inputClasses} h-40px`}
                 placeholder="Email"
                 type="email"
                 value={formData.email}
@@ -89,10 +102,10 @@ function Contact() {
             </div>
 
             {/* IMIE */}
-            <div className="email-input">
-              <p>Imie:</p>
+            <div className="flex flex-col">
+              <p className="m-0 text-[1em] font-['Unbounded']">Imie:</p>
               <input
-                className="contact-input"
+                className={`${inputClasses} h-40px`}
                 placeholder="Imie"
                 type="text"
                 value={formData.imie}
@@ -101,10 +114,10 @@ function Contact() {
             </div>
 
             {/* ZAMOWIENIE/TREŚĆ */}
-            <div className="email-input">
-              <p>Zamowienie:</p>
-              <textarea 
-                className="order-input"
+            <div className="flex flex-col">
+              <p className="m-0 text-[1em] font-['Unbounded']">Zamowienie:</p>
+              <textarea
+                className={`${inputClasses} h-[300px]`}
                 placeholder="Zamowienie"
                 value={formData.zamowienie}
                 onChange={(e) =>
@@ -113,11 +126,11 @@ function Contact() {
               />
             </div>
 
-            {/* 3. KOMUNIKAT ZWROTNY - DYNAMICZNA KLASA CSS */}
+            {/* 3. KOMUNIKAT ZWROTNY */}
             {message && (
               <p
-                className={`message-box ${
-                  messageType === "error" ? "message-error" : "message-success"
+                className={`text-center font-bold m-0 ${
+                  messageType === "error" ? "text-[#cc0000]" : "text-[#009900]"
                 }`}
               >
                 {message}
@@ -126,9 +139,9 @@ function Contact() {
 
             {/* BUTTON WYSYŁANIA */}
             <button
-              className="contact-send"
+              className="text-[1em] w-[300px]"
               onClick={handleSubmit}
-              disabled={isSending} // Zapobiega wielokrotnemu kliknięciu
+              disabled={isSending}
             >
               {isSending ? "Wysyłanie..." : "Wyslij Wiadomosc"}
             </button>

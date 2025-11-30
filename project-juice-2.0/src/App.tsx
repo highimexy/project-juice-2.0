@@ -4,9 +4,16 @@ import Transition from "./Transition.tsx";
 function Home() {
   return (
     <>
-      <div className="content-wrapper ">
-        <div className="home filter-drop">
-          <svg className="arc-heading" viewBox="0 0 300 100">
+      {/* Odpowiednik .content-wrapper */}
+      <div className="w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+        
+        {/* Odpowiednik .home i .filter-drop */}
+        <div className="flex flex-col justify-center items-center h-screen gap-2.5 drop-shadow-[0_5px_2em_rgb(0,0,0)]">
+          
+          <svg 
+            className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]" 
+            viewBox="0 0 300 100"
+          >
             <path
               id="arc-path"
               d="M 20,80 Q 150,0 280,80"
@@ -14,22 +21,34 @@ function Home() {
               stroke="none"
             />
 
-            <text className="arc-text ">
-              <textPath href="#arc-path" startOffset="50%" text-anchor="middle">
+            <text className="fill-[#e2e1e1] text-[48px] font-extrabold tracking-[1px] md:cursor-default">
+              <textPath href="#arc-path" startOffset="50%" textAnchor="middle">
                 JUiiCE.PL
               </textPath>
             </text>
           </svg>
-          <div className="description-container">
-            <div className="home-h1-container">
-              <h1 className="home-h1-1">- GLEBIA -</h1>
-              <h1 className="home-h1-2">- PRZYJEMNOSC -</h1>
-              <h1 className="home-h1-3">- CHARAKTER -</h1>
+
+          {/* Odpowiednik .description-container */}
+          <div className="xl:w-[800px] flex flex-col">
+            
+            {/* Odpowiednik .home-h1-container i .mb-10 */}
+            <div className="flex flex-col text-center mb-10 md:text-[20px]">
+              {/* Style h1: font-bold + kolory + globalne style h1 (leading, cursor) */}
+              <h1 className="mt-2.5 text-[1.7em] font-bold leading-[1.1] cursor-default text-[#585580]">
+                - GLEBIA -
+              </h1>
+              <h1 className="mt-2.5 text-[1.7em] font-bold leading-[1.1] cursor-default text-[#640577]">
+                - PRZYJEMNOSC -
+              </h1>
+              <h1 className="mt-2.5 text-[1.7em] font-bold leading-[1.1] cursor-default text-[#804141]">
+                - CHARAKTER -
+              </h1>
             </div>
+
             <div className="home-p-container">
-              {" "}
-              <p>
-                To nie jest kolejny chujowy liquid z drugiej reki.. <br></br>To
+              {/* Style p: globalne (font Space Grotesk, bold) + lokalne flex/center */}
+              <p className="flex text-center text-[1.4em] leading-[1.4] cursor-default font-['Space_Grotesk'] font-bold p-0">
+                To nie jest kolejny chujowy liquid z drugiej reki.. <br />To
                 kompozycja. Stworzona, by dostarczyć idealnie zbalansowane
                 doznania od pierwszej, wyrazistej nuty, aż po bogaty,
                 satysfakcjonujacy finisz. Tu nie ma miejsca na przypadek. Tylko

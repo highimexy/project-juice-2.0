@@ -8,12 +8,24 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Wspólne style dla guzików, aby nie powtarzać ich w kodzie
+  // Uwaga: Bazowe style buttona (border, font, bg) są nadal brane z globalnego index.css (chyba że chcesz je też przenieść)
+  const buttonBaseClass = "h-[40px] text-[1em]"; 
+  const desktopButtonWidth = "w-[160px]";
+
   return (
     <>
-      <div className="navigation-container">
-        <div className="nav-left">
+      {/* Container: Odpowiednik .navigation-container z responsywnym paddingiem */}
+      <div className="flex items-center justify-between box-border w-full py-5 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] 2xl:py-10">
+        
+        {/* Odpowiednik .nav-left */}
+        <div className="flex items-center gap-[15px]">
           <Link to={"/Taste"}>
-            <svg className="arc-heading" viewBox="0 0 300 100">
+            {/* SVG z klasami z .arc-heading i .arc-text */}
+            <svg 
+              className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]" 
+              viewBox="0 0 300 100"
+            >
               <path
                 id="arc-path"
                 d="M 20,80 Q 150,0 280,80"
@@ -21,11 +33,11 @@ function Navbar() {
                 stroke="none"
               />
 
-              <text className="arc-text">
+              <text className="fill-[#e2e1e1] text-[48px] font-extrabold tracking-[1px] cursor-pointer md:cursor-default">
                 <textPath
                   href="#arc-path"
                   startOffset="50%"
-                  text-anchor="middle"
+                  textAnchor="middle"
                 >
                   JUiiCE.PL
                 </textPath>
@@ -34,20 +46,28 @@ function Navbar() {
           </Link>
         </div>
 
-        <div className="menu-container desktop-menu">
+        {/* Desktop Menu: .menu-container .desktop-menu */}
+        <div className="hidden lg:flex gap-[15px] mt-0">
           <Link to={"/Kontakt"}>
-            <button className="home-h1-1">Kontakt</button>
+            <button className={`${buttonBaseClass} ${desktopButtonWidth} text-[#585580]`}>
+              Kontakt
+            </button>
           </Link>
           <Link to={"/Polecane"}>
-            <button className="home-h1-2">Polecane</button>
+            <button className={`${buttonBaseClass} ${desktopButtonWidth} text-[#640577]`}>
+              Polecane
+            </button>
           </Link>
           <Link to={"/Slot"}>
-            <button className="home-h1-3">???</button>
+            <button className={`${buttonBaseClass} ${desktopButtonWidth} text-[#804141]`}>
+              ???
+            </button>
           </Link>
         </div>
 
+        {/* Hamburger Button: .hamburger-menu */}
         <button
-          className="hamburger-menu"
+          className="block lg:hidden bg-transparent border-none text-white/87 cursor-pointer p-2 w-auto"
           onClick={toggleMenu}
           aria-label="Otwórz menu"
         >
@@ -57,6 +77,7 @@ function Navbar() {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
+            className="w-8 h-8"
           >
             <path
               strokeLinecap="round"
@@ -67,25 +88,37 @@ function Navbar() {
         </button>
       </div>
 
-      <div className={`mobile-menu-overlay ${isMenuOpen ? "active" : ""}`}>
-        <div className="mobile-menu-header">
-          <button onClick={toggleMenu} aria-label="Zamknij menu">
-            <h1>back</h1>
+      {/* Mobile Menu Overlay: .mobile-menu-overlay */}
+      <div
+        className={`fixed top-0 left-0 w-full h-screen bg-[#1a1a1a] z-100 transition-transform duration-300 ease-in-out flex flex-col box-border py-5 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] 2xl:py-10 ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Header: .mobile-menu-header */}
+        <div className="flex justify-start">
+          <button 
+            onClick={toggleMenu} 
+            aria-label="Zamknij menu"
+            className="bg-transparent border-none text-white/87 p-2 w-auto"
+          >
+            <h1 className="text-[1.5em] m-0">back</h1>
           </button>
         </div>
-        <div className="mobile-menu-links">
-          <Link to={"/Kontakt"}>
-            <button className="home-h1-1" onClick={toggleMenu}>
+
+        {/* Links: .mobile-menu-links */}
+        <div className="flex flex-col items-center gap-5 mt-10">
+          <Link to={"/Kontakt"} className="w-full flex justify-center">
+            <button className="w-[90%] text-[#585580]" onClick={toggleMenu}>
               Kontakt
             </button>
           </Link>
-          <Link to={"/Polecane"}>
-            <button className="home-h1-2" onClick={toggleMenu}>
+          <Link to={"/Polecane"} className="w-full flex justify-center">
+            <button className="w-[90%] text-[#640577]" onClick={toggleMenu}>
               Polecane
             </button>
           </Link>
-          <Link to={"/Slot"}>
-            <button className="home-h1-3" onClick={toggleMenu}>
+          <Link to={"/Slot"} className="w-full flex justify-center">
+            <button className="w-[90%] text-[#804141]" onClick={toggleMenu}>
               ???
             </button>
           </Link>
