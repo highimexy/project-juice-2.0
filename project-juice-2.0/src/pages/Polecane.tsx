@@ -4,14 +4,20 @@ import TransitionOposite from "../TransitionOposite.tsx";
 function Polecane() {
   return (
     <>
-      <div className="">
+      <div>
         <Navigation />
       </div>
-      <div className="polecane content-wrapper">
-        <h1 className="polecane-title">Praca w toku...</h1>
-        <p className="taste-hero-1">Na tej stronie beda artykuly</p>
-        <p className="taste-hero-2">z Polski i swiata</p>
-        <p className="taste-hero-3">dotyczace ogolnopojetego tematu vapowania</p>
+      <div className="flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+        <h1>Praca w toku...</h1>
+        <p className="mt-[5px] text-[#585580]">
+          Na tej stronie beda artykuly
+        </p>
+        <p className="mt-[5px] text-[#640577]">
+          z Polski i swiata
+        </p>
+        <p className="mt-[5px] text-[#804141]">
+          dotyczace ogolnopojetego tematu vapowania
+        </p>
       </div>
     </>
   );

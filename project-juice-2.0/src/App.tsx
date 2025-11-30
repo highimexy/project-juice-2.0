@@ -4,14 +4,10 @@ import Transition from "./Transition.tsx";
 function Home() {
   return (
     <>
-      {/* Odpowiednik .content-wrapper */}
       <div className="w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
-        
-        {/* Odpowiednik .home i .filter-drop */}
         <div className="flex flex-col justify-center items-center h-screen gap-2.5 drop-shadow-[0_5px_2em_rgb(0,0,0)]">
-          
-          <svg 
-            className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]" 
+          <svg
+            className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]"
             viewBox="0 0 300 100"
           >
             <path
@@ -28,28 +24,23 @@ function Home() {
             </text>
           </svg>
 
-          {/* Odpowiednik .description-container */}
           <div className="xl:w-[800px] flex flex-col">
-            
-            {/* Odpowiednik .home-h1-container i .mb-10 */}
-            <div className="flex flex-col text-center mb-10 md:text-[20px]">
-              {/* Style h1: font-bold + kolory + globalne style h1 (leading, cursor) */}
-              <h1 className="mt-2.5 text-[1.7em] font-bold leading-[1.1] cursor-default text-[#585580]">
+            <div className="flex flex-col text-center mb-10">
+              <h1 className="mt-2.5 font-bold cursor-default text-[#585580]">
                 - GLEBIA -
               </h1>
-              <h1 className="mt-2.5 text-[1.7em] font-bold leading-[1.1] cursor-default text-[#640577]">
+              <h1 className="mt-2.5 font-bold cursor-default text-[#640577]">
                 - PRZYJEMNOSC -
               </h1>
-              <h1 className="mt-2.5 text-[1.7em] font-bold leading-[1.1] cursor-default text-[#804141]">
+              <h1 className="mt-2.5 font-bold cursor-default text-[#804141]">
                 - CHARAKTER -
               </h1>
             </div>
 
             <div className="home-p-container">
-              {/* Style p: globalne (font Space Grotesk, bold) + lokalne flex/center */}
-              <p className="flex text-center text-[1.4em] leading-[1.4] cursor-default font-['Space_Grotesk'] font-bold p-0">
-                To nie jest kolejny chujowy liquid z drugiej reki.. <br />To
-                kompozycja. Stworzona, by dostarczyć idealnie zbalansowane
+              <p className="flex text-center cursor-default font-bold p-0">
+                To nie jest kolejny chujowy liquid z drugiej reki.. <br />
+                To kompozycja. Stworzona, by dostarczyć idealnie zbalansowane
                 doznania od pierwszej, wyrazistej nuty, aż po bogaty,
                 satysfakcjonujacy finisz. Tu nie ma miejsca na przypadek. Tylko
                 mistrzowska receptura i czysta przyjemnosc. Poczuj roznice.

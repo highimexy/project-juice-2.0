@@ -14,8 +14,6 @@ function Contact() {
   const [messageType, setMessageType] = useState("info");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    // Uwaga: Opieranie się na placeholderze jest ryzykowne, ale zachowuję Twoją logikę.
-    // Upewnij się, że placeholdery pasują do kluczy w state (Email -> email).
     if (e.target.placeholder) {
         setFormData({
             ...formData,
@@ -64,7 +62,6 @@ function Contact() {
     }
   };
 
-  // Wspólne style dla inputów
   const inputClasses = "border-[3px] border-[#111111] rounded-[4px] text-[1.3rem] font-['Unbounded'] px-2 pt-0.5 placeholder-[#1111118e] w-full box-border bg-white text-black";
 
   return (
@@ -72,11 +69,7 @@ function Contact() {
       <div>
         <Navigation />
       </div>
-      
-      {/* Wrapper + Contact Styles */}
       <div className="flex flex-col items-center pt-10 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
-        
-        {/* Hero Section */}
         <div className="pt-6 text-center flex flex-col gap-2.5">
           <h1 className="contact-title">Formluarz kontakotwy</h1>
           <p className="m-0 text-[#585580]">Wypełnij formularz </p>
@@ -87,9 +80,7 @@ function Contact() {
         </div>
 
         <BasicTile>
-          {/* Form Container */}
           <div className="flex flex-col gap-[15px] w-[300px]">
-            {/* EMAIL */}
             <div className="flex flex-col">
               <p className="m-0 text-[1em] font-['Unbounded']">Email:</p>
               <input
@@ -100,8 +91,6 @@ function Contact() {
                 onChange={handleChange}
               />
             </div>
-
-            {/* IMIE */}
             <div className="flex flex-col">
               <p className="m-0 text-[1em] font-['Unbounded']">Imie:</p>
               <input
@@ -112,8 +101,6 @@ function Contact() {
                 onChange={handleChange}
               />
             </div>
-
-            {/* ZAMOWIENIE/TREŚĆ */}
             <div className="flex flex-col">
               <p className="m-0 text-[1em] font-['Unbounded']">Zamowienie:</p>
               <textarea
@@ -125,8 +112,6 @@ function Contact() {
                 }
               />
             </div>
-
-            {/* 3. KOMUNIKAT ZWROTNY */}
             {message && (
               <p
                 className={`text-center font-bold m-0 ${
@@ -136,8 +121,6 @@ function Contact() {
                 {message}
               </p>
             )}
-
-            {/* BUTTON WYSYŁANIA */}
             <button
               className="text-[1em] w-[300px]"
               onClick={handleSubmit}

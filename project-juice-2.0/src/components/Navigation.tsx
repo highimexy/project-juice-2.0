@@ -8,22 +8,16 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Wspólne style dla guzików, aby nie powtarzać ich w kodzie
-  // Uwaga: Bazowe style buttona (border, font, bg) są nadal brane z globalnego index.css (chyba że chcesz je też przenieść)
-  const buttonBaseClass = "h-[40px] text-[1em]"; 
+  const buttonBaseClass = "h-[40px] text-[1em]";
   const desktopButtonWidth = "w-[160px]";
 
   return (
     <>
-      {/* Container: Odpowiednik .navigation-container z responsywnym paddingiem */}
       <div className="flex items-center justify-between box-border w-full py-5 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] 2xl:py-10">
-        
-        {/* Odpowiednik .nav-left */}
-        <div className="flex items-center gap-[15px]">
+        <div className="flex items-center gap-[22px]">
           <Link to={"/Taste"}>
-            {/* SVG z klasami z .arc-heading i .arc-text */}
-            <svg 
-              className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]" 
+            <svg
+              className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]"
               viewBox="0 0 300 100"
             >
               <path
@@ -46,28 +40,32 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Menu: .menu-container .desktop-menu */}
-        <div className="hidden lg:flex gap-[15px] mt-0">
+        <div className="hidden lg:flex gap-[15px]">
           <Link to={"/Kontakt"}>
-            <button className={`${buttonBaseClass} ${desktopButtonWidth} text-[#585580]`}>
+            <button
+              className={`${buttonBaseClass} ${desktopButtonWidth} flex items-center justify-center text-[#585580]`}
+            >
               Kontakt
             </button>
           </Link>
           <Link to={"/Polecane"}>
-            <button className={`${buttonBaseClass} ${desktopButtonWidth} text-[#640577]`}>
+            <button
+              className={`${buttonBaseClass} ${desktopButtonWidth} flex items-center justify-center text-[#640577]`}
+            >
               Polecane
             </button>
           </Link>
           <Link to={"/Slot"}>
-            <button className={`${buttonBaseClass} ${desktopButtonWidth} text-[#804141]`}>
+            <button
+              className={`${buttonBaseClass} ${desktopButtonWidth} flex items-center justify-center text-[#804141]`}
+            >
               ???
             </button>
           </Link>
         </div>
 
-        {/* Hamburger Button: .hamburger-menu */}
         <button
-          className="block lg:hidden bg-transparent border-none text-white/87 cursor-pointer p-2 w-auto"
+          className="block lg:hidden bg-transparent text-white cursor-pointer"
           onClick={toggleMenu}
           aria-label="Otwórz menu"
         >
@@ -88,16 +86,14 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay: .mobile-menu-overlay */}
       <div
         className={`fixed top-0 left-0 w-full h-screen bg-[#1a1a1a] z-100 transition-transform duration-300 ease-in-out flex flex-col box-border py-5 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] 2xl:py-10 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Header: .mobile-menu-header */}
         <div className="flex justify-start">
-          <button 
-            onClick={toggleMenu} 
+          <button
+            onClick={toggleMenu}
             aria-label="Zamknij menu"
             className="bg-transparent border-none text-white/87 p-2 w-auto"
           >
@@ -105,7 +101,6 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Links: .mobile-menu-links */}
         <div className="flex flex-col items-center gap-5 mt-10">
           <Link to={"/Kontakt"} className="w-full flex justify-center">
             <button className="w-[90%] text-[#585580]" onClick={toggleMenu}>

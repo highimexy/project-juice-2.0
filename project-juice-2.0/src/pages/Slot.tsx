@@ -30,25 +30,14 @@ function Slot() {
       <div>
         <Navigation />
       </div>
-      
-      {/* 1. Odpowiednik .polecane (flex col, center, pt-100)
-         2. Odpowiednik .content-wrapper (responsywne paddingi)
-      */}
       <div className="flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <h1>Koło Fortuny!</h1>
-        
-        {/* Odpowiednik .polecane p (mt-5px) + kolor .taste-hero-1 */}
         <p className="mt-[5px] text-[#585580]">
-            Zakręć kołem i spróbuj wygrać zniżkę!
+          Zakręć kołem i spróbuj wygrać zniżkę!
         </p>
-        
-        {/* Odpowiednik .polecane p (mt-5px) + kolor .taste-hero-2 */}
         <p className="mt-[5px] text-[#640577]">
           Masz szansę na otrzymanie procentowych zniżek.
         </p>
-
-        {/* WYNIK WIDOCZNY NAD KOŁEM */}
-        {/* Przeniesiono inline styles do Tailwinda */}
         <div
           className={`text-center text-[1.2em] font-bold ${
             wynik && wynik.includes("Nic") ? "text-[#cc0000]" : "text-[#009900]"
@@ -61,7 +50,6 @@ function Slot() {
         </div>
       </div>
 
-      {/* Kontener Koła: Przeniesiono inline styles do Tailwinda */}
       <div className="flex justify-center my-10">
         <WheelCustom
           segments={segments}

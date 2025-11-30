@@ -271,10 +271,6 @@
   color: white;
 }
 
-/* --- LOGIKA POKAZYWANIA --- */
-
-/* 5.A. Pokazywanie przez React (dla Mobile onClick) */
-/* Tę klasę dodaje React, gdy isFlipped=true */
 .carousel-card.pokaz-tresc .ukryta-tresc {
   opacity: 1;
 }
