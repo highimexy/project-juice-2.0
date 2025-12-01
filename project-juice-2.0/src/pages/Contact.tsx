@@ -70,7 +70,7 @@ function Contact() {
         <Navigation />
       </div>
       <div className="flex flex-col items-center pt-10 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
-        <div className="pt-6 text-center flex flex-col gap-2.5">
+        <div className="mb-10 pt-6 text-center flex flex-col gap-2.5">
           <h1 className="contact-title">Formluarz kontakotwy</h1>
           <p className="m-0 text-[#585580]">Wypełnij formularz </p>
           <p className="m-0 text-[#640577]">Szybka odpowiedz</p>
