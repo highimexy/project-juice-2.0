@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
+
 @import "tailwindcss";
 
 :root {
@@ -13,10 +14,17 @@
 }
 
 body {
-  margin: 0;
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Zastąp #242424, 0.7 przez żądany kolor i krycie */
+  background-image: linear-gradient(rgba(26, 25, 25, 0.925), rgba(36, 36, 36, 0.7)), 
+                    url('./assets/background.png');
+  /* Wartość 36, 36, 36 to RGB dla #242424. 0.7 to krycie. */
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  min-height: 100vh; 
 }
 
 h1 {

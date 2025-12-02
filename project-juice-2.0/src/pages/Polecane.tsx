@@ -11,11 +11,29 @@ interface ArticleCard {
 function Polecane() {
   // Tablica z dodanym unikalnym, stabilnym polem 'id'
   const ArticleCards: ArticleCard[] = [
-    {id: "1", title: "Title 1", description: "description 1", path: "/"},
-    {id: "2", title: "Title 2", description: "description 2", path: "/"},
-    {id: "3", title: "Title 3", description: "description 3", path: "/"},
+    {
+      id: "1",
+      title: "Title 1",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo luctus, sodales diam eget, varius lorem. Donec ornare ultricies turpis, quis sodales nisi tincidunt non.",
+      path: "/",
+    },
+    {
+      id: "2",
+      title: "Title 2",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo luctus, sodales diam eget, varius lorem. Donec ornare ultricies turpis, quis sodales nisi tincidunt non.",
+      path: "/",
+    },
+    {
+      id: "3",
+      title: "Title 3",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo luctus, sodales diam eget, varius lorem. Donec ornare ultricies turpis, quis sodales nisi tincidunt non.",
+      path: "/",
+    },
   ];
-  
+
   return (
     <>
       <div>
@@ -31,15 +49,13 @@ function Polecane() {
           dotyczace ogolnopojetego tematu vapowania
         </p>
       </div>
-      
+
       <div className="flex flex-col gap-4 md:flex md:flex-row">
         {ArticleCards.map((card) => (
           <BasicTile key={card.id}>
             <div>
               <h1 className="mb-4">{card.title}</h1>
-              <p>
-                {card.description}
-              </p>
+              <p>{card.description}</p>
             </div>
           </BasicTile>
         ))}
