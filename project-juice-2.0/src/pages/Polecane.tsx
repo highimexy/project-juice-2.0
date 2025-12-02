@@ -3,6 +3,24 @@ import Navigation from "../components/Navigation.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
 
 function Polecane() {
+  const ArticleCards = [{
+    id: 1,
+    title: "Title 1",
+    description: "description 1",
+    path: "/"
+  },
+  {
+    id: 2,
+    title: "Title 2",
+    description: "description 2",
+    path: "/"
+  },
+  {
+    id: 3,
+    title: "Title 3",
+    description: "description 3",
+    path: "/"
+  }]
   return (
     <>
       <div>
