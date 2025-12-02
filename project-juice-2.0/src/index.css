@@ -67,21 +67,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.dropdown select {
-  background-color: #1a1a1a;
-  border: 2px solid #1a1a1a;
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  font-weight: 900;
-  font-family: Unbounded;
-  width: 100%;
-  max-width: 350px;
-  box-sizing: border-box;
-  font-size: 20px;
-}
 
-.dropdown select:hover {
-  border: 2px solid white;
-}
+
+
