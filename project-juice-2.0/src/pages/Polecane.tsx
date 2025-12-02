@@ -2,25 +2,20 @@ import { BasicTile } from "../components/BasicTile/BasicTile.tsx";
 import Navigation from "../components/Navigation.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
 
+interface ArticleCard {
+  id: string;
+  title: string;
+  description: string;
+  path: string;
+}
 function Polecane() {
-  const ArticleCards = [{
-    id: 1,
-    title: "Title 1",
-    description: "description 1",
-    path: "/"
-  },
-  {
-    id: 2,
-    title: "Title 2",
-    description: "description 2",
-    path: "/"
-  },
-  {
-    id: 3,
-    title: "Title 3",
-    description: "description 3",
-    path: "/"
-  }]
+  // Tablica z dodanym unikalnym, stabilnym polem 'id'
+  const ArticleCards: ArticleCard[] = [
+    {id: "1", title: "Title 1", description: "description 1", path: "/"},
+    {id: "2", title: "Title 2", description: "description 2", path: "/"},
+    {id: "3", title: "Title 3", description: "description 3", path: "/"},
+  ];
+  
   return (
     <>
       <div>
@@ -36,40 +31,18 @@ function Polecane() {
           dotyczace ogolnopojetego tematu vapowania
         </p>
       </div>
+      
       <div className="flex flex-col gap-4 md:flex md:flex-row">
-        <BasicTile>
-          <div>
-            <h1 className="mb-4">Artykuł 1</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              repudiandae quasi doloribus et incidunt minus facilis nesciunt
-              quia accusantium quas, vel quibusdam vitae laudantium, blanditiis
-              necessitatibus officia, ea nobis eum?e
-            </p>
-          </div>
-        </BasicTile>
-        <BasicTile>
-          <div>
-            <h1 className="mb-4">Artykuł 1</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              repudiandae quasi doloribus et incidunt minus facilis nesciunt
-              quia accusantium quas, vel quibusdam vitae laudantium, blanditiis
-              necessitatibus officia, ea nobis eum?e
-            </p>
-          </div>
-        </BasicTile>
-        <BasicTile>
-          <div>
-            <h1 className="mb-4">Artykuł 1</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              repudiandae quasi doloribus et incidunt minus facilis nesciunt
-              quia accusantium quas, vel quibusdam vitae laudantium, blanditiis
-              necessitatibus officia, ea nobis eum?e
-            </p>
-          </div>
-        </BasicTile>
+        {ArticleCards.map((card) => (
+          <BasicTile key={card.id}>
+            <div>
+              <h1 className="mb-4">{card.title}</h1>
+              <p>
+                {card.description}
+              </p>
+            </div>
+          </BasicTile>
+        ))}
       </div>
     </>
   );
