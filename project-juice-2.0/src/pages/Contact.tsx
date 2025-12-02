@@ -13,12 +13,14 @@ function Contact() {
   const [isSending, setIsSending] = useState(false);
   const [messageType, setMessageType] = useState("info");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     if (e.target.placeholder) {
-        setFormData({
-            ...formData,
-            [e.target.placeholder.toLowerCase()]: e.target.value,
-        });
+      setFormData({
+        ...formData,
+        [e.target.placeholder.toLowerCase()]: e.target.value,
+      });
     }
   };
 
@@ -62,7 +64,8 @@ function Contact() {
     }
   };
 
-  const inputClasses = "border-[3px] border-[#111111] rounded-[4px] text-[1.3rem] font-['Unbounded'] px-2 pt-0.5 placeholder-[#1111118e] w-full box-border bg-white text-black";
+  const inputClasses =
+    "border-[2px] border-[#111111] rounded-[4px] text-[1.3rem] font-['Unbounded'] px-2 pt-0.5 placeholder-[#1111118e] w-full box-border bg-white text-black";
 
   return (
     <>
@@ -71,18 +74,16 @@ function Contact() {
       </div>
       <div className="flex flex-col items-center pt-10 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <div className="mb-10 pt-6 text-center flex flex-col gap-2.5">
-          <h1 className="contact-title">Formluarz kontakotwy</h1>
-          <p className="m-0 text-[#585580]">Wypełnij formularz </p>
-          <p className="m-0 text-[#640577]">Szybka odpowiedz</p>
-          <p className="m-0 pb-[15px] text-[#804141]">
-            Niezapomniany smak
-          </p>
+          <h1 className="font-bold">Formluarz kontakotwy</h1>
+          <p className="text-[#585580]">Wypełnij formularz </p>
+          <p className="text-[#640577]">Szybka odpowiedz</p>
+          <p className="pb-[15px] text-[#804141]">Niezapomniany smak</p>
         </div>
 
         <BasicTile>
           <div className="flex flex-col">
             <div className="flex flex-col">
-              <p className="m-0">Email:</p>
+              <p className="">Email</p>
               <input
                 className={`${inputClasses} h-40px`}
                 placeholder="Email"
@@ -92,7 +93,7 @@ function Contact() {
               />
             </div>
             <div className="flex flex-col">
-              <p className="m-0 text-[1em] font-['Unbounded']">Imie:</p>
+              <p className="">Imie</p>
               <input
                 className={`${inputClasses} h-40px`}
                 placeholder="Imie"
@@ -102,7 +103,7 @@ function Contact() {
               />
             </div>
             <div className="flex flex-col">
-              <p className="m-0 text-[1em] font-['Unbounded']">Zamowienie:</p>
+              <p className="">Zamowienie</p>
               <textarea
                 className={`${inputClasses} h-[300px]`}
                 placeholder="Zamowienie"
@@ -121,13 +122,15 @@ function Contact() {
                 {message}
               </p>
             )}
-            <button
-              className="text-[1em] w-[300px]"
-              onClick={handleSubmit}
-              disabled={isSending}
-            >
-              {isSending ? "Wysyłanie..." : "Wyslij Wiadomosc"}
-            </button>
+            <div className="pt-4">
+              <button
+                className="w-[314px]"
+                onClick={handleSubmit}
+                disabled={isSending}
+              >
+                {isSending ? "Wysyłanie..." : "Wyslij Wiadomosc"}
+              </button>
+            </div>
           </div>
         </BasicTile>
       </div>
