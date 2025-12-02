@@ -12,20 +12,16 @@ function Dropdown({ selectedTaste, onTasteChange }: DropdownProps) {
 
   return (
     <>
-      {/* Odpowiednik .content-wrapper-left: responsywne paddingi tylko z lewej strony */}
       <div className="pl-4 pr-0 md:pl-8 lg:pl-[62px] xl:pl-[104px] 2xl:pl-[200px]">
         <div>
           <div>
             <select
               value={selectedTaste}
               onChange={handleTasteChange}
-              // Style przeniesione z .dropdown select:
-              // - Wygląd (bg, border, radius, font)
-              // - Wymiary (w-full, max-w, mb)
-              // - Interakcja (cursor, hover, transition)
+
               className="
-                bg-[#1a1a1a] 
-                border-2 border-[#1a1a1a] 
+                bg-[#111010] 
+                border-2 border-[#000000] 
                 rounded-lg 
                 p-2.5 
                 mb-[15px] 
