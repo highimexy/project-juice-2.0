@@ -26,13 +26,13 @@ function Home() {
 
           <div className="xl:w-[800px] flex flex-col">
             <div className="flex flex-col text-center mb-10">
-              <h1 className="mt-2.5 font-bold cursor-default text-[#585580]">
+              <h1 className="text-3xl md:text-5xl mt-2.5 font-bold cursor-default text-[#585580]">
                 - GLEBIA -
               </h1>
-              <h1 className="mt-2.5 font-bold cursor-default text-[#640577]">
+              <h1 className="text-3xl md:text-5xl mt-2.5 font-bold cursor-default text-[#640577]">
                 - PRZYJEMNOSC -
               </h1>
-              <h1 className="mt-2.5 font-bold cursor-default text-[#804141]">
+              <h1 className="text-3xl md:text-5xl mt-2.5 font-bold cursor-default text-[#804141]">
                 - CHARAKTER -
               </h1>
             </div>

@@ -40,25 +40,26 @@ function Polecane() {
         <Navigation />
       </div>
       <div className="mb-10 flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
-        <h1>INFORMACJE</h1>
-        <p className="mt-[5px] text-[#585580]">
-          Poradniki, artykuły, ciekawostki
-        </p>
-        <p className="mt-[5px] text-[#640577]">z Polski i swiata</p>
-        <p className="mt-[5px] text-[#804141]">
-          dotyczace ogolnopojetego tematu vapowania
-        </p>
-      </div>
-
-      <div className="flex flex-col gap-4 md:flex md:flex-row">
-        {ArticleCards.map((card) => (
-          <BasicTile key={card.id}>
-            <div>
-              <h1 className="mb-4">{card.title}</h1>
-              <p>{card.description}</p>
-            </div>
-          </BasicTile>
-        ))}
+        <div className="pb-10">
+          <h1 className="font-bold text-4xl md:text-5xl">INFORMACJE</h1>
+          <p className="mt-[5px] text-[#585580]">
+            Poradniki, artykuły, ciekawostki
+          </p>
+          <p className="mt-[5px] text-[#640577]">z Polski i swiata</p>
+          <p className="mt-[5px] text-[#804141]">
+            dotyczace ogolnopojetego tematu vapowania
+          </p>
+        </div>
+        <div className="flex flex-col gap-4 md:flex md:flex-row">
+          {ArticleCards.map((card) => (
+            <BasicTile key={card.id}>
+              <div>
+                <h1 className="mb-4">{card.title}</h1>
+                <p>{card.description}</p>
+              </div>
+            </BasicTile>
+          ))}
+        </div>
       </div>
     </>
   );

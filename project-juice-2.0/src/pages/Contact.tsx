@@ -72,9 +72,11 @@ function Contact() {
       <div>
         <Navigation />
       </div>
-      <div className="flex flex-col items-center pt-10 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
-        <div className="mb-10 pt-6 text-center flex flex-col gap-2.5">
-          <h1 className="font-bold">Formluarz kontakotwy</h1>
+      <div className="mb-10 flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+        <div className="pb-10">
+          <h1 className="font-bold text-4xl md:text-5xl">
+            Formluarz kontakotwy
+          </h1>
           <p className="text-[#585580]">Wypełnij formularz </p>
           <p className="text-[#640577]">Szybka odpowiedz</p>
           <p className="pb-[15px] text-[#804141]">Niezapomniany smak</p>
