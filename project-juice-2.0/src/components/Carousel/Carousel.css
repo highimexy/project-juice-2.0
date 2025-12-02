@@ -19,21 +19,22 @@
 }
 
 .carousel-nav-mobile button {
-  background-color: #111010;
-  border: 2px solid #111010;
+  background-color: #ffffffe3;
+  border: 2px solid #3a3a3a;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   padding: 0;
   font-size: 30px;
   font-family: "Unbounded";
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   cursor: pointer;
   transition: border-color 0.25s;
+  outline: #000000;
 }
 
 .carousel-nav-mobile button:hover {
-  border: 2px solid white;
+  border: 2px solid rgb(0, 0, 0);
 }
 
 .carousel-btn.desktop {
@@ -44,20 +45,21 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  background-color: #111010;
-  border: 2px solid #000000;
+  background-color: #ffffffe3;
+  border: 2px solid #3a3a3a;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   font-size: 30px;
   font-family: "Unbounded";
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   cursor: pointer;
   transition: border-color 0.25s;
+  outline: #000000;
 }
 
 .carousel-btn.desktop:hover {
-  border: 2px solid white;
+  border: 2px solid rgb(0, 0, 0);
 }
 
 .carousel-btn.desktop.prev {
@@ -141,7 +143,7 @@
   transform: scale(1.2);
 }
 
-.ukryta-tresc h4{
+.ukryta-tresc h4 {
   font-size: 2em;
   margin: 0px;
 }

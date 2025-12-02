@@ -17,6 +17,7 @@ interface CarouselProps {
 
 function Carousel({ items, activeCardId, onActiveCardChange }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (activeCardId && carouselRef.current) {
       const cardElement = carouselRef.current.querySelector<HTMLElement>(
@@ -32,6 +33,16 @@ function Carousel({ items, activeCardId, onActiveCardChange }: CarouselProps) {
       }
     }
   }, [activeCardId]);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+      onActiveCardChange(null);
+    }
+  }, [items, onActiveCardChange]);
 
   const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
@@ -56,10 +67,9 @@ function Carousel({ items, activeCardId, onActiveCardChange }: CarouselProps) {
   };
 
   return (
-    <div className="w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+    <div className="w-full box-border pl-4 md:pl-8 lg:pl-[62px] xl:pl-[104px] 2xl:pl-[200px]">
       <div className="carousel-nav-mobile">
         <button onClick={() => scroll("left")}>&lt;</button>
-
         <button onClick={() => scroll("right")}>&gt;</button>
       </div>
 

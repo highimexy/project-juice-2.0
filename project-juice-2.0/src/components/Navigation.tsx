@@ -15,32 +15,33 @@ function Navbar() {
     <>
       <div className="flex items-center justify-between box-border w-full py-5 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] 2xl:py-10">
         <div className="flex items-center gap-[22px]">
-          <Link to={"/Taste"}>
-            <svg
-              className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]"
-              viewBox="0 0 300 100"
-            >
-              <path
-                id="arc-path"
-                d="M 20,80 Q 150,0 280,80"
-                fill="none"
-                stroke="none"
-              />
+          <svg
+            className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]"
+            viewBox="0 0 300 100"
+          >
+            <path
+              id="arc-path"
+              d="M 20,80 Q 150,0 280,80"
+              fill="none"
+              stroke="none"
+            />
 
-              <text className="fill-[#e2e1e1] text-[48px] font-extrabold tracking-[1px] cursor-pointer md:cursor-default">
-                <textPath
-                  href="#arc-path"
-                  startOffset="50%"
-                  textAnchor="middle"
-                >
-                  JUiiCE.PL
-                </textPath>
-              </text>
-            </svg>
-          </Link>
+            <text className="fill-[#e2e1e1] text-[48px] font-extrabold tracking-[1px] cursor-pointer md:cursor-default">
+              <textPath href="#arc-path" startOffset="50%" textAnchor="middle">
+                JUiiCE.PL
+              </textPath>
+            </text>
+          </svg>
         </div>
 
         <div className="hidden lg:flex gap-[15px]">
+          <Link to={"/Taste"}>
+            <button
+              className={`${buttonBaseClass} ${desktopButtonWidth} flex items-center justify-center text-white`}
+            >
+              Smaki
+            </button>
+          </Link>
           <Link to={"/Kontakt"}>
             <button
               className={`${buttonBaseClass} ${desktopButtonWidth} flex items-center justify-center text-[#585580]`}
@@ -102,6 +103,11 @@ function Navbar() {
         </div>
 
         <div className="flex flex-col items-center gap-5 mt-10">
+          <Link to={"/Kontakt"} className="w-full flex justify-center">
+            <button className="w-[90%] text-white" onClick={toggleMenu}>
+              Smaki
+            </button>
+          </Link>
           <Link to={"/Kontakt"} className="w-full flex justify-center">
             <button className="w-[90%] text-[#585580]" onClick={toggleMenu}>
               Kontakt

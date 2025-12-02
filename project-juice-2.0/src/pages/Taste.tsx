@@ -145,7 +145,7 @@ function Taste() {
           </div>
           <div className="w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px]">
             <div className="hero-container">
-              <h1 className="font-bold mt-[15px] mb-[15px] lg:mt-0">Zasady</h1>
+              <h1 className="font-bold text-5xl mt-[15px] mb-[15px] lg:mt-0">Zasady</h1>
               <p className="m-0 text-[#585580]">Ilosc = 30ml </p>
               <p className="m-0 text-[#640577]">Moc = 12mg|18mg</p>
               <p className="m-0 text-[#804141] pb-[15px]">

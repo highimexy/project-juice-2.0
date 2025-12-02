@@ -27,7 +27,7 @@ function RandomBtn({ items, selectedId, onRandomSelect }: RandomBtnProps) {
             className="w-[350px] h-80px leading-[1.4]"
           >
             Wylosuj smak<br></br>
-            {selectedId || "???"}
+            {selectedId || "[?]"}
           </button>
         </div>
       </div>
