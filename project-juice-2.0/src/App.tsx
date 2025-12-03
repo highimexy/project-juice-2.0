@@ -27,10 +27,10 @@ function Home() {
           <div className="xl:w-[800px] flex flex-col">
             <div className="flex flex-col text-center mb-10">
               <h1 className="text-3xl md:text-5xl font-bold cursor-default text-[#585580]">
-                - GLEBIA -
+                - GŁĘBIA -
               </h1>
               <h1 className="text-3xl md:text-5xl mt-2.5 font-bold cursor-default text-[#640577]">
-                - PRZYJEMNOSC -
+                - PRZYJEMNOŚĆ -
               </h1>
               <h1 className="text-3xl md:text-5xl mt-2.5 font-bold cursor-default text-[#804141]">
                 - CHARAKTER -
@@ -38,16 +38,17 @@ function Home() {
             </div>
 
             <div className="home-p-container">
-              <p className="flex text-center cursor-default font-bold p-0">
-                To nie jest kolejny chujowy liquid z drugiej reki.. <br />
+              <p className="flex text-center cursor-default font-bold">
+                To nie jest kolejny chujowy liquid z drugiej ręki... <br />
                 To kompozycja. Stworzona, by dostarczyć idealnie zbalansowane
                 doznania od pierwszej, wyrazistej nuty, aż po bogaty,
-                satysfakcjonujacy finisz. Tu nie ma miejsca na przypadek. Tylko
-                mistrzowska receptura i czysta przyjemnosc. Poczuj roznice.
+                satysfakcjonujacy finisz. Tu nie ma miejsca na przypadek.
               </p>
             </div>
           </div>
-          <MainButton />
+          <div className="pt-8">
+            <MainButton />
+          </div>
         </div>
       </div>
     </>

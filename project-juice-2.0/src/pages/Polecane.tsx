@@ -53,7 +53,7 @@ function Polecane() {
         <div className="flex flex-col gap-4 md:flex md:flex-row">
           {ArticleCards.map((card) => (
             <BasicTile key={card.id}>
-              <div>
+              <div className="">
                 <h1 className="mb-4">{card.title}</h1>
                 <p>{card.description}</p>
               </div>
