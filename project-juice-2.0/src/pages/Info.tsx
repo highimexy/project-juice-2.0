@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import { BasicTile } from "../components/BasicTile/BasicTile.tsx";
 import Navigation from "../components/Navigation.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
+import ArticleModal from "../components/ArticleModal/ArticleModal.tsx";
 
 import { GrHistory } from "react-icons/gr";
 import { IoBuildOutline } from "react-icons/io5";
@@ -15,7 +17,10 @@ interface ArticleCard {
   path: string;
   icon: React.ReactNode;
 }
+
 function Info() {
+  const [selectedCard, setSelectedCard] = useState<ArticleCard | null>(null);
+
   const ArticleCards: ArticleCard[] = [
     {
       id: "1",
@@ -59,35 +64,58 @@ function Info() {
     },
   ];
 
+  const openModal = (card: ArticleCard) => {
+    setSelectedCard(card);
+  };
+
+  const closeModal = () => {
+    setSelectedCard(null);
+  };
+
   return (
     <>
+       
       <div>
-        <Navigation />
+                <Navigation />   
       </div>
       <div className="mb-10 flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <div className="pb-10">
-          <h1 className="font-bold text-4xl md:text-5xl">INFORMACJE</h1>
+          <h1 className="font-bold text-4xl md:text-5xl">INFORMACJE</h1>       
           <p className="mt-[5px] text-[#585580]">
             Poradniki, artykuły, ciekawostki
           </p>
           <p className="mt-[5px] text-[#640577]">z Polski i swiata</p>
           <p className="mt-[5px] text-[#804141]">
-            dotyczace ogolnopojetego tematu vapowania
+                        dotyczace ogolnopojetego tematu vapowania    
           </p>
         </div>
         <div className="flex flex-col flex-wrap gap-4 md:flex md:flex-row">
           {ArticleCards.map((card) => (
-            <BasicTile key={card.id}>
-              <div className="">
-                <div className="flex justify-center mb-2">{card.icon}</div>
-                <h1 className="mb-4 text-4xl text-[#640577]">{card.title}</h1>
-                <p className="text-2xl">{card.description}</p>
-                <p className="text-[#804141]">czytaj więcej...</p>
+            <BasicTile
+              key={card.id}
+              className="cursor-pointer hover:shadow-2xl transition duration-300"
+            >
+              <div className="flex flex-col h-full justify-between">
+                <div className="text-center">
+                  <div className="flex justify-center mb-2">{card.icon}</div>   
+                  <h1 className="mb-4 text-4xl text-[#640577]">{card.title}</h1>
+                  <p className="text-2xl mb-4">{card.description}</p>           
+                </div>
+                   
+                <button
+                  onClick={() => openModal(card)}
+                  className="text-[#804141] font-bold mt-auto transition duration-150 p-2"
+                >
+                      czytaj więcej...          
+                </button>
               </div>
             </BasicTile>
           ))}
         </div>
       </div>
+      {selectedCard && (
+        <ArticleModal card={selectedCard} onClose={closeModal} />
+      )}
     </>
   );
 }
