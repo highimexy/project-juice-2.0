@@ -2,35 +2,60 @@ import { BasicTile } from "../components/BasicTile/BasicTile.tsx";
 import Navigation from "../components/Navigation.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
 
+import { GrHistory } from "react-icons/gr";
+import { IoBuildOutline } from "react-icons/io5";
+import { MdOutlineScience } from "react-icons/md";
+import { GiPoland } from "react-icons/gi";
+import { FaGlobe } from "react-icons/fa6";
+
 interface ArticleCard {
   id: string;
   title: string;
   description: string;
   path: string;
+  icon: React.ReactNode;
 }
 function Info() {
-
   const ArticleCards: ArticleCard[] = [
     {
       id: "1",
       title: "Historia Vape",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo luctus, sodales diam eget, varius lorem. Donec ornare ultricies turpis, quis sodales nisi tincidunt non.",
+        "Poznaj fascynującą podróż e-papierosów od pierwszych, nieudanych patentów, przez przełomowy projekt Hon Lika, aż po współczesny, globalny fenomen. Artykuł obejmuje kluczowe daty, wynalazców i ewolucję urządzeń.",
       path: "/",
+      icon: <GrHistory size={40} className="text-[#585580]" />,
     },
     {
       id: "2",
       title: "Budowa Vape",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo luctus, sodales diam eget, varius lorem. Donec ornare ultricies turpis, quis sodales nisi tincidunt non.",
+        "Zrozum, jak działa Twój e-papieros! Szczegółowe omówienie kluczowych elementów: baterii (modu), atomizera (grzałki) i zbiornika. Poznaj różnice między systemami MTL a DL oraz dowiedz się, jak utrzymać sprzęt w najlepszej kondycji.",
       path: "/",
+      icon: <IoBuildOutline size={40} className="text-[#585580]" />,
     },
     {
       id: "3",
-      title: "Title 3",
+      title: "Skład olejków",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo luctus, sodales diam eget, varius lorem. Donec ornare ultricies turpis, quis sodales nisi tincidunt non.",
+        "Analiza bazowych składników każdego e-liquidu: glikolu propylenowego (PG), gliceryny roślinnej (VG), aromatów i nikotyny. Dowiedz się, jak proporcje PG/VG wpływają na chmurę i smak oraz jakie funkcje pełnią poszczególne substancje.",
       path: "/",
+      icon: <MdOutlineScience size={40} className="text-[#585580]" />,
+    },
+    {
+      id: "4",
+      title: "Rynek polski",
+      description:
+        "Przegląd polskiej sceny vapingu: regulacje prawne (akcyza, dyrektywa TPD), najpopularniejsze marki i trendy konsumenckie. Zobacz, jak krajowe przepisy kształtują dostępność sprzętu i płynów oraz z jakimi wyzwaniami mierzy się polska branża.",
+      path: "/",
+      icon: <GiPoland size={40} className="text-[#585580]" />,
+    },
+    {
+      id: "5",
+      title: "Rynek zagraniczny",
+      description:
+        "Analiza globalnego rynku vapingu. Dowiedz się, jak regulacje w USA (FDA) i Unii Europejskiej wpływają na branżę. Poznaj najważniejsze światowe trendy, innowacje technologiczne oraz różnice kulturowe w podejściu do e-papierosów.",
+      path: "/",
+      icon: <FaGlobe size={40} className="text-[#585580]" />,
     },
   ];
 
@@ -50,13 +75,14 @@ function Info() {
             dotyczace ogolnopojetego tematu vapowania
           </p>
         </div>
-        <div className="flex flex-col gap-4 md:flex md:flex-row">
+        <div className="flex flex-col flex-wrap gap-4 md:flex md:flex-row">
           {ArticleCards.map((card) => (
             <BasicTile key={card.id}>
               <div className="">
-                <h1 className="mb-4 text-4xl">{card.title}</h1>
+                <div className="flex justify-center mb-2">{card.icon}</div>
+                <h1 className="mb-4 text-4xl text-[#640577]">{card.title}</h1>
                 <p className="text-2xl">{card.description}</p>
-                <p className="text-gray-500 ">czytaj więcej...</p>
+                <p className="text-[#804141]">czytaj więcej...</p>
               </div>
             </BasicTile>
           ))}
