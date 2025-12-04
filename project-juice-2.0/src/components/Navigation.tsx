@@ -49,11 +49,11 @@ function Navbar() {
               Kontakt
             </button>
           </Link>
-          <Link to={"/Polecane"}>
+          <Link to={"/Info"}>
             <button
               className={`${buttonBaseClass} ${desktopButtonWidth} flex items-center justify-center text-[#640577]`}
             >
-              Polecane
+              Info
             </button>
           </Link>
           <Link to={"/Slot"}>
@@ -113,9 +113,9 @@ function Navbar() {
               Kontakt
             </button>
           </Link>
-          <Link to={"/Polecane"} className="w-full flex justify-center">
+          <Link to={"/Info"} className="w-full flex justify-center">
             <button className="w-[90%] text-[#640577]" onClick={toggleMenu}>
-              Polecane
+              Info
             </button>
           </Link>
           <Link to={"/Slot"} className="w-full flex justify-center">

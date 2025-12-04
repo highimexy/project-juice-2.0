@@ -8,19 +8,19 @@ interface ArticleCard {
   description: string;
   path: string;
 }
-function Polecane() {
-  // Tablica z dodanym unikalnym, stabilnym polem 'id'
+function Info() {
+
   const ArticleCards: ArticleCard[] = [
     {
       id: "1",
-      title: "Title 1",
+      title: "Historia Vape",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo luctus, sodales diam eget, varius lorem. Donec ornare ultricies turpis, quis sodales nisi tincidunt non.",
       path: "/",
     },
     {
       id: "2",
-      title: "Title 2",
+      title: "Budowa Vape",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo luctus, sodales diam eget, varius lorem. Donec ornare ultricies turpis, quis sodales nisi tincidunt non.",
       path: "/",
@@ -54,8 +54,9 @@ function Polecane() {
           {ArticleCards.map((card) => (
             <BasicTile key={card.id}>
               <div className="">
-                <h1 className="mb-4">{card.title}</h1>
-                <p>{card.description}</p>
+                <h1 className="mb-4 text-4xl">{card.title}</h1>
+                <p className="text-2xl">{card.description}</p>
+                <p className="text-gray-500 ">czytaj więcej...</p>
               </div>
             </BasicTile>
           ))}
@@ -65,4 +66,4 @@ function Polecane() {
   );
 }
 
-export default TransitionOposite(Polecane);
+export default TransitionOposite(Info);
