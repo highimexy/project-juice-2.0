@@ -10,7 +10,13 @@ import { MdOutlineScience } from "react-icons/md";
 import { GiPoland } from "react-icons/gi";
 import { FaGlobe } from "react-icons/fa6";
 
-import HistoryImg from "../assets/article/history.webp"
+import HistoryArticle from "../components/Articles/HistoryArticle.tsx";
+import BuildArticle from "../components/Articles/BuildArticle.tsx";
+import LiquidCompositionArticle from "../components/Articles/LiquidCompositionArticle.tsx";
+import PolishMarketArticle from "../components/Articles/PolishMarketArticle.tsx";
+import GlobalMarketArticle from "../components/Articles/GlobalMarketArticle.tsx";
+
+import HistoryImg from "../assets/article/history.webp";
 
 interface ArticleCard {
   id: string;
@@ -18,16 +24,8 @@ interface ArticleCard {
   description: string;
   path: string;
   icon: React.ReactNode;
-  articleTitle: string;
-  article: string;
-  articlePart2?: string;
-  articleTitle1?: string;
-  article1?: string;
-  article1ul?: string;
-  article1ul2?: string;
   articleImg: string;
-  articleUl?: string;
-  articleTitle2?:string;
+  ContentComponent: React.ComponentType;
 }
 
 function Info() {
@@ -42,14 +40,7 @@ function Info() {
         "Poznaj fascynującą podróż e-papierosów od pierwszych, nieudanych patentów, przez przełomowy projekt Hon Lika, aż po współczesny, globalny fenomen. Artykuł obejmuje kluczowe daty, wynalazców i ewolucję urządzeń.",
       path: "/",
       icon: <GrHistory size={40} className="text-[#585580]" />,
-      articleTitle: "1. Początki i nieudane patenty",
-      article: `Pierwsza znacząca koncepcja urządzenia do bezdymnej inhalacji została opatentowana przez Herberta A. Gilberta w 1963 roku. Gilbert opisał "bezdymny, nie-tytoniowy papieros", który miał podgrzewać płyn smakowy, generując parę zamiast dymu.`,
-      articlePart2: "Niestety, pomysł Gilberta pojawił się w czasach, gdy papierosy tytoniowe przeżywały szczyt popularności, a społeczeństwo nie było gotowe na taką innowację. Urządzenie nigdy nie trafiło do masowej produkcji, a patent wygasł.",
-      articleTitle1: "2. Przełom i Narodziny Współczesnego E-papierosa (2003)",
-      article1: "Prawdziwy przełom nastąpił w 2003 roku w Chinach. Hon Lik, chiński farmaceuta, chemik i palacz, stworzył urządzenie, które miało pomóc mu rzucić palenie. Jego projekt opierał się na podgrzewaniu roztworu nikotyny za pomocą ultradźwiękowego generatora pary, a nie grzałki.",
-      article1ul: "W 2004 roku jego firma, Ryun, wrpowadziła produkt na rynek azjatycki. W ten sposób narodził się współczesny e-papieros",
-      article1ul2: "Urządzenia te szybko ewoluowały, zamieniając generator ultradźwiękowy na podgrzewany element (grzałkę), co stało się standardem w technologii wapowania.",
-      articleTitle2: "Globalna Ekspansja i Ewolucja (Po 2006 r.)",
+      ContentComponent: HistoryArticle, 
     },
     {
       id: "2",
@@ -58,9 +49,8 @@ function Info() {
         "Zrozum, jak działa Twój e-papieros! Szczegółowe omówienie kluczowych elementów: baterii (modu), atomizera (grzałki) i zbiornika. Poznaj różnice między systemami MTL a DL oraz dowiedz się, jak utrzymać sprzęt w najlepszej kondycji.",
       path: "/",
       icon: <IoBuildOutline size={40} className="text-[#585580]" />,
-      articleTitle: "1. Początki i niedane patenty",
-      article: "hi2",
       articleImg: HistoryImg,
+      ContentComponent: BuildArticle, 
     },
     {
       id: "3",
@@ -69,9 +59,8 @@ function Info() {
         "Analiza bazowych składników każdego e-liquidu: glikolu propylenowego (PG), gliceryny roślinnej (VG), aromatów i nikotyny. Dowiedz się, jak proporcje PG/VG wpływają na chmurę i smak oraz jakie funkcje pełnią poszczególne substancje.",
       path: "/",
       icon: <MdOutlineScience size={40} className="text-[#585580]" />,
-      articleTitle: "1. Początki i niedane patenty",
-      article: "hi3",
       articleImg: HistoryImg,
+      ContentComponent: LiquidCompositionArticle, 
     },
     {
       id: "4",
@@ -80,9 +69,8 @@ function Info() {
         "Przegląd polskiej sceny vapingu: regulacje prawne (akcyza, dyrektywa TPD), najpopularniejsze marki i trendy konsumenckie. Zobacz, jak krajowe przepisy kształtują dostępność sprzętu i płynów oraz z jakimi wyzwaniami mierzy się polska branża.",
       path: "/",
       icon: <GiPoland size={40} className="text-[#585580]" />,
-      articleTitle: "1. Początki i niedane patenty",
-      article: "hi4",
       articleImg: HistoryImg,
+      ContentComponent: PolishMarketArticle, 
     },
     {
       id: "5",
@@ -91,9 +79,8 @@ function Info() {
         "Analiza globalnego rynku vapingu. Dowiedz się, jak regulacje w USA (FDA) i Unii Europejskiej wpływają na branżę. Poznaj najważniejsze światowe trendy, innowacje technologiczne oraz różnice kulturowe w podejściu do e-papierosów.",
       path: "/",
       icon: <FaGlobe size={40} className="text-[#585580]" />,
-      articleTitle: "1. Początki i niedane patenty",
-      article: "hi5",
       articleImg: HistoryImg,
+      ContentComponent: GlobalMarketArticle, 
     },
   ];
 
@@ -107,19 +94,18 @@ function Info() {
 
   return (
     <>
-       
       <div>
-                <Navigation />   
+        <Navigation />
       </div>
       <div className="mb-10 flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <div className="pb-10">
-          <h1 className="font-bold text-4xl md:text-5xl">INFORMACJE</h1>       
+          <h1 className="font-bold text-4xl md:text-5xl">INFORMACJE</h1>
           <p className="mt-[5px] text-[#585580]">
             Poradniki, artykuły, ciekawostki
           </p>
           <p className="mt-[5px] text-[#640577]">z Polski i swiata</p>
           <p className="mt-[5px] text-[#804141]">
-                        dotyczace ogolnopojetego tematu vapowania    
+            dotyczace ogolnopojetego tematu vapowania
           </p>
         </div>
         <div className="flex flex-col flex-wrap gap-4 md:flex md:flex-row">
@@ -130,16 +116,16 @@ function Info() {
             >
               <div className="flex flex-col h-full justify-between md:w-[350px]">
                 <div className="text-center">
-                  <div className="flex justify-center mb-2">{card.icon}</div>   
+                  <div className="flex justify-center mb-2">{card.icon}</div>
                   <h1 className="mb-4 text-4xl text-[#640577]">{card.title}</h1>
-                  <p className="text-2xl mb-4">{card.description}</p>           
+                  <p className="text-2xl mb-4">{card.description}</p>
                 </div>
-                   
+
                 <button
                   onClick={() => openModal(card)}
                   className="text-[#804141] font-bold mt-auto transition duration-150 p-2"
                 >
-                      czytaj więcej...          
+                  czytaj więcej...
                 </button>
               </div>
             </BasicTile>

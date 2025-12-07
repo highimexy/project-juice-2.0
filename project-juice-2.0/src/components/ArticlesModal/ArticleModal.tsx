@@ -9,15 +9,8 @@ interface ArticleCard {
   description: string;
   path: string;
   icon: React.ReactNode;
-  articleTitle: string;
-  article: string;
-  articlePart2?: string;
-  articleTitle1?: string;
-  article1?: string;
-  article1ul?: string;
-  article1ul2?: string;
   articleImg: string;
-  articleUl?: string;
+  ContentComponent: React.ComponentType; 
 }
 
 interface ArticleModalProps {
@@ -28,6 +21,8 @@ interface ArticleModalProps {
 const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
   const [isClosing, setIsClosing] = useState(false);
   const ANIMATION_DURATION = 250;
+
+  const ContentComponent = card.ContentComponent;
 
   const handleClose = () => {
     setIsClosing(true);
@@ -70,7 +65,7 @@ const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
               text-[#640577]
               transition
               z-10
-            "
+              "
               aria-label="Zamknij modal"
             >
               <IoClose size={30} />
@@ -87,19 +82,9 @@ const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
                 <h1 className="mb-4 text-4xl font-bold text-[#585580] text-center">
                   {card.title}
                 </h1>
-                <h2 className="mb-2 text-2xl md:text-3xl font-bold text-[#640577] text-left">
-                  {card.articleTitle}
-                </h2>
-                <p className="mb-4 text-[16px] md:text-[20px]">{card.article}</p>
-                <p className="mb-4 text-[16px] md:text-[20px]">{card.articlePart2}</p>
-                <h2 className="mb-2 text-2xl md:text-3xl font-bold text-[#640577] text-left">
-                  {card.articleTitle1}
-                </h2>
-                <p className="mb-2 text-[16px] md:text-[20px]">{card.article1}</p>
-                <ul className="list-disc pl-4">
-                  <li>{card.article1ul}</li>
-                  <li>{card.article1ul2}</li>
-                </ul>
+                
+                {ContentComponent && <ContentComponent />} 
+                
               </div>
             </div>
           </div>
