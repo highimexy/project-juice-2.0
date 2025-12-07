@@ -9,6 +9,7 @@ interface ArticleCard {
   description: string;
   path: string;
   icon: React.ReactNode;
+  articleTitle: string;
   article: string;
   articleImg: string;
 }
@@ -77,10 +78,13 @@ const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
                 />
               </div>
               <div className="flex flex-col text-left">
-                <h2 className="mb-4 text-4xl font-bold text-[#640577] text-center md:text-left">
+                <h1 className="mb-4 text-4xl font-bold text-[#585580] text-center">
                   {card.title}
+                </h1>
+                <h2 className="mb-4 text-3xl md:text-4xl font-bold text-[#640577] text-left">
+                  {card.articleTitle}
                 </h2>
-                <p className="text-xl md:text-2xl text-gray-700">
+                <p className="text-[16px] md:text-[20px]  text-gray-700">
                   {card.article}
                 </p>
               </div>
