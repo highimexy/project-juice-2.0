@@ -11,6 +11,8 @@ interface ArticleCard {
   icon: React.ReactNode;
   articleTitle: string;
   article: string;
+  articleTitle1?: string;
+  article1?: string;
   articleImg: string;
 }
 
@@ -81,12 +83,14 @@ const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
                 <h1 className="mb-4 text-4xl font-bold text-[#585580] text-center">
                   {card.title}
                 </h1>
-                <h2 className="mb-4 text-3xl md:text-4xl font-bold text-[#640577] text-left">
+                <h2 className="mb-2 text-2xl md:text-3xl font-bold text-[#640577] text-left">
                   {card.articleTitle}
                 </h2>
-                <p className="text-[16px] md:text-[20px]  text-gray-700">
-                  {card.article}
-                </p>
+                <p className="mb-4 text-[16px] md:text-[20px]">{card.article}</p>
+                <h2 className="mb-2 text-2xl md:text-3xl font-bold text-[#640577] text-left">
+                  {card.articleTitle1}
+                </h2>
+                <p className="text-[16px] md:text-[20px]">{card.article1}</p>
               </div>
             </div>
           </div>

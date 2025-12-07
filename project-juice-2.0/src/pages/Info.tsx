@@ -20,7 +20,10 @@ interface ArticleCard {
   icon: React.ReactNode;
   articleTitle: string;
   article: string;
+  articleTitle1?: string;
+  article1?: string;
   articleImg: string;
+  articleUl?: string;
 }
 
 function Info() {
@@ -34,8 +37,10 @@ function Info() {
         "Poznaj fascynującą podróż e-papierosów od pierwszych, nieudanych patentów, przez przełomowy projekt Hon Lika, aż po współczesny, globalny fenomen. Artykuł obejmuje kluczowe daty, wynalazców i ewolucję urządzeń.",
       path: "/",
       icon: <GrHistory size={40} className="text-[#585580]" />,
-      articleTitle: "1. Początki i niedane patenty",
-      article: "Pierwsza znacząca koncepcja urządzenia do bezdymnej inhalacji została opatentowana przez Herberta A. Gilberta w 1963 roku. ",
+      articleTitle: "1. Początki i nieudane patenty",
+      article: `Pierwsza znacząca koncepcja urządzenia do bezdymnej inhalacji została opatentowana przez Herberta A. Gilberta w 1963 roku. Gilbert opisał "bezdymny, nie-tytoniowy papieros", który miał podgrzewać płyn smakowy, generując parę zamiast dymu.`,
+      articleTitle1: "2. Przełom i Narodziny Współczesnego E-papierosa (2003)",
+      article1: "Prawdziwy przełom nastąpił w 2003 roku w Chinach. Hon Lik, chiński farmaceuta, chemik i palacz, stworzył urządzenie, które miało pomóc mu rzucić palenie. Jego projekt opierał się na podgrzewaniu roztworu nikotyny za pomocą ultradźwiękowego generatora pary, a nie grzałki.",
       articleImg: HistoryImg,
     },
     {
