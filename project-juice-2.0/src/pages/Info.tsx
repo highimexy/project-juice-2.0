@@ -10,6 +10,8 @@ import { MdOutlineScience } from "react-icons/md";
 import { GiPoland } from "react-icons/gi";
 import { FaGlobe } from "react-icons/fa6";
 
+import HistoryImg from "../assets/article/history.webp"
+
 interface ArticleCard {
   id: string;
   title: string;
@@ -17,6 +19,7 @@ interface ArticleCard {
   path: string;
   icon: React.ReactNode;
   article: string;
+  articleImg: string;
 }
 
 function Info() {
@@ -30,7 +33,8 @@ function Info() {
         "Poznaj fascynującą podróż e-papierosów od pierwszych, nieudanych patentów, przez przełomowy projekt Hon Lika, aż po współczesny, globalny fenomen. Artykuł obejmuje kluczowe daty, wynalazców i ewolucję urządzeń.",
       path: "/",
       icon: <GrHistory size={40} className="text-[#585580]" />,
-      article: "hi1",
+      article: "loremipsuim loremipsuim loremipsuim loremipsuim loremipsuim",
+      articleImg: HistoryImg,
     },
     {
       id: "2",
@@ -40,6 +44,7 @@ function Info() {
       path: "/",
       icon: <IoBuildOutline size={40} className="text-[#585580]" />,
       article: "hi2",
+      articleImg: HistoryImg,
     },
     {
       id: "3",
@@ -49,6 +54,7 @@ function Info() {
       path: "/",
       icon: <MdOutlineScience size={40} className="text-[#585580]" />,
       article: "hi3",
+      articleImg: HistoryImg,
     },
     {
       id: "4",
@@ -58,6 +64,7 @@ function Info() {
       path: "/",
       icon: <GiPoland size={40} className="text-[#585580]" />,
       article: "hi4",
+      articleImg: HistoryImg,
     },
     {
       id: "5",
@@ -67,6 +74,7 @@ function Info() {
       path: "/",
       icon: <FaGlobe size={40} className="text-[#585580]" />,
       article: "hi5",
+      articleImg: HistoryImg,
     },
   ];
 
@@ -101,7 +109,7 @@ function Info() {
               key={card.id}
               className="cursor-pointer hover:shadow-2xl transition duration-300"
             >
-              <div className="flex flex-col h-full justify-between">
+              <div className="flex flex-col h-full justify-between md:w-[350px]">
                 <div className="text-center">
                   <div className="flex justify-center mb-2">{card.icon}</div>   
                   <h1 className="mb-4 text-4xl text-[#640577]">{card.title}</h1>
