@@ -13,7 +13,7 @@ export const BasicTile = ({
   return (
     <div
       className={`${bgcolor ? bgcolor : "bg-[#111010] "} 
-      h-full w-auto max-w-4xl
+      h-full w-auto
               card m-auto duration-300 ${className}`}
     >
       <div className="data">{children}</div>

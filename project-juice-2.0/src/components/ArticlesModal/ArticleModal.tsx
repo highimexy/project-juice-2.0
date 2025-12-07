@@ -11,9 +11,13 @@ interface ArticleCard {
   icon: React.ReactNode;
   articleTitle: string;
   article: string;
+  articlePart2?: string;
   articleTitle1?: string;
   article1?: string;
+  article1ul?: string;
+  article1ul2?: string;
   articleImg: string;
+  articleUl?: string;
 }
 
 interface ArticleModalProps {
@@ -56,7 +60,7 @@ const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
     <div className={backdropClass} onClick={handleClose}>
       <div className={modalContentClass} onClick={(e) => e.stopPropagation()}>
         <BasicTile>
-          <div className="max-h-[90vh] overflow-y-auto">
+          <div className="max-h-[90vh] max-w-[90vh] overflow-y-auto">
             <button
               onClick={handleClose}
               className="
@@ -76,7 +80,7 @@ const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
                 <img
                   src={card.articleImg}
                   alt={card.title}
-                  className="rounded-2xl border-2 border-gray-500 max-w-full h-auto md:w-160 md:h-[500px] object-cover mx-auto"
+                  className="rounded-2xl border-2 border-gray-500 max-w-full h-auto md:w-[1500px] md:h-[500px] object-fill mx-auto"
                 />
               </div>
               <div className="flex flex-col text-left">
@@ -87,10 +91,15 @@ const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
                   {card.articleTitle}
                 </h2>
                 <p className="mb-4 text-[16px] md:text-[20px]">{card.article}</p>
+                <p className="mb-4 text-[16px] md:text-[20px]">{card.articlePart2}</p>
                 <h2 className="mb-2 text-2xl md:text-3xl font-bold text-[#640577] text-left">
                   {card.articleTitle1}
                 </h2>
-                <p className="text-[16px] md:text-[20px]">{card.article1}</p>
+                <p className="mb-2 text-[16px] md:text-[20px]">{card.article1}</p>
+                <ul className="list-disc pl-4">
+                  <li>{card.article1ul}</li>
+                  <li>{card.article1ul2}</li>
+                </ul>
               </div>
             </div>
           </div>

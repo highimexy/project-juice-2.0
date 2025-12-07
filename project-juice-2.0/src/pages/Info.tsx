@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BasicTile } from "../components/BasicTile/BasicTile.tsx";
 import Navigation from "../components/Navigation.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
-import ArticleModal from "../components/ArticleModal/ArticleModal.tsx";
+import ArticleModal from "../components/ArticlesModal/ArticleModal.tsx";
 
 import { GrHistory } from "react-icons/gr";
 import { IoBuildOutline } from "react-icons/io5";
@@ -20,10 +20,14 @@ interface ArticleCard {
   icon: React.ReactNode;
   articleTitle: string;
   article: string;
+  articlePart2?: string;
   articleTitle1?: string;
   article1?: string;
+  article1ul?: string;
+  article1ul2?: string;
   articleImg: string;
   articleUl?: string;
+  articleTitle2?:string;
 }
 
 function Info() {
@@ -32,6 +36,7 @@ function Info() {
   const ArticleCards: ArticleCard[] = [
     {
       id: "1",
+      articleImg: HistoryImg,
       title: "Historia Vape",
       description:
         "Poznaj fascynującą podróż e-papierosów od pierwszych, nieudanych patentów, przez przełomowy projekt Hon Lika, aż po współczesny, globalny fenomen. Artykuł obejmuje kluczowe daty, wynalazców i ewolucję urządzeń.",
@@ -39,9 +44,12 @@ function Info() {
       icon: <GrHistory size={40} className="text-[#585580]" />,
       articleTitle: "1. Początki i nieudane patenty",
       article: `Pierwsza znacząca koncepcja urządzenia do bezdymnej inhalacji została opatentowana przez Herberta A. Gilberta w 1963 roku. Gilbert opisał "bezdymny, nie-tytoniowy papieros", który miał podgrzewać płyn smakowy, generując parę zamiast dymu.`,
+      articlePart2: "Niestety, pomysł Gilberta pojawił się w czasach, gdy papierosy tytoniowe przeżywały szczyt popularności, a społeczeństwo nie było gotowe na taką innowację. Urządzenie nigdy nie trafiło do masowej produkcji, a patent wygasł.",
       articleTitle1: "2. Przełom i Narodziny Współczesnego E-papierosa (2003)",
       article1: "Prawdziwy przełom nastąpił w 2003 roku w Chinach. Hon Lik, chiński farmaceuta, chemik i palacz, stworzył urządzenie, które miało pomóc mu rzucić palenie. Jego projekt opierał się na podgrzewaniu roztworu nikotyny za pomocą ultradźwiękowego generatora pary, a nie grzałki.",
-      articleImg: HistoryImg,
+      article1ul: "W 2004 roku jego firma, Ryun, wrpowadziła produkt na rynek azjatycki. W ten sposób narodził się współczesny e-papieros",
+      article1ul2: "Urządzenia te szybko ewoluowały, zamieniając generator ultradźwiękowy na podgrzewany element (grzałkę), co stało się standardem w technologii wapowania.",
+      articleTitle2: "Globalna Ekspansja i Ewolucja (Po 2006 r.)",
     },
     {
       id: "2",
