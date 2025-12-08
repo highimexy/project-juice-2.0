@@ -32,10 +32,10 @@ function Slot() {
       </div>
       <div className="flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <h1 className="font-bold text-4xl md:text-5xl">Koło Fortuny!</h1>
-        <p className="mt-[5px] text-[#585580]">
+        <p className="mt-[5px] text-[#585580] text-3xl">
           Zakręć kołem i spróbuj wygrać zniżkę!
         </p>
-        <p className="mt-[5px] text-[#640577]">
+        <p className="mt-[5px] text-[#640577] text-3xl">
           Masz szansę na otrzymanie procentowych zniżek.
         </p>
         <div

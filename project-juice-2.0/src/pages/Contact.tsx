@@ -77,9 +77,9 @@ function Contact() {
           <h1 className="font-bold text-4xl md:text-5xl">
             Formluarz kontakotwy
           </h1>
-          <p className="text-[#585580]">Wypełnij formularz </p>
-          <p className="text-[#640577]">Szybka odpowiedz</p>
-          <p className="pb-[15px] text-[#804141]">Niezapomniany smak</p>
+          <p className="text-[#585580] text-3xl">Wypełnij formularz </p>
+          <p className="text-[#640577] text-3xl">Szybka odpowiedz</p>
+          <p className="pb-[15px] text-[#804141] text-3xl">Niezapomniany smak</p>
         </div>
 
         <BasicTile>
