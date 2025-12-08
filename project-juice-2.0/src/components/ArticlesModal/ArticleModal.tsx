@@ -75,7 +75,7 @@ const ArticleModal: React.FC<ArticleModalProps> = ({ card, onClose }) => {
                 <img
                   src={card.articleImg}
                   alt={card.title}
-                  className="rounded-2xl border-2 border-gray-500 max-w-full h-auto md:w-[1500px] md:h-[500px] object-fill mx-auto"
+                  className="rounded-2xl border-2 border-gray-500 max-w-full h-auto md:w-[1500px] md:h-[500px] object-cover mx-auto"
                 />
               </div>
               <div className="flex flex-col text-left">

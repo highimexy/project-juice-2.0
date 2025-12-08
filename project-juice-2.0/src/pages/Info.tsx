@@ -17,6 +17,10 @@ import PolishMarketArticle from "../components/Articles/PolishMarketArticle.tsx"
 import GlobalMarketArticle from "../components/Articles/GlobalMarketArticle.tsx";
 
 import HistoryImg from "../assets/article/history.webp";
+import BuildImg from "../assets/article/build.webp";
+import LiquidCompositionImg from "../assets/article/liquid.webp";
+import PolishMarketImg from "../assets/article/poland.webp";
+import GlobalMarketImg from "../assets/article/world.webp";
 
 interface ArticleCard {
   id: string;
@@ -49,7 +53,7 @@ function Info() {
         "Zrozum, jak działa Twój e-papieros! Szczegółowe omówienie kluczowych elementów: baterii (modu), atomizera (grzałki) i zbiornika. Poznaj różnice między systemami MTL a DL oraz dowiedz się, jak utrzymać sprzęt w najlepszej kondycji.",
       path: "/",
       icon: <IoBuildOutline size={40} className="text-[#585580]" />,
-      articleImg: HistoryImg,
+      articleImg: BuildImg,
       ContentComponent: BuildArticle, 
     },
     {
@@ -59,7 +63,7 @@ function Info() {
         "Analiza bazowych składników każdego e-liquidu: glikolu propylenowego (PG), gliceryny roślinnej (VG), aromatów i nikotyny. Dowiedz się, jak proporcje PG/VG wpływają na chmurę i smak oraz jakie funkcje pełnią poszczególne substancje.",
       path: "/",
       icon: <MdOutlineScience size={40} className="text-[#585580]" />,
-      articleImg: HistoryImg,
+      articleImg: LiquidCompositionImg,
       ContentComponent: LiquidCompositionArticle, 
     },
     {
@@ -69,7 +73,7 @@ function Info() {
         "Przegląd polskiej sceny vapingu: regulacje prawne (akcyza, dyrektywa TPD), najpopularniejsze marki i trendy konsumenckie. Zobacz, jak krajowe przepisy kształtują dostępność sprzętu i płynów oraz z jakimi wyzwaniami mierzy się polska branża.",
       path: "/",
       icon: <GiPoland size={40} className="text-[#585580]" />,
-      articleImg: HistoryImg,
+      articleImg: PolishMarketImg,
       ContentComponent: PolishMarketArticle, 
     },
     {
@@ -79,7 +83,7 @@ function Info() {
         "Analiza globalnego rynku vapingu. Dowiedz się, jak regulacje w USA (FDA) i Unii Europejskiej wpływają na branżę. Poznaj najważniejsze światowe trendy, innowacje technologiczne oraz różnice kulturowe w podejściu do e-papierosów.",
       path: "/",
       icon: <FaGlobe size={40} className="text-[#585580]" />,
-      articleImg: HistoryImg,
+      articleImg: GlobalMarketImg,
       ContentComponent: GlobalMarketArticle, 
     },
   ];
