@@ -65,7 +65,7 @@ function Contact() {
   };
 
   const inputClasses =
-    "border-[2px] border-[#111111] rounded-[4px] text-[1.3rem] font-['Unbounded'] px-2 pt-0.5 placeholder-[#1111118e] w-full box-border bg-white text-black";
+    "border-[2px] border-black rounded-[4px] text-[1.3rem] font-['Unbounded'] px-2 pt-0.5 placeholder-[#f7f7f7] w-full box-border bg-[#343434] text-[#ffffff]";
 
   return (
     <>
@@ -79,13 +79,14 @@ function Contact() {
           </h1>
           <p className="text-[#585580] text-3xl">Wypełnij formularz </p>
           <p className="text-[#640577] text-3xl">Szybka odpowiedz</p>
-          <p className="pb-[15px] text-[#804141] text-3xl">Niezapomniany smak</p>
+          <p className="pb-[15px] text-[#804141] text-3xl">
+            Niezapomniany smak
+          </p>
         </div>
 
         <BasicTile>
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-4">
             <div className="flex flex-col">
-              <p className="">Email</p>
               <input
                 className={`${inputClasses} h-40px`}
                 placeholder="Email"
@@ -95,7 +96,6 @@ function Contact() {
               />
             </div>
             <div className="flex flex-col">
-              <p className="">Imie</p>
               <input
                 className={`${inputClasses} h-40px`}
                 placeholder="Imie"
@@ -105,7 +105,6 @@ function Contact() {
               />
             </div>
             <div className="flex flex-col">
-              <p className="">Zamowienie</p>
               <textarea
                 className={`${inputClasses} h-[300px]`}
                 placeholder="Zamowienie"
