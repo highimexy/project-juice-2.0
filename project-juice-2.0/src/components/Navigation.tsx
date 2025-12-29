@@ -103,7 +103,7 @@ function Navbar() {
         </div>
 
         <div className="flex flex-col items-center gap-5 mt-10">
-          <Link to={"/Kontakt"} className="w-full flex justify-center">
+          <Link to={"/Taste"} className="w-full flex justify-center">
             <button className="w-[90%] text-white" onClick={toggleMenu}>
               Smaki
             </button>
