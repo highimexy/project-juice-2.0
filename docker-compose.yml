@@ -1,41 +1,21 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  # 1. FRONTEND (Twoja strona React)
   app:
     image: project-juice:latest
-    # ZMIANA: Wskazujemy folder z frontendem
     build: ./project-juice-2.0
     restart: always
-    # Frontend nie potrzebuje portów, bo Proxy kieruje do niego ruch
+    ports:
+      - "8081:80" # Twoja strona będzie dostępna dla Nginxa na tym porcie
 
-  # 2. BACKEND (Twoje nowe API)
   api:
     image: project-juice-api:latest
     build: ./project-juice-2.0-backend
     restart: always
-    # --- DODAJ TO ---
     environment:
       - EMAIL_USER=testwizardjeff03@gmail.com
       - EMAIL_PASS=cmqntczagsjyrezj
       - EMAIL_RECEIVER=testwizardjeff03@gmail.com
       - PORT=3000
-    # ----------------
-    # Backend też nie potrzebuje portów na zewnątrz (Proxy -> api:3000)
-
-  # 3. PROXY (Nginx Proxy Manager)
-  proxy:
-    image: 'jc21/nginx-proxy-manager:latest'
-    restart: always
     ports:
-      # To są jedyne porty otwarte na świat
-      - '80:80'
-      - '443:443'
-      - '81:81'
-    volumes:
-      - ./npm-data:/data
-      - ./letsencrypt:/etc/letsencrypt
-
-# Docker automatycznie stworzy sieć, dzięki której:
-# - Proxy znajdzie 'app' wpisując host: app
-# - Proxy znajdzie 'api' wpisując host: api
+      - "5000:3000" # API dostępne na porcie 5000
