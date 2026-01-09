@@ -62,49 +62,205 @@ const allTastesData = {
     { id: "S-1", img: s1, title: "S | 1", details: "Truskawka (Strawberry)" },
     { id: "S-2", img: s2, title: "S | 2", details: "Niebieska Malina" },
     { id: "S-3", img: s3, title: "S | 3", details: "Arbuz (Watermelon)" },
-    { id: "S-4", img: s4, title: "S | 4", details: "Mięta / Mentol (Mint / Menthol)" },
+    {
+      id: "S-4",
+      img: s4,
+      title: "S | 4",
+      details: "Mięta / Mentol (Mint / Menthol)",
+    },
     { id: "S-5", img: s5, title: "S | 5", details: "Winogrono (Grape)" },
     { id: "S-6", img: s6, title: "S | 6", details: "Mango" },
-    { id: "S-7", img: s7, title: "S | 7", details: "Zielone Jabłko (Green Apple)" },
+    {
+      id: "S-7",
+      img: s7,
+      title: "S | 7",
+      details: "Zielone Jabłko (Green Apple)",
+    },
     { id: "S-8", img: s8, title: "S | 8", details: "Jagoda (Blueberry)" },
     { id: "S-9", img: s9, title: "S | 9", details: "Brzoskwinia (Peach)" },
-    { id: "S-10", img: s10, title: "S | 10", details: "Czarna Porzeczka (Blackcurrant)" },
+    {
+      id: "S-10",
+      img: s10,
+      title: "S | 10",
+      details: "Czarna Porzeczka (Blackcurrant)",
+    },
     { id: "S-11", img: s11, title: "S | 11", details: "Cola" },
-    { id: "S-12", img: s12, title: "S | 12", details: "Cytryna / Limonka (Lemon / Lime)" },
+    {
+      id: "S-12",
+      img: s12,
+      title: "S | 12",
+      details: "Cytryna / Limonka (Lemon / Lime)",
+    },
     { id: "S-13", img: s13, title: "S | 13", details: "Banan" },
     { id: "S-14", img: s14, title: "S | 14", details: "Wiśnia (Cherry)" },
     { id: "S-15", img: s15, title: "S | 15", details: "Wanilia (Vanilla)" },
-    { id: "S-16", img: s16, title: "S | 16", details: "Energetyk (Energy Drink)" },
+    {
+      id: "S-16",
+      img: s16,
+      title: "S | 16",
+      details: "Energetyk (Energy Drink)",
+    },
     { id: "S-17", img: s17, title: "S | 17", details: "Tytoń (Tobacco)" },
-    { id: "S-18", img: s18, title: "S | 18", details: "Guma Balonowa (Bubblegum)" },
-    { id: "S-19", img: s19, title: "S | 19", details: "Melon (Honeydew/Cantaloupe)" },
-    { id: "S-20", img: Question, title: "???", details: "Każdy dowolny smak | Na zamówienie" },
+    {
+      id: "S-18",
+      img: s18,
+      title: "S | 18",
+      details: "Guma Balonowa (Bubblegum)",
+    },
+    {
+      id: "S-19",
+      img: s19,
+      title: "S | 19",
+      details: "Melon (Honeydew/Cantaloupe)",
+    },
+    {
+      id: "S-20",
+      img: Question,
+      title: "???",
+      details: "Każdy dowolny smak | Na zamówienie",
+    },
   ],
   [TASTE_CATEGORIES.OWOCOWE_ZIMNE]: [
-    { id: "P-1", img: p1, title: "P | 1", details: "Kwaśne cukierkowe zielone jabłko" },
-    { id: "P-2", img: p2, title: "P | 2", details: "Kremowy banan z truskawką" },
-    { id: "P-3", img: p3, title: "P | 3", details: "Limonka i cytrusy z mroźnym" },
-    { id: "P-4", img: p4, title: "P | 4", details: "Złote kiwi, truskawka i granat z mroźnym orzeźwieniem" },
-    { id: "P-5", img: p5, title: "P | 5", details: "Arbuz i cytryna z nutą maliny i mroźnym orzeźwieniem" },
-    { id: "P-6", img: p6, title: "P | 6", details: "Czerwone owoce i lukrecja z delikatnym orzeźwieniem" },
-    { id: "P-7", img: p7, title: "P | 7", details: "Ananas i liczi z mroźnym orzeźwieniem" },
-    { id: "P-8", img: p8, title: "P | 8", details: "Napój typu cola z mroźnym orzeźwieniem" },
-    { id: "P-9", img: p9, title: "P | 9", details: "Mieszanka czerwonych owoców (jagody, truskawki, maliny)" },
-    { id: "P-10", img: p10, title: "P | 10", details: "Różowy grejpfrut z truskawką i nutą orzeźwienia" },
+    {
+      id: "P-1",
+      img: p1,
+      title: "P | 1",
+      details: "Kwaśne cukierkowe zielone jabłko",
+    },
+    {
+      id: "P-2",
+      img: p2,
+      title: "P | 2",
+      details: "Kremowy banan z truskawką",
+    },
+    {
+      id: "P-3",
+      img: p3,
+      title: "P | 3",
+      details: "Limonka i cytrusy z mroźnym",
+    },
+    {
+      id: "P-4",
+      img: p4,
+      title: "P | 4",
+      details: "Złote kiwi, truskawka i granat z mroźnym orzeźwieniem",
+    },
+    {
+      id: "P-5",
+      img: p5,
+      title: "P | 5",
+      details: "Arbuz i cytryna z nutą maliny i mroźnym orzeźwieniem",
+    },
+    {
+      id: "P-6",
+      img: p6,
+      title: "P | 6",
+      details: "Czerwone owoce i lukrecja z delikatnym orzeźwieniem",
+    },
+    {
+      id: "P-7",
+      img: p7,
+      title: "P | 7",
+      details: "Ananas i liczi z mroźnym orzeźwieniem",
+    },
+    {
+      id: "P-8",
+      img: p8,
+      title: "P | 8",
+      details: "Napój typu cola z mroźnym orzeźwieniem",
+    },
+    {
+      id: "P-9",
+      img: p9,
+      title: "P | 9",
+      details: "Mieszanka czerwonych owoców (jagody, truskawki, maliny)",
+    },
+    {
+      id: "P-10",
+      img: p10,
+      title: "P | 10",
+      details: "Różowy grejpfrut z truskawką i nutą orzeźwienia",
+    },
     { id: "P-11", img: p11, title: "P | 11", details: "Soczyste mango" },
-    { id: "P-12", img: p12, title: "P | 12", details: "Słodki melon z bardzo mocnym orzeźwieniem" },
-    { id: "P-13", img: p13, title: "P | 13", details: "Smoczy owoc z truskawką" },
-    { id: "P-14", img: p14, title: "P | 14", details: "Smoczy owoc, guawa, kiwi i truskawka" },
-    { id: "P-15", img: p15, title: "P | 15", details: "Granat i truskawka z mroźnym orzeźwieniem" },
-    { id: "P-16", img: p16, title: "P | 16", details: "Egzotyczne mango z orzeźwieniem" },
-    { id: "P-17", img: p17, title: "P | 17", details: "Malina z kruchym ciasteczkiem" },
-    { id: "P-18", img: p18, title: "P | 18", details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem" },
-    { id: "P-19", img: p19, title: "P | 19", details: "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem" },
-    { id: "P-20", img: p20, title: "P | 20", details: "Brzoskwinia, malina i kiwi" },
-    { id: "P-21", img: p21, title: "P | 21", details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem" },
-    { id: "P-22", img: p22, title: "P | 22", details: "Wiśnia i truskawka z orzeźwieniem" },
-    { id: "P-23", img: p23, title: "P | 23", details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem" },
-    { id: "P-24", img: Question, title: "???", details: "Każdy dowolny smak | Na zamówienie" },
+    {
+      id: "P-12",
+      img: p12,
+      title: "P | 12",
+      details: "Słodki melon z bardzo mocnym orzeźwieniem",
+    },
+    {
+      id: "P-13",
+      img: p13,
+      title: "P | 13",
+      details: "Smoczy owoc z truskawką",
+    },
+    {
+      id: "P-14",
+      img: p14,
+      title: "P | 14",
+      details: "Smoczy owoc, guawa, kiwi i truskawka",
+    },
+    {
+      id: "P-15",
+      img: p15,
+      title: "P | 15",
+      details: "Granat i truskawka z mroźnym orzeźwieniem",
+    },
+    {
+      id: "P-16",
+      img: p16,
+      title: "P | 16",
+      details: "Egzotyczne mango z orzeźwieniem",
+    },
+    {
+      id: "P-17",
+      img: p17,
+      title: "P | 17",
+      details: "Malina z kruchym ciasteczkiem",
+    },
+    {
+      id: "P-18",
+      img: p18,
+      title: "P | 18",
+      details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem",
+    },
+    {
+      id: "P-19",
+      img: p19,
+      title: "P | 19",
+      details:
+        "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem",
+    },
+    {
+      id: "P-20",
+      img: p20,
+      title: "P | 20",
+      details: "Brzoskwinia, malina i kiwi",
+    },
+    {
+      id: "P-21",
+      img: p21,
+      title: "P | 21",
+      details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem",
+    },
+    {
+      id: "P-22",
+      img: p22,
+      title: "P | 22",
+      details: "Wiśnia i truskawka z orzeźwieniem",
+    },
+    {
+      id: "P-23",
+      img: p23,
+      title: "P | 23",
+      details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem",
+    },
+    {
+      id: "P-24",
+      img: Question,
+      title: "???",
+      details: "Każdy dowolny smak | Na zamówienie",
+    },
   ],
 };
 
@@ -112,7 +268,7 @@ function Taste() {
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   const [selectedCategory, setSelectedCategory] = useState(
-    TASTE_CATEGORIES.OWOCOWE
+    TASTE_CATEGORIES.OWOCOWE_ZIMNE
   );
 
   const currentItems = useMemo(() => {
@@ -128,7 +284,6 @@ function Taste() {
       <div>
         <Navigation />
       </div>
-      
 
       <div className="flex flex-col pt-5 lg:h-[80vh] lg:justify-center">
         <div className="pb-[15px] lg:pt-0 lg:flex lg:items-center">
@@ -145,7 +300,9 @@ function Taste() {
           </div>
           <div className="w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px]">
             <div className="hero-container">
-              <h1 className="font-bold text-5xl mt-[15px] mb-[15px] lg:mt-0">Zasady</h1>
+              <h1 className="font-bold text-5xl mt-[15px] mb-[15px] lg:mt-0">
+                Zasady
+              </h1>
               <p className="m-0 text-[#585580] text-3xl">Ilosc = 30ml </p>
               <p className="m-0 text-[#640577] text-3xl">Moc = 12mg|18mg</p>
               <p className="m-0 text-[#804141] pb-[15px] text-3xl">
