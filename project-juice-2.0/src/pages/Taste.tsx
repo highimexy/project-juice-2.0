@@ -247,7 +247,7 @@ const allTastesData = {
       id: "P-22",
       img: p22,
       title: "P | 22",
-      details: "Wiśnia i truskawka z orzeźwieniem",
+      details: "Wiśnia i truskawkaa z orzeźwieniem",
     },
     {
       id: "P-23",
