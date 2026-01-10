@@ -59,7 +59,7 @@ const TASTE_CATEGORIES = {
 
 const allTastesData = {
   [TASTE_CATEGORIES.OWOCOWE]: [
-    { id: "S-1", img: s1, title: "S | 11", details: "Truskawka (Strawberry)" },
+    { id: "S-1", img: s1, title: "S | 1", details: "Truskawka (Strawberry)" },
     { id: "S-2", img: s2, title: "S | 2", details: "Niebieska Malina" },
     { id: "S-3", img: s3, title: "S | 3", details: "Arbuz (Watermelon)" },
     {
