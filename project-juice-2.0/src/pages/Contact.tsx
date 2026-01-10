@@ -38,7 +38,7 @@ function Contact() {
 
     try {
       // Zmień to na próbę:
-      const response = await fetch("http://46.62.250.165:5000/send-email", {
+      const response = await fetch("https://api.juiice.pl/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
