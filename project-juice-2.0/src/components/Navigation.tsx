@@ -13,7 +13,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="flex items-center justify-between box-border w-full py-5 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] 2xl:py-10">
+      <div className="flex items-center justify-between box-border w-full py-5 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] 2xl:py-10 bg-black/30 backdrop-blur-sm border-b-2  border-black">
         <div className="flex items-center gap-[22px]">
           <svg
             className="w-full max-w-[400px] h-auto -mb-4 md:max-w-[600px]"
@@ -26,7 +26,7 @@ function Navbar() {
               stroke="none"
             />
 
-            <text className="fill-[#e2e1e1] text-[48px] font-extrabold tracking-[1px] cursor-pointer md:cursor-default">
+            <text className="fill-[#e2e1e1] text-[38px] font-extrabold tracking-[1px] cursor-pointer md:cursor-default">
               <textPath href="#arc-path" startOffset="50%" textAnchor="middle">
                 JUiiCE.PL
               </textPath>
@@ -76,7 +76,7 @@ function Navbar() {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="w-8 h-8"
+            className="w-16 h-10"
           >
             <path
               strokeLinecap="round"
