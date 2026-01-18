@@ -224,39 +224,40 @@ const allTastesData = {
       title: "P | 18",
       details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem",
     },
+    //P-19 FIX NEEDED GREEN OASIS
     {
-      id: "P-19",
+      id: "P-20",
       img: p19,
       title: "P | 19",
       details:
         "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem",
     },
     {
-      id: "P-20",
+      id: "P-21",
       img: p20,
       title: "P | 20",
       details: "Brzoskwinia, malina i kiwi",
     },
     {
-      id: "P-21",
+      id: "P-22",
       img: p21,
       title: "P | 21",
       details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem",
     },
     {
-      id: "P-22",
+      id: "P-23",
       img: p22,
       title: "P | 22",
       details: "Wiśnia i truskawkaa z orzeźwieniem",
     },
     {
-      id: "P-23",
+      id: "P-24",
       img: p23,
       title: "P | 23",
       details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem",
     },
     {
-      id: "P-24",
+      id: "P-25",
       img: Question,
       title: "???",
       details: "Każdy dowolny smak | Na zamówienie",
@@ -268,7 +269,7 @@ function Taste() {
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   const [selectedCategory, setSelectedCategory] = useState(
-    TASTE_CATEGORIES.OWOCOWE_ZIMNE
+    TASTE_CATEGORIES.OWOCOWE_ZIMNE,
   );
 
   const currentItems = useMemo(() => {
