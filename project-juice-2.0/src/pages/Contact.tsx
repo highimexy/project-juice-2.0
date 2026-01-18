@@ -14,7 +14,7 @@ function Contact() {
   const [messageType, setMessageType] = useState("info");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     if (e.target.placeholder) {
       setFormData({
@@ -73,8 +73,8 @@ function Contact() {
       <div>
         <Navigation />
       </div>
-      <div className="mb-10 flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
-        <div className="pb-10">
+      <div className="mb-4 flex flex-col text-center pt-4 md:pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+        <div className="pb-8">
           <h1 className="font-bold text-4xl md:text-5xl">
             Formluarz kontakotwy
           </h1>

@@ -38,7 +38,7 @@ function Home() {
             </div>
 
             <div className="home-p-container">
-              <p className="flex text-center cursor-default font-bold text-3xl">
+              <p className="flex text-center cursor-default font-bold text-xl md:text-3xl">
                 To nie jest kolejny chujowy liquid z drugiej ręki... <br />
                 To kompozycja. Stworzona, by dostarczyć idealnie zbalansowane
                 doznania od pierwszej, wyrazistej nuty, aż po bogaty,

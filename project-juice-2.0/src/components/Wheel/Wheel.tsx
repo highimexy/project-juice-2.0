@@ -44,9 +44,9 @@ const WheelCustom = ({
     ctx.lineWidth = 2;
 
     ctx.beginPath();
-    ctx.moveTo(0, 15); 
-    ctx.lineTo(-15, 0); 
-    ctx.lineTo(15, 0); 
+    ctx.moveTo(0, 15);
+    ctx.lineTo(-15, 0);
+    ctx.lineTo(15, 0);
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
@@ -143,7 +143,6 @@ const WheelCustom = ({
 
     const winningSegmentIndex = Math.floor(Math.random() * segments.length);
 
-
     let targetAngle =
       winningSegmentIndex * segmentAngle - Math.PI / 2 + segmentAngle / 2;
 
@@ -162,7 +161,6 @@ const WheelCustom = ({
       style={{
         position: "relative",
         display: "inline-block",
-        paddingBottom: "20px",
       }}
     >
       <canvas

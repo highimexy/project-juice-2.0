@@ -30,7 +30,7 @@ function Slot() {
       <div>
         <Navigation />
       </div>
-      <div className="flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+      <div className="flex flex-col text-center pt-4 md:pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <h1 className="font-bold text-4xl md:text-5xl">Koło Fortuny!</h1>
         <p className="mt-[5px] text-[#585580] text-3xl">
           Zakręć kołem i spróbuj wygrać zniżkę!
@@ -50,11 +50,11 @@ function Slot() {
         </div>
       </div>
 
-      <div className="flex justify-center my-10">
+      <div className="flex justify-center my-5">
         <WheelCustom
           segments={segments}
           onFinished={handleSpinFinished}
-          size={200}
+          size={150}
         />
       </div>
     </>

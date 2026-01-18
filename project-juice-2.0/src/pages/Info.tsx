@@ -44,7 +44,7 @@ function Info() {
         "Poznaj fascynującą podróż e-papierosów od pierwszych, nieudanych patentów, przez przełomowy projekt Hon Lika, aż po współczesny, globalny fenomen. Artykuł obejmuje kluczowe daty, wynalazców i ewolucję urządzeń.",
       path: "/",
       icon: <GrHistory size={40} className="text-[#585580]" />,
-      ContentComponent: HistoryArticle, 
+      ContentComponent: HistoryArticle,
     },
     {
       id: "2",
@@ -54,7 +54,7 @@ function Info() {
       path: "/",
       icon: <IoBuildOutline size={40} className="text-[#585580]" />,
       articleImg: BuildImg,
-      ContentComponent: BuildArticle, 
+      ContentComponent: BuildArticle,
     },
     {
       id: "3",
@@ -64,7 +64,7 @@ function Info() {
       path: "/",
       icon: <MdOutlineScience size={40} className="text-[#585580]" />,
       articleImg: LiquidCompositionImg,
-      ContentComponent: LiquidCompositionArticle, 
+      ContentComponent: LiquidCompositionArticle,
     },
     {
       id: "4",
@@ -74,7 +74,7 @@ function Info() {
       path: "/",
       icon: <GiPoland size={40} className="text-[#585580]" />,
       articleImg: PolishMarketImg,
-      ContentComponent: PolishMarketArticle, 
+      ContentComponent: PolishMarketArticle,
     },
     {
       id: "5",
@@ -84,7 +84,7 @@ function Info() {
       path: "/",
       icon: <FaGlobe size={40} className="text-[#585580]" />,
       articleImg: GlobalMarketImg,
-      ContentComponent: GlobalMarketArticle, 
+      ContentComponent: GlobalMarketArticle,
     },
   ];
 
@@ -101,8 +101,8 @@ function Info() {
       <div>
         <Navigation />
       </div>
-      <div className="mb-10 flex flex-col text-center pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
-        <div className="pb-10">
+      <div className="mb-4 flex flex-col text-center pt-4 md:pt-[100px] w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+        <div className="pb-8">
           <h1 className="font-bold text-4xl md:text-5xl">INFORMACJE</h1>
           <p className="mt-[5px] text-[#585580] text-3xl">
             Poradniki, artykuły, ciekawostki
