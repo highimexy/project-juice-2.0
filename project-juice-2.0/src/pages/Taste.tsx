@@ -224,10 +224,10 @@ const allTastesData = {
       title: "P | 18",
       details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem",
     },
-    //P-19 FIX NEEDED GREEN OASIS
+
     {
-      id: "P-20",
-      img: Question,
+      id: "P-19",
+      img: p18,
       title: "P | 19",
       details: "Kiwi i banan z orzeźwieniem",
     },
@@ -299,7 +299,7 @@ function Taste() {
       </div>
 
       <div className="flex flex-col pt-5 lg:h-[80vh] lg:justify-center">
-        <div className="pb-[15px] lg:pt-0 lg:flex lg:items-center">
+        <div className="pb-4 lg:pt-0 lg:flex lg:items-center">
           <div>
             <Dropdown
               selectedTaste={selectedCategory}

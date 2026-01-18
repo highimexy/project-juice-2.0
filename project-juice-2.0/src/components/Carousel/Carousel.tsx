@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react"; 
+import { useRef, useEffect } from "react";
 import "./Carousel.css";
 import CarouselCard from "./CarouselCard";
 
@@ -21,7 +21,7 @@ function Carousel({ items, activeCardId, onActiveCardChange }: CarouselProps) {
   useEffect(() => {
     if (activeCardId && carouselRef.current) {
       const cardElement = carouselRef.current.querySelector<HTMLElement>(
-        `[data-id="${activeCardId}"]`
+        `[data-id="${activeCardId}"]`,
       );
 
       if (cardElement) {
@@ -68,11 +68,21 @@ function Carousel({ items, activeCardId, onActiveCardChange }: CarouselProps) {
 
   return (
     <div className="w-full box-border pl-4 md:pl-8 lg:pl-[62px] xl:pl-[104px] 2xl:pl-[200px]">
-      <div className="carousel-nav-mobile">
-        <button onClick={() => scroll("left")}>&lt;</button>
-        <button onClick={() => scroll("right")}>&gt;</button>
-      </div>
+      <div className="flex gap-4 pb-4">
+        <button
+          className="carousel-btn desktop prev"
+          onClick={() => scroll("left")}
+        >
+          &lt;
+        </button>
 
+        <button
+          className="carousel-btn desktop next"
+          onClick={() => scroll("right")}
+        >
+          &gt;
+        </button>
+      </div>
       <div className="carousel-container" ref={carouselRef}>
         {items.map((item) => (
           <CarouselCard
@@ -84,20 +94,6 @@ function Carousel({ items, activeCardId, onActiveCardChange }: CarouselProps) {
           />
         ))}
       </div>
-
-      <button
-        className="carousel-btn desktop prev"
-        onClick={() => scroll("left")}
-      >
-        &lt;
-      </button>
-
-      <button
-        className="carousel-btn desktop next"
-        onClick={() => scroll("right")}
-      >
-        &gt;
-      </button>
     </div>
   );
 }

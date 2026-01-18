@@ -10,63 +10,31 @@
   margin-top: 0px;
 }
 
-.carousel-nav-mobile {
-  gap: 10px;
-  margin-top: 0px;
-  margin-bottom: 15px;
-  padding-right: 16px;
-  box-sizing: border-box;
+.carousel-nav-mobile button:hover {
+  border: 2px solid rgb(0, 0, 0);
 }
 
-.carousel-nav-mobile button {
+.carousel-btn.desktop {
   background-color: #ffffffe3;
-  border: 2px solid #3a3a3a;
+  border: 2px solid #000000;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   padding: 0;
   font-size: 30px;
   font-family: "Unbounded";
   color: rgba(0, 0, 0, 0.87);
   cursor: pointer;
   transition: border-color 0.25s;
+  transition: background-color 0.25;
   outline: #000000;
-}
-
-.carousel-nav-mobile button:hover {
-  border: 2px solid rgb(0, 0, 0);
-}
-
-.carousel-btn.desktop {
-  padding: 0px;
-  margin: 0px;
-  display: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  background-color: #ffffffe3;
-  border: 2px solid #3a3a3a;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-  font-family: "Unbounded";
-  color: rgba(0, 0, 0, 0.87);
-  cursor: pointer;
-  transition: border-color 0.25s;
-  outline: #000000;
+  transition: transform 0.3s ease;
 }
 
 .carousel-btn.desktop:hover {
-  border: 2px solid rgb(0, 0, 0);
-}
-
-.carousel-btn.desktop.prev {
-  left: 10px;
-}
-.carousel-btn.desktop.next {
-  right: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: #ffffffe4;
+  transform: scale(1.05);
 }
 
 /* ------------------------------------------- */
@@ -162,10 +130,6 @@
     padding-left: 32px;
   }
 
-  .carousel-btn.desktop {
-    display: block;
-  }
-
   .carousel-card:last-child {
     margin-right: 32px;
   }
@@ -181,10 +145,6 @@
   }
   .carousel-wrapper {
     padding-left: 62px;
-  }
-
-  .carousel-btn.desktop {
-    display: block;
   }
 
   .carousel-card:last-child {
@@ -204,10 +164,6 @@
     padding-left: 104px;
   }
 
-  .carousel-btn.desktop {
-    display: block;
-  }
-
   .carousel-card:last-child {
     margin-right: 104px;
   }
@@ -225,10 +181,6 @@
 @media (min-width: 1600px) {
   .carousel-wrapper {
     padding-left: 200px;
-  }
-
-  .carousel-btn.desktop {
-    display: block;
   }
 
   .carousel-card:last-child {
