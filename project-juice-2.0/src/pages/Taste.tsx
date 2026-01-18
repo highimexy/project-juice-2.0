@@ -298,7 +298,7 @@ function Taste() {
         <Navigation />
       </div>
 
-      <div className="flex flex-col pt-5 lg:h-[80vh] lg:justify-center">
+      <div className="flex flex-col pt-5 lg:h-[80vh] lg:justify-center mb-4">
         <div className="pb-4 lg:pt-0 lg:flex lg:items-center">
           <div>
             <Dropdown
