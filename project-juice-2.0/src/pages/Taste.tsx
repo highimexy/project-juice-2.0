@@ -49,6 +49,8 @@ import p20 from "../assets/premium/20.webp";
 import p21 from "../assets/premium/21.webp";
 import p22 from "../assets/premium/22.webp";
 import p23 from "../assets/premium/23.webp";
+import banan from "../assets/premium/Banan.webp";
+import czerwo from "../assets/premium/czerwo.webp";
 
 import Question from "../assets/Q.webp";
 
@@ -227,7 +229,7 @@ const allTastesData = {
 
     {
       id: "P-19",
-      img: p18,
+      img: banan,
       title: "P | 19",
       details: "Kiwi i banan z orzeźwieniem",
     },
@@ -240,7 +242,7 @@ const allTastesData = {
     },
     {
       id: "P-21",
-      img: Question,
+      img: czerwo,
       title: "P | 21",
       details: "Czerwone owoce i mango z mroźnym orzeźwieniem",
     },
