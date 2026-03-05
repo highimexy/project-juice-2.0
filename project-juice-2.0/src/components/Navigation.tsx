@@ -20,7 +20,7 @@ const navLinks = [
   { to: "/slot", label: "???" },
 ];
 
-function Navigation({ items = [], selectedId, onRandomSelect }: NavbarProps) {
+function Navigation({ items = [], onRandomSelect }: NavbarProps) {
   const location = useLocation();
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
