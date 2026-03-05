@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import Carousel from "../components/Carousel/Carousel.tsx";
+import FlavorGrid from "../components/FlavorGrid/FlavorGrid.tsx";
 import RandomBtn from "../components/RandomBtn.tsx";
 import Dropdown from "../components/Dropdown.tsx";
 import TransitionOposite from "../TransitionOposite.tsx";
@@ -300,7 +300,7 @@ function Taste() {
         <Navigation />
       </div>
 
-      <div className="flex flex-col pt-5 lg:h-[80vh] lg:justify-center mb-4">
+      <div className="flex flex-col pt-5 mb-4">
         <div className="pb-4 lg:pt-0 lg:flex lg:items-center">
           <div>
             <Dropdown
@@ -327,7 +327,7 @@ function Taste() {
           </div>
         </div>
 
-        <Carousel
+        <FlavorGrid
           items={currentItems}
           activeCardId={activeCardId}
           onActiveCardChange={setActiveCardId}
