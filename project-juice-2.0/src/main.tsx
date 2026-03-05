@@ -8,7 +8,6 @@ import NotFoundPage from "./NotFoundPage.tsx";
 import Contact from "./pages/Contact.tsx";
 import RootLayout from "./RootLayout.tsx";
 import Slot from "./pages/Slot.tsx";
-import Info from "./pages/Info.tsx";
 
 const router = createBrowserRouter([
   {
@@ -26,10 +25,6 @@ const router = createBrowserRouter([
       {
         path: "kontakt",
         element: <Contact />,
-      },
-      {
-        path: "info",
-        element: <Info />,
       },
       {
         path: "slot",
