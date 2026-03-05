@@ -186,7 +186,7 @@ function Taste() {
       <div className="flex flex-col pt-10 pb-4 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <div className="text-center mb-8">
           <h1 className="font-bold text-5xl md:text-6xl mb-4">
-            PR0J3CT - JUiiCt
+            PR0J3CT - JUiiC
           </h1>
           <p className="text-white/60 text-lg md:text-xl font-['Space_Grotesk'] font-bold mb-4">
             Kolekcja liquidów zainspirowana głębią kosmosu — każdy smak to
