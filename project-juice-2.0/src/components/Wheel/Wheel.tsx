@@ -24,8 +24,11 @@ const WheelCustom = ({ segments }: WheelCustomProps) => {
 
   useEffect(() => {
     const update = () => {
-      const w = containerRef.current?.clientWidth ?? 300;
-      setCanvasSize(Math.min(w, 420));
+      const el = containerRef.current;
+      if (!el) return;
+      const w = el.clientWidth;
+      const h = el.clientHeight - 80; // odejmij przycisk + gap
+      setCanvasSize(Math.min(w, h > 150 ? h : w, 420));
     };
     update();
     window.addEventListener("resize", update);
@@ -150,7 +153,7 @@ const WheelCustom = ({ segments }: WheelCustomProps) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full max-w-[420px] flex flex-col items-center gap-6">
+    <div ref={containerRef} className="w-full max-w-[420px] h-full flex flex-col items-center justify-center gap-6">
       <canvas
         ref={canvasRef}
         width={canvasSize}
