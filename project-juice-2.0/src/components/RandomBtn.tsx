@@ -18,16 +18,13 @@ function RandomBtn({ items, selectedId, onRandomSelect }: RandomBtnProps) {
   };
 
   return (
-    <div className="pl-4 pr-0 md:pl-8 lg:pl-[62px] xl:pl-[104px] 2xl:pl-[200px]">
-      <Button
-        onClick={handleRandomClick}
-        variant="outline"
-        className="w-[350px] bg-[#111010] border-2 border-black hover:border-white hover:bg-[#111010] text-white font-['Unbounded'] font-black text-xl h-auto py-2.5 leading-[1.4] whitespace-normal"
-      >
-        Wylosuj smak<br />
-        {selectedId || "[?]"}
-      </Button>
-    </div>
+    <Button
+      onClick={handleRandomClick}
+      variant="outline"
+      className="bg-[#111010] border-2 border-black hover:border-white hover:bg-[#111010] text-white font-['Unbounded'] font-black text-sm px-6 py-2 whitespace-normal text-center"
+    >
+      Wylosuj smak {selectedId ? `— ${selectedId}` : ""}
+    </Button>
   );
 }
 

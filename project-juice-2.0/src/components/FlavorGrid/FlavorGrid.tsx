@@ -15,10 +15,16 @@ interface FlavorGridProps {
   onActiveCardChange: (id: string | null) => void;
 }
 
-function FlavorGrid({ items, activeCardId, onActiveCardChange }: FlavorGridProps) {
+function FlavorGrid({
+  items,
+  activeCardId,
+  onActiveCardChange,
+}: FlavorGridProps) {
   useEffect(() => {
     if (activeCardId) {
-      const el = document.querySelector<HTMLElement>(`[data-id="${activeCardId}"]`);
+      const el = document.querySelector<HTMLElement>(
+        `[data-id="${activeCardId}"]`,
+      );
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "center" });
       }
@@ -39,35 +45,40 @@ function FlavorGrid({ items, activeCardId, onActiveCardChange }: FlavorGridProps
             <Card
               key={item.id}
               data-id={item.id}
-              onClick={() => onActiveCardChange(isActive ? null : item.id)}
-              className="relative overflow-hidden cursor-pointer bg-[#111010] border-2 border-black hover:border-white transition-colors duration-250 rounded-lg"
+              className={`group relative overflow-hidden bg-[#111010] border-2 py-0 gap-0 transition-all duration-300 rounded-lg
+                hover:shadow-[0_0_24px_rgba(255,255,255,0.1)] hover:-translate-y-1
+                ${
+                  isActive
+                    ? "border-[#585580] shadow-[0_0_20px_rgba(88,85,128,0.5)]"
+                    : "border-black hover:border-white/50"
+                }`}
             >
-              <CardContent className="p-3 flex flex-col items-center h-[280px]">
-                <div className="flex items-center justify-between w-full mb-2">
-                  <Badge variant="outline" className="text-white border-white/30 font-unbounded text-xs">
+              <CardContent className="p-3 flex flex-col items-center gap-2">
+                {/* Badge w lewym górnym rogu */}
+                <div className="w-full flex justify-start">
+                  <Badge
+                    variant="outline"
+                    className={`font-['Unbounded'] text-lg px-3 py-1 transition-colors duration-300 shrink-0
+                      ${isActive ? "text-[#585580] border-[#585580]" : "text-white border-white/40"}`}
+                  >
                     {item.title || item.id}
                   </Badge>
                 </div>
+
+                {/* Zdjęcie */}
                 <div className="flex-1 flex items-center justify-center w-full overflow-hidden">
                   <img
                     src={item.img}
                     alt={item.title || item.id}
-                    className="max-w-full max-h-[200px] object-contain transition-transform duration-300 hover:scale-110"
+                    className="max-w-full max-h-40 object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-              </CardContent>
 
-              {/* Overlay ze szczegółami */}
-              <div
-                className={`absolute inset-0 bg-[#1a1a1abb] flex flex-col justify-center items-center text-center p-3 transition-opacity duration-300 pointer-events-none ${
-                  isActive ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <h4 className="text-xl font-bold mb-2">{item.title}</h4>
-                <p className="text-white text-sm leading-snug">
+                {/* Opis */}
+                <p className="text-white/80 text-xl text-center leading-snug font-['Space_Grotesk'] font-bold px-1 shrink-0">
                   {item.details || "Nowe smaki incoming!"}
                 </p>
-              </div>
+              </CardContent>
             </Card>
           );
         })}
