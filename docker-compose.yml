@@ -7,15 +7,3 @@ services:
     restart: always
     ports:
       - "8081:80" # Twoja strona będzie dostępna dla Nginxa na tym porcie
-
-  api:
-    image: project-juice-api:latest
-    build: ./project-juice-2.0-backend
-    restart: always
-    environment:
-      - EMAIL_USER=testwizardjeff03@gmail.com
-      - EMAIL_PASS=cmqntczagsjyrezj
-      - EMAIL_RECEIVER=testwizardjeff03@gmail.com
-      - PORT=3000
-    ports:
-      - "5000:3000" # API dostępne na porcie 5000
