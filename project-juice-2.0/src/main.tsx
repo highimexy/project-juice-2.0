@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <Info />,
       },
       {
-        path: "???",
+        path: "secret",
         element: <Slot />,
       },
       {
