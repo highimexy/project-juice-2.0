@@ -83,7 +83,7 @@ function Info() {
         </header>
 
         {/* CENTROWANA ZAWARTOŚĆ */}
-        <section className="flex-grow flex items-center justify-center">
+        <section className="grow flex items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl w-full">
             {/* KOLUMNA: POJEMNOŚCI */}
             <div className="space-y-6">
