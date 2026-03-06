@@ -16,7 +16,7 @@ interface NavbarProps {
 
 const navLinks = [
   { to: "/taste", label: "Smaki" },
-  { to: "/kontakt", label: "Kontakt" },
+  { to: "/info", label: "info" },
   { to: "/slot", label: "???" },
 ];
 

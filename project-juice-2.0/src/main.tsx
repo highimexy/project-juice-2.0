@@ -8,7 +8,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage.tsx";
-import Contact from "./pages/Info.tsx";
+import Info from "./pages/Info.tsx";
 import RootLayout from "./RootLayout.tsx";
 import Slot from "./pages/Slot.tsx";
 
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
         element: <Taste />,
       },
       {
-        path: "kontakt",
-        element: <Contact />,
+        path: "info",
+        element: <Info />,
       },
       {
         path: "slot",

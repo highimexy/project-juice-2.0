@@ -15,12 +15,12 @@ const CONTACT_INFO = {
   href: "https://t.me/username",
 };
 
-function Contact() {
+function Info() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
 
-      <main className="flex-grow flex flex-col px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pt-24 pb-16">
+      <main className="grow flex flex-col px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pt-24 pb-16">
         {/* NAGŁÓWEK - Zawsze na górze */}
         <header className="text-center mb-12 shrink-0">
           <div className="w-full flex justify-center mb-4">
@@ -178,4 +178,4 @@ function Contact() {
   );
 }
 
-export default TransitionOposite(Contact);
+export default TransitionOposite(Info);
