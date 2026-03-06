@@ -1,7 +1,7 @@
 import Navigation from "../components/Navigation.tsx";
-import TransitionOposite from "../TransitionOposite.tsx";
 import { Card, CardContent } from "@/components/ui/card";
 import gradientSvg from "../assets/gradient.svg?url";
+import Transition from "../Transition.tsx";
 
 // Dane są teraz czystsze - stylizację przenosimy do komponentu
 const VOLUMES = [
@@ -178,4 +178,4 @@ function Info() {
   );
 }
 
-export default TransitionOposite(Info);
+export default Transition(Info);

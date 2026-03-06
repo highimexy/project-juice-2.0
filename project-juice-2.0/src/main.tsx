@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import Taste from "./pages/Taste.tsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,6 +10,7 @@ import NotFoundPage from "./NotFoundPage.tsx";
 import Info from "./pages/Info.tsx";
 import RootLayout from "./RootLayout.tsx";
 import Slot from "./pages/Slot.tsx";
+import Smaki from "./pages/Smaki.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,18 +19,18 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/taste" replace />,
+        element: <Navigate to="/smaki" replace />,
       },
       {
-        path: "taste",
-        element: <Taste />,
+        path: "smaki",
+        element: <Smaki />,
       },
       {
         path: "info",
         element: <Info />,
       },
       {
-        path: "slot",
+        path: "???",
         element: <Slot />,
       },
       {

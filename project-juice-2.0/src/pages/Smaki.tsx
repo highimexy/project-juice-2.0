@@ -1,7 +1,6 @@
 import { useState } from "react";
 import gradientSvg from "../assets/gradient.svg?url";
 import FlavorGrid from "../components/FlavorGrid/FlavorGrid.tsx";
-import TransitionOposite from "../TransitionOposite.tsx";
 import Navigation from "../components/Navigation.tsx";
 
 import p1 from "../assets/premium/1.webp";
@@ -30,6 +29,7 @@ import p23 from "../assets/premium/23.webp";
 import banan from "../assets/premium/Banan.webp";
 import czerwo from "../assets/premium/czerwo.webp";
 import Question from "../assets/Q.webp";
+import Transition from "../Transition.tsx";
 
 const premiumItems = [
   {
@@ -176,7 +176,7 @@ const premiumItems = [
   },
 ];
 
-function Taste() {
+function Smaki() {
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   return (
@@ -262,4 +262,4 @@ function Taste() {
   );
 }
 
-export default TransitionOposite(Taste);
+export default Transition(Smaki);

@@ -15,9 +15,9 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { to: "/taste", label: "Smaki" },
+  { to: "/smaki", label: "Smaki" },
   { to: "/info", label: "info" },
-  { to: "/slot", label: "???" },
+  { to: "/???", label: "???" },
 ];
 
 function Navigation({ items = [], onRandomSelect }: NavbarProps) {

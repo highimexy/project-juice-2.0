@@ -1,7 +1,7 @@
 import Navigation from "../components/Navigation.tsx";
 import WheelCustom from "../components/Wheel/Wheel.tsx";
-import TransitionOposite from "../TransitionOposite.tsx";
 import gradientSvg from "../assets/gradient.svg?url";
+import Transition from "../Transition.tsx";
 
 const segments = [
   { label: "- 10%", color: "#585580" },
@@ -23,7 +23,6 @@ function Slot() {
     <div className="h-screen overflow-hidden flex flex-col pt-20">
       <Navigation />
       <div className="flex flex-col flex-1 min-h-0 w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pt-6 pb-10">
-
         {/* Tytuł z gradientem SVG */}
         <div className="text-center w-full mb-8">
           <div className="w-full flex justify-center mb-4">
@@ -33,11 +32,37 @@ function Slot() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <defs>
-                <pattern id="slotGradPattern" patternUnits="userSpaceOnUse" x="0" y="0" width="1000" height="100">
-                  <image href={gradientSvg} x="0" y="0" width="1000" height="100" preserveAspectRatio="none" />
+                <pattern
+                  id="slotGradPattern"
+                  patternUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="1000"
+                  height="100"
+                >
+                  <image
+                    href={gradientSvg}
+                    x="0"
+                    y="0"
+                    width="1000"
+                    height="100"
+                    preserveAspectRatio="none"
+                  />
                 </pattern>
-                <filter id="slotTextShadow" x="-5%" y="-10%" width="110%" height="130%">
-                  <feDropShadow dx="0" dy="6" stdDeviation="12" floodColor="#7090ab" floodOpacity="0.75" />
+                <filter
+                  id="slotTextShadow"
+                  x="-5%"
+                  y="-10%"
+                  width="110%"
+                  height="130%"
+                >
+                  <feDropShadow
+                    dx="0"
+                    dy="6"
+                    stdDeviation="12"
+                    floodColor="#7090ab"
+                    floodOpacity="0.75"
+                  />
                 </filter>
               </defs>
               <text
@@ -71,4 +96,4 @@ function Slot() {
   );
 }
 
-export default TransitionOposite(Slot);
+export default Transition(Slot);
