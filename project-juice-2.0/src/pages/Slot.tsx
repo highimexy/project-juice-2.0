@@ -20,7 +20,7 @@ const segments = [
 
 function Slot() {
   return (
-    <div className="h-screen overflow-hidden flex flex-col pt-32 lg:pt-24">
+    <div className="h-screen overflow-hidden flex flex-col pt-36 lg:pt-24">
       <Navigation />
       <div className="flex flex-col flex-1 min-h-0 w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pb-10">
         {/* Tytuł z gradientem SVG */}

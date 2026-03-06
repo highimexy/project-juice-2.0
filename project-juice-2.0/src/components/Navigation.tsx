@@ -34,16 +34,49 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
     }
   };
 
+  // Wspólny komponent kropki dla spójności
+  const NavDot = ({
+    active,
+    hovered,
+    layoutId,
+  }: {
+    active?: boolean;
+    hovered?: boolean;
+    layoutId: string;
+  }) => (
+    <div className="relative w-3 h-3 flex justify-center items-center shrink-0">
+      {active && (
+        <motion.div
+          layoutId={layoutId}
+          className="absolute w-1.5 h-1.5 rounded-full bg-[#7090ab]"
+          style={{
+            boxShadow: "0 0 8px #7090ab, 0 0 16px rgba(112,144,171,0.5)",
+          }}
+          transition={{ type: "spring", stiffness: 400, damping: 35 }}
+        />
+      )}
+      <AnimatePresence>
+        {hovered && !active && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.5 }}
+            exit={{ scale: 0, opacity: 0 }}
+            className="absolute w-1 h-1 rounded-full bg-[#7090ab]"
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+
   return (
     <>
       {/* ================= DESKTOP ================= */}
-      <div className="hidden lg:flex fixed top-8 left-8 z-50 flex-col items-start gap-3">
-        {/* Główny Nav pill */}
+      <div className="hidden lg:flex fixed top-8 left-8 z-50 flex-col items-start gap-3 w-56">
         <div
           className="flex flex-col items-start gap-1 p-4 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl w-full"
           onMouseLeave={() => setHoveredTab(null)}
         >
-          {/* Logo */}
+          {/* Logo Desktop */}
           <Link
             to="/"
             className="flex justify-center w-full pb-4 border-b border-white/10 mb-2"
@@ -88,7 +121,6 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
                 fontSize="38"
                 fontWeight="800"
                 letterSpacing="1"
-                style={{ cursor: "pointer" }}
                 filter="url(#navTextShadowDesktop)"
               >
                 <textPath
@@ -103,64 +135,45 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
             </svg>
           </Link>
 
-          <div id="nav-extra-pill" />
-
-          {/* Nav items */}
-          {navLinks.map((item) => {
-            const active = isActive(item.to);
-            const hovered = hoveredTab === item.to;
-
-            return (
-              <Link
-                key={item.to}
-                to={item.to}
-                onMouseEnter={() => setHoveredTab(item.to)}
-                className="relative flex items-center gap-3 py-2.5 px-3 w-full group"
+          {/* Nav items Desktop */}
+          {navLinks.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              onMouseEnter={() => setHoveredTab(item.to)}
+              className="relative flex items-center gap-3 py-2.5 px-3 w-full group"
+            >
+              <NavDot
+                active={isActive(item.to)}
+                hovered={hoveredTab === item.to}
+                layoutId="activeDotDesktop"
+              />
+              <span
+                className={`font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap ${isActive(item.to) ? "text-white" : "text-white/40 group-hover:text-white/70"}`}
               >
-                <div className="relative w-3 h-3 flex justify-center items-center shrink-0">
-                  {active && (
-                    <motion.div
-                      layoutId="activeDotDesktop"
-                      className="absolute w-1.5 h-1.5 rounded-full bg-[#7090ab]"
-                      style={{
-                        boxShadow:
-                          "0 0 8px #7090ab, 0 0 16px rgba(112,144,171,0.5)",
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 35,
-                      }}
-                    />
-                  )}
-                  <AnimatePresence>
-                    {hovered && !active && (
-                      <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 0.5 }}
-                        exit={{ scale: 0, opacity: 0 }}
-                        className="absolute w-1 h-1 rounded-full bg-[#7090ab]"
-                      />
-                    )}
-                  </AnimatePresence>
-                </div>
-                <span
-                  className={`font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap ${active ? "text-white" : "text-white/40 group-hover:text-white/70"}`}
-                >
-                  {item.label}
-                </span>
-              </Link>
-            );
-          })}
+                {item.label}
+              </span>
+            </Link>
+          ))}
         </div>
 
-        {/* Dolny pill - Wylosuj smak (pod głównym) */}
-        <div className="flex p-3 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl items-center justify-center pointer-events-auto w-full">
+        {/* Dolny pill Desktop (Random) */}
+        <div
+          className="flex rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl items-center w-full overflow-hidden"
+          onMouseLeave={() => setHoveredTab(null)}
+        >
           <button
             onClick={handleRandomClick}
-            className="relative flex items-center justify-center gap-3 py-1 px-3  bg-transparent  cursor-pointer "
+            onMouseEnter={() => setHoveredTab("random-desktop")}
+            className="relative flex items-center gap-3 py-4 px-7 w-full group bg-transparent cursor-pointer"
           >
-            <span className="font-['Unbounded'] text-sm uppercase  transition-colors duration-300  text-white/40 group-hover:text-[#7090ab]">
+            <NavDot
+              hovered={hoveredTab === "random-desktop"}
+              layoutId="activeDotDesktop"
+            />
+            <span
+              className={`font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap ${hoveredTab === "random-desktop" ? "text-white/70" : "text-white/40"}`}
+            >
               Wylosuj smak
             </span>
           </button>
@@ -168,11 +181,14 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
       </div>
 
       {/* ================= MOBILE ================= */}
-      <div className="lg:hidden fixed z-50 top-4 left-4 right-4 flex flex-col items-center gap-3">
-        {/* Górny Bar (Logo nad nawigacją) */}
-        <div className="flex flex-col items-center w-full gap-2">
+      <div className="lg:hidden fixed z-50 top-4 left-0 right-0 flex flex-col items-center gap-2 px-4">
+        <div className="flex flex-col items-center w-full gap-1">
+          {/* Logo Mobile - Powiększone */}
           <Link to="/">
-            <svg className="w-[120px] h-auto" viewBox="0 0 300 100">
+            <svg
+              className="w-[220px] h-auto drop-shadow-xl"
+              viewBox="0 0 300 100"
+            >
               <defs>
                 <pattern
                   id="navGradPatternMobile"
@@ -209,10 +225,9 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
                 <path id="arc-path-mobile" d="M 20,80 Q 150,0 280,80" />
               </defs>
               <text
-                fontSize="38"
+                fontSize="42"
                 fontWeight="800"
                 letterSpacing="1"
-                style={{ cursor: "pointer" }}
                 filter="url(#navTextShadowMobile)"
               >
                 <textPath
@@ -227,65 +242,51 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
             </svg>
           </Link>
 
-          <nav className="flex items-center gap-0.5 p-1.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl">
-            {navLinks.map((item) => {
-              const active = isActive(item.to);
-              const hovered = hoveredTab === item.to;
-
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onMouseEnter={() => setHoveredTab(item.to)}
-                  onMouseLeave={() => setHoveredTab(null)}
-                  className="relative flex items-center gap-1.5 py-2 px-2.5 group"
+          {/* Menu Mobile */}
+          <nav className="flex items-center gap-0.5 p-1.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl mt-[-8px]">
+            {navLinks.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                onMouseEnter={() => setHoveredTab(item.to)}
+                onMouseLeave={() => setHoveredTab(null)}
+                className="relative flex items-center gap-1.5 py-2 px-3 group"
+              >
+                <NavDot
+                  active={isActive(item.to)}
+                  hovered={hoveredTab === item.to}
+                  layoutId="activeDotMobile"
+                />
+                <span
+                  className={`font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 whitespace-nowrap ${isActive(item.to) ? "text-white" : "text-white/40 group-hover:text-white/70"}`}
                 >
-                  <div className="relative w-3 h-3 flex justify-center items-center shrink-0">
-                    {active && (
-                      <motion.div
-                        layoutId="activeDotMobile"
-                        className="absolute w-1.5 h-1.5 rounded-full bg-[#7090ab]"
-                        style={{
-                          boxShadow:
-                            "0 0 8px #7090ab, 0 0 16px rgba(112,144,171,0.5)",
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 35,
-                        }}
-                      />
-                    )}
-                    <AnimatePresence>
-                      {hovered && !active && (
-                        <motion.div
-                          initial={{ scale: 0, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 0.5 }}
-                          exit={{ scale: 0, opacity: 0 }}
-                          className="absolute w-1 h-1 rounded-full bg-[#7090ab]"
-                        />
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  <span
-                    className={`font-['Unbounded'] text-[9px] uppercase tracking-widest transition-colors duration-300 whitespace-nowrap ${active ? "text-white" : "text-white/40 group-hover:text-white/70"}`}
-                  >
-                    {item.label}
-                  </span>
-                </Link>
-              );
-            })}
+                  {item.label}
+                </span>
+              </Link>
+            ))}
           </nav>
         </div>
 
-        {/* Mobile RandomBtn */}
-        {isActive("/taste") && (
-          <div className="flex justify-center w-full">
+        {/* Mobile RandomBtn - Tylko na /smaki */}
+        {isActive("/smaki") && (
+          <div
+            className="flex justify-center w-full mt-1"
+            onMouseLeave={() => setHoveredTab(null)}
+          >
             <button
               onClick={handleRandomClick}
-              className="bg-[#111010] rounded-xl border-2 border-black hover:border-white hover:bg-[#111010] text-white font-['Unbounded'] font-black text-xs px-6 py-2.5 whitespace-normal text-center shadow-lg transition-all"
+              onMouseEnter={() => setHoveredTab("random-mobile")}
+              className="flex items-center gap-2.5 px-6 py-2.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl group transition-all"
             >
-              Wylosuj smak
+              <NavDot
+                hovered={hoveredTab === "random-mobile"}
+                layoutId="activeDotMobile"
+              />
+              <span
+                className={`font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 ${hoveredTab === "random-mobile" ? "text-white/70" : "text-white/40"}`}
+              >
+                Wylosuj smak
+              </span>
             </button>
           </div>
         )}
