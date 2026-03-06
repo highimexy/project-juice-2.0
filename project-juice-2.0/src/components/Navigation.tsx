@@ -158,9 +158,9 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
         <div className="flex p-3 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl items-center justify-center pointer-events-auto w-full">
           <button
             onClick={handleRandomClick}
-            className="relative flex items-center justify-center gap-3 py-1 px-3 group bg-transparent border-none cursor-pointer w-full"
+            className="relative flex items-center justify-center gap-3 py-1 px-3  bg-transparent  cursor-pointer "
           >
-            <span className="font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap text-white/40 group-hover:text-[#7090ab]">
+            <span className="font-['Unbounded'] text-sm uppercase  transition-colors duration-300  text-white/40 group-hover:text-[#7090ab]">
               Wylosuj smak
             </span>
           </button>

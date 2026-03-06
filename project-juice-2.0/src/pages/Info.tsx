@@ -20,7 +20,7 @@ function Info() {
     <div className="flex flex-col min-h-screen">
       <Navigation />
 
-      <main className="grow flex flex-col px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pt-24 pb-16">
+      <main className="grow flex flex-col px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pt-32 lg:pt-24 pb-16">
         {/* NAGŁÓWEK - Zawsze na górze */}
         <header className="text-center mb-12 shrink-0">
           <div className="w-full flex justify-center mb-4">
@@ -88,7 +88,7 @@ function Info() {
             {/* KOLUMNA: POJEMNOŚCI */}
             <div className="space-y-6">
               <div className="space-y-2">
-                <h2 className="font-['Unbounded'] font-bold text-xl text-white/60 uppercase tracking-widest">
+                <h2 className="font-['Unbounded'] font-bold text-xl uppercase tracking-widest">
                   Pojemności i Moc
                 </h2>
                 <p className="text-white/70 text-base font-['Space_Grotesk'] font-bold">
@@ -120,7 +120,7 @@ function Info() {
             {/* KOLUMNA: KONTAKT I DOSTAWA */}
             <div className="space-y-6">
               <div className="space-y-2">
-                <h2 className="font-['Unbounded'] font-bold text-xl text-white/60 uppercase tracking-widest">
+                <h2 className="font-['Unbounded'] font-bold text-xl  uppercase tracking-widest">
                   Kontakt / Dostawa
                 </h2>
                 <p className="text-white/70 text-base font-['Space_Grotesk'] font-bold">

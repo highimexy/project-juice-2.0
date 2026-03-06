@@ -187,7 +187,7 @@ function Smaki() {
         onRandomSelect={setActiveCardId}
       />
 
-      <div className="flex flex-col pt-44 lg:pt-24 pb-4 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
+      <div className="flex flex-col pt-32 lg:pt-24 pb-4 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <div className="text-center mb-8">
           <div className="mb-6 w-full flex justify-center">
             <svg

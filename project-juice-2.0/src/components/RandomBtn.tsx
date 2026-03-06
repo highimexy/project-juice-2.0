@@ -21,9 +21,9 @@ function RandomBtn({ items, selectedId, onRandomSelect }: RandomBtnProps) {
     <Button
       onClick={handleRandomClick}
       variant="outline"
-      className="bg-[#111010] border-2 border-black hover:border-white hover:bg-[#111010] text-white font-['Unbounded'] font-black text-sm px-6 py-2 whitespace-normal text-center"
+      className="   font-['Unbounded'] font-black text-sm px-6 py-2 whitespace-normal text-center"
     >
-      Wylosuj smak {selectedId ? `— ${selectedId}` : ""}
+      Wylosuj sma1k {selectedId ? `— ${selectedId}` : ""}
     </Button>
   );
 }
