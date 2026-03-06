@@ -2,9 +2,13 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import Taste from "./pages/Taste.tsx";
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import NotFoundPage from "./NotFoundPage.tsx";
-import Contact from "./pages/Contact.tsx";
+import Contact from "./pages/Info.tsx";
 import RootLayout from "./RootLayout.tsx";
 import Slot from "./pages/Slot.tsx";
 
@@ -40,5 +44,5 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </StrictMode>,
 );
