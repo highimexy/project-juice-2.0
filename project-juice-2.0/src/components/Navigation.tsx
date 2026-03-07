@@ -204,26 +204,18 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
           ))}
         </div>
 
-        <div
-          className="flex rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl items-center w-full overflow-hidden"
-          onMouseLeave={() => setHoveredTab(null)}
-        >
-          <button
-            onClick={handleRandomClick}
-            onMouseEnter={() => setHoveredTab("random-desktop")}
-            className="relative flex items-center gap-3 py-4 px-7 w-full group bg-transparent cursor-pointer"
-          >
-            <NavDot
-              hovered={hoveredTab === "random-desktop"}
-              layoutId="activeDotDesktop"
-            />
-            <span
-              className={`font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap ${hoveredTab === "random-desktop" ? "text-white/70" : "text-white/40"}`}
+        {isActive("/smaki") && (
+          <div className="flex rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl items-center w-full overflow-hidden">
+            <button
+              onClick={handleRandomClick}
+              className="flex items-center justify-center py-4 px-7 w-full group bg-transparent cursor-pointer"
             >
-              Wylosuj smak
-            </span>
-          </button>
-        </div>
+              <span className="font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap text-white/40 group-hover:text-white/70">
+                Wylosuj smak
+              </span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* ================= MOBILE ================= */}
@@ -264,16 +256,9 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
           >
             <button
               onClick={handleRandomClick}
-              onMouseEnter={() => setHoveredTab("random-mobile")}
-              className="flex items-center gap-2.5 px-6 py-2.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl group transition-all"
+              className="flex items-center px-6 py-2.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl group transition-all"
             >
-              <NavDot
-                hovered={hoveredTab === "random-mobile"}
-                layoutId="activeDotMobile"
-              />
-              <span
-                className={`font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 ${hoveredTab === "random-mobile" ? "text-white/70" : "text-white/40"}`}
-              >
+              <span className="font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 text-white/40 group-hover:text-white/70">
                 Wylosuj smak
               </span>
             </button>
