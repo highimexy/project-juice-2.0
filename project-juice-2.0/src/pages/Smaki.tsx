@@ -1,5 +1,5 @@
 import { useState } from "react";
-import gradientSvg from "../assets/gradient.svg?url";
+import Text3D from "../components/Text3d.tsx";
 import FlavorGrid from "../components/FlavorGrid/FlavorGrid.tsx";
 import Navigation from "../components/Navigation.tsx";
 
@@ -190,59 +190,14 @@ function Smaki() {
       <div className="flex flex-col pt-48 lg:pt-24 pb-4 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
         <div className="text-center mb-8">
           <div className="mb-6 w-full flex justify-center">
-            <svg
-              viewBox="0 0 1200 100"
+            <Text3D
+              text="PR0J3CT - JUiiCE"
+              viewBoxWidth={1200}
+              viewBoxHeight={100}
+              fontSize={72}
+              depth={12}
               className="w-full max-w-4xl h-auto"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <pattern
-                  id="gradPattern"
-                  patternUnits="userSpaceOnUse"
-                  x="0"
-                  y="0"
-                  width="1200"
-                  height="100"
-                >
-                  <image
-                    href={gradientSvg}
-                    x="0"
-                    y="0"
-                    width="1400"
-                    height="130"
-                    preserveAspectRatio="none"
-                  />
-                </pattern>
-                <filter
-                  id="textShadow"
-                  x="-5%"
-                  y="-10%"
-                  width="110%"
-                  height="130%"
-                >
-                  <feDropShadow
-                    dx="0"
-                    dy="6"
-                    stdDeviation="12"
-                    floodColor="#7090ab"
-                    floodOpacity="0.75"
-                  />
-                </filter>
-              </defs>
-              <text
-                x="50%"
-                y="78"
-                textAnchor="middle"
-                fill="url(#gradPattern)"
-                fontWeight="bold"
-                fontSize="72"
-                fontFamily="inherit"
-                letterSpacing="-1"
-                filter="url(#textShadow)"
-              >
-                PR0J3CT - JUiiCE
-              </text>
-            </svg>
+            />
           </div>
           <p className="text-white/80 text-xl md:text-2xl font-['Space_Grotesk'] font-bold mb-4 max-w-2xl mx-auto">
             Starannie skomponowane liquidy premium — intensywne smaki, gęsta

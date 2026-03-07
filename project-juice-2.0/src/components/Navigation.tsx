@@ -20,6 +20,107 @@ const navLinks = [
   { to: "/secret", label: "???" },
 ];
 
+/** Logo 3D na łuku — warstwy głębi SVG + białe lico */
+function LogoArc3D({
+  id,
+  width,
+  fontSize,
+}: {
+  id: string;
+  width: number;
+  fontSize: number;
+}) {
+  const patternId = `logo3d-grad-${id}`;
+  const filterId = `logo3d-shadow-${id}`;
+  const arcId = `arc-path-${id}`;
+  const depth = 8;
+
+  return (
+    <svg
+      style={{
+        width: `${width}px`,
+        height: "auto",
+        marginBottom: "-12px",
+        overflow: "visible",
+      }}
+      viewBox="0 0 300 100"
+      overflow="visible"
+    >
+      <defs>
+        <pattern
+          id={patternId}
+          patternUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="300"
+          height="100"
+        >
+          <image
+            href={gradientSvg}
+            x="0"
+            y="0"
+            width="300"
+            height="100"
+            preserveAspectRatio="none"
+          />
+        </pattern>
+        <filter id={filterId} x="-15%" y="-30%" width="130%" height="200%">
+          <feDropShadow
+            dx="0"
+            dy="4"
+            stdDeviation="8"
+            floodColor="#7090ab"
+            floodOpacity="0.7"
+          />
+        </filter>
+        {/* Ścieżki łuku dla każdej warstwy — przesunięte o translate */}
+        <path id={arcId} d="M 20,80 Q 150,0 280,80" />
+      </defs>
+
+      {/* Warstwy głębi 3D — każda w osobnym <g transform="translate"> */}
+      {Array.from({ length: depth }, (_, i) => {
+        const offset = depth - i; // depth→1
+        return (
+          <g key={i} transform={`translate(${offset * 0.5}, ${offset})`}>
+            <text
+              fontSize={fontSize}
+              fontWeight="800"
+              letterSpacing="1"
+              opacity={0.45 + (i / depth) * 0.55}
+            >
+              <textPath
+                href={`#${arcId}`}
+                startOffset="50%"
+                textAnchor="middle"
+                fill={`url(#${patternId})`}
+              >
+                JUiiCE.PL
+              </textPath>
+            </text>
+          </g>
+        );
+      })}
+
+      {/* Białe lico na wierzchu */}
+      <text
+        fontSize={fontSize}
+        fontWeight="800"
+        letterSpacing="1"
+        filter={`url(#${filterId})`}
+      >
+        <textPath
+          href={`#${arcId}`}
+          startOffset="50%"
+          textAnchor="middle"
+          fill="white"
+        >
+          JUiiCE.PL
+        </textPath>
+      </text>
+    </svg>
+  );
+}
+
 function Navigation({ items = [], onRandomSelect }: NavbarProps) {
   const location = useLocation();
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
@@ -34,7 +135,6 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
     }
   };
 
-  // Wspólny komponent kropki dla spójności
   const NavDot = ({
     active,
     hovered,
@@ -76,66 +176,13 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
           className="flex flex-col items-start gap-1 p-4 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl w-full"
           onMouseLeave={() => setHoveredTab(null)}
         >
-          {/* Logo Desktop */}
           <Link
             to="/"
             className="flex justify-center w-full pb-4 border-b border-white/10 mb-2"
           >
-            <svg className="w-[170px] h-auto -mb-3" viewBox="0 0 300 100">
-              <defs>
-                <pattern
-                  id="navGradPatternDesktop"
-                  patternUnits="userSpaceOnUse"
-                  x="0"
-                  y="0"
-                  width="300"
-                  height="100"
-                >
-                  <image
-                    href={gradientSvg}
-                    x="0"
-                    y="0"
-                    width="300"
-                    height="100"
-                    preserveAspectRatio="none"
-                  />
-                </pattern>
-                <filter
-                  id="navTextShadowDesktop"
-                  x="-10%"
-                  y="-20%"
-                  width="120%"
-                  height="150%"
-                >
-                  <feDropShadow
-                    dx="0"
-                    dy="4"
-                    stdDeviation="10"
-                    floodColor="#7090ab"
-                    floodOpacity="0.75"
-                  />
-                </filter>
-                <path id="arc-path-desktop" d="M 20,80 Q 150,0 280,80" />
-              </defs>
-              <text
-                fontSize="38"
-                fontWeight="800"
-                letterSpacing="1"
-                filter="url(#navTextShadowDesktop)"
-              >
-                <textPath
-                  href="#arc-path-desktop"
-                  startOffset="50%"
-                  textAnchor="middle"
-                  fill="url(#navGradPatternDesktop)"
-                >
-                  JUiiCE.PL
-                </textPath>
-              </text>
-            </svg>
+            <LogoArc3D id="desktop" width={170} fontSize={38} />
           </Link>
 
-          {/* Nav items Desktop */}
           {navLinks.map((item) => (
             <Link
               key={item.to}
@@ -157,7 +204,6 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
           ))}
         </div>
 
-        {/* Dolny pill Desktop (Random) */}
         <div
           className="flex rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl items-center w-full overflow-hidden"
           onMouseLeave={() => setHoveredTab(null)}
@@ -183,67 +229,11 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
       {/* ================= MOBILE ================= */}
       <div className="lg:hidden fixed z-50 top-4 left-0 right-0 flex flex-col items-center gap-2 px-4">
         <div className="flex flex-col items-center w-full gap-1">
-          {/* Logo Mobile - Powiększone */}
           <Link to="/">
-            <svg
-              className="w-[220px] h-auto drop-shadow-xl"
-              viewBox="0 0 300 100"
-            >
-              <defs>
-                <pattern
-                  id="navGradPatternMobile"
-                  patternUnits="userSpaceOnUse"
-                  x="0"
-                  y="0"
-                  width="300"
-                  height="100"
-                >
-                  <image
-                    href={gradientSvg}
-                    x="0"
-                    y="0"
-                    width="300"
-                    height="100"
-                    preserveAspectRatio="none"
-                  />
-                </pattern>
-                <filter
-                  id="navTextShadowMobile"
-                  x="-10%"
-                  y="-20%"
-                  width="120%"
-                  height="150%"
-                >
-                  <feDropShadow
-                    dx="0"
-                    dy="4"
-                    stdDeviation="10"
-                    floodColor="#7090ab"
-                    floodOpacity="0.75"
-                  />
-                </filter>
-                <path id="arc-path-mobile" d="M 20,80 Q 150,0 280,80" />
-              </defs>
-              <text
-                fontSize="42"
-                fontWeight="800"
-                letterSpacing="1"
-                filter="url(#navTextShadowMobile)"
-              >
-                <textPath
-                  href="#arc-path-mobile"
-                  startOffset="50%"
-                  textAnchor="middle"
-                  fill="url(#navGradPatternMobile)"
-                >
-                  JUiiCE.PL
-                </textPath>
-              </text>
-            </svg>
+            <LogoArc3D id="mobile" width={220} fontSize={42} />
           </Link>
 
-          {/* Menu Mobile */}
-          <nav className="flex items-center gap-0.5 p-1.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl mt-[-8px]">
+          <nav className="flex items-center gap-0.5 p-1.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl mt-2">
             {navLinks.map((item) => (
               <Link
                 key={item.to}
@@ -267,7 +257,6 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
           </nav>
         </div>
 
-        {/* Mobile RandomBtn - Tylko na /smaki */}
         {isActive("/smaki") && (
           <div
             className="flex justify-center w-full mt-1"

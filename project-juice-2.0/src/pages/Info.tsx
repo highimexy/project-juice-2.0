@@ -1,9 +1,8 @@
 import Navigation from "../components/Navigation.tsx";
 import { Card, CardContent } from "@/components/ui/card";
-import gradientSvg from "../assets/gradient.svg?url";
+import Text3D from "../components/Text3d.tsx";
 import Transition from "../Transition.tsx";
 
-// Dane są teraz czystsze - stylizację przenosimy do komponentu
 const VOLUMES = [
   { label: "15ml / 30ml", theme: "blue" },
   { label: "12mg / 18mg", theme: "purple" },
@@ -21,61 +20,17 @@ function Info() {
       <Navigation />
 
       <main className="grow flex flex-col px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pt-36 lg:pt-24 pb-16">
-        {/* NAGŁÓWEK - Zawsze na górze */}
+        {/* NAGŁÓWEK */}
         <header className="text-center mb-12 shrink-0">
           <div className="w-full flex justify-center mb-4">
-            <svg
-              viewBox="0 0 900 100"
+            <Text3D
+              text="Informacje"
+              viewBoxWidth={900}
+              viewBoxHeight={100}
+              fontSize={72}
+              depth={10}
               className="w-full max-w-2xl h-auto"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <pattern
-                  id="contactGradPattern"
-                  patternUnits="userSpaceOnUse"
-                  x="0"
-                  y="0"
-                  width="900"
-                  height="100"
-                >
-                  <image
-                    href={gradientSvg}
-                    x="0"
-                    y="0"
-                    width="900"
-                    height="100"
-                    preserveAspectRatio="none"
-                  />
-                </pattern>
-                <filter
-                  id="contactTextShadow"
-                  x="-5%"
-                  y="-10%"
-                  width="110%"
-                  height="130%"
-                >
-                  <feDropShadow
-                    dx="0"
-                    dy="6"
-                    stdDeviation="12"
-                    floodColor="#7090ab"
-                    floodOpacity="0.75"
-                  />
-                </filter>
-              </defs>
-              <text
-                x="50%"
-                y="78"
-                textAnchor="middle"
-                fill="url(#contactGradPattern)"
-                fontWeight="bold"
-                fontSize="72"
-                fontFamily="inherit"
-                filter="url(#contactTextShadow)"
-              >
-                Informacje
-              </text>
-            </svg>
+            />
           </div>
           <p className="text-white/80 text-xl font-['Space_Grotesk'] font-bold max-w-xl mx-auto">
             Wszystko co musisz wiedzieć przed zamówieniem.
@@ -120,7 +75,7 @@ function Info() {
             {/* KOLUMNA: KONTAKT I DOSTAWA */}
             <div className="space-y-6">
               <div className="space-y-2">
-                <h2 className="font-['Unbounded'] font-bold text-xl  uppercase tracking-widest">
+                <h2 className="font-['Unbounded'] font-bold text-xl uppercase tracking-widest">
                   Kontakt / Dostawa
                 </h2>
                 <p className="text-white/70 text-base font-['Space_Grotesk'] font-bold">
