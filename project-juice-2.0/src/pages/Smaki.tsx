@@ -123,7 +123,7 @@ const premiumItems = [
     id: "P-18",
     img: p18,
     title: "P | 18",
-    details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem",
+    details: "SOLD OUT",
   },
   {
     id: "P-19",
