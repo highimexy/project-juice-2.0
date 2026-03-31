@@ -10,8 +10,8 @@ const VOLUMES = [
 
 const CONTACT_INFO = {
   name: "Telegram",
-  handle: "@username",
-  href: "https://t.me/username",
+  handle: "@juiicepl",
+  href: "https://t.me/juiicepl",
 };
 
 function Info() {
