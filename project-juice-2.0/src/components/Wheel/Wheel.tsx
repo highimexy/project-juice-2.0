@@ -1,24 +1,32 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
-interface Segment {
+export interface Segment {
   label: string;
   color: string;
+  weight?: number;
 }
 
 interface WheelCustomProps {
   segments: Segment[];
 }
 
+// Funkcja łagodząca: zwalnia płynnie pod koniec
+const easeOutQuart = (x: number): number => 1 - Math.pow(1 - x, 4);
+
 const WheelCustom = ({ segments }: WheelCustomProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
   const [isSpinning, setIsSpinning] = useState(false);
-  const isSpinningRef = useRef(false); // guard bez stale closure
+  const isSpinningRef = useRef(false);
   const angleCurrent = useRef(0);
-  const velocity = useRef(0);
   const animationFrameId = useRef<number | null>(null);
+
   const [canvasSize, setCanvasSize] = useState(300);
+  const [result, setResult] = useState<Segment | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const segmentAngle = (2 * Math.PI) / segments.length;
 
@@ -27,7 +35,7 @@ const WheelCustom = ({ segments }: WheelCustomProps) => {
       const el = containerRef.current;
       if (!el) return;
       const w = el.clientWidth;
-      const h = el.clientHeight - 80; // odejmij przycisk + gap
+      const h = el.clientHeight - 80;
       setCanvasSize(Math.min(w, h > 150 ? h : w, 420));
     };
     update();
@@ -109,66 +117,139 @@ const WheelCustom = ({ segments }: WheelCustomProps) => {
     drawWheel();
   }, [drawWheel]);
 
-  const animate = useCallback(() => {
-    velocity.current *= 0.995;
-    angleCurrent.current += velocity.current;
-
-    if (angleCurrent.current > 2 * Math.PI) {
-      angleCurrent.current -= 2 * Math.PI;
-    }
-
-    if (velocity.current < 0.00001) {
-      velocity.current = 0;
-      isSpinningRef.current = false;
-      setIsSpinning(false);
-      drawWheel();
-      return;
-    }
-
-    drawWheel();
-    animationFrameId.current = requestAnimationFrame(animate);
-  }, [drawWheel]);
-
   const spin = () => {
     if (isSpinningRef.current) return;
 
-    isSpinningRef.current = true;
     setIsSpinning(true);
+    isSpinningRef.current = true;
+    setShowPopup(false);
+    setResult(null);
 
-    if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+    if (animationFrameId.current)
+      cancelAnimationFrame(animationFrameId.current);
 
-    const winIdx = Math.floor(Math.random() * segments.length);
-    const targetAngle = winIdx * segmentAngle - Math.PI / 2 + segmentAngle / 2;
-    const fullSpins = (5 + Math.floor(Math.random() * 3)) * 2 * Math.PI;
-    const delta = targetAngle + fullSpins - (angleCurrent.current % (2 * Math.PI));
-    velocity.current = delta * 0.005;
+    // 1. Losowanie na podstawie wag
+    const totalWeight = segments.reduce(
+      (acc, seg) => acc + (seg.weight || 1),
+      0,
+    );
+    let random = Math.random() * totalWeight;
+    let winIdx = 0;
+
+    for (let i = 0; i < segments.length; i++) {
+      random -= segments[i].weight || 1;
+      if (random <= 0) {
+        winIdx = i;
+        break;
+      }
+    }
+
+    // 2. Precyzyjne obliczenie kąta (strzałka jest na 270 stopniach: 3PI/2)
+    const baseTargetAngle =
+      (3 * Math.PI) / 2 - (winIdx * segmentAngle + segmentAngle / 2);
+
+    let diff = (baseTargetAngle - angleCurrent.current) % (2 * Math.PI);
+    if (diff < 0) diff += 2 * Math.PI;
+
+    // 5 pełnych obrotów + różnica
+    const totalRotation = diff + 5 * 2 * Math.PI;
+    const startAngle = angleCurrent.current;
+
+    const duration = 5000; // Czas trwania animacji w ms
+    const startTime = performance.now();
+
+    // 3. Animacja po czasie, nie po prędkości
+    const animate = (time: number) => {
+      const elapsed = time - startTime;
+
+      if (elapsed >= duration) {
+        angleCurrent.current = (startAngle + totalRotation) % (2 * Math.PI);
+        drawWheel();
+        setIsSpinning(false);
+        isSpinningRef.current = false;
+
+        // Mamy 100% pewności, że wynik na ekranie = wynik z kodu
+        setResult(segments[winIdx]);
+        setShowPopup(true);
+        return;
+      }
+
+      const progress = elapsed / duration;
+      const easeProgress = easeOutQuart(progress);
+
+      angleCurrent.current = startAngle + totalRotation * easeProgress;
+      drawWheel();
+      animationFrameId.current = requestAnimationFrame(animate);
+    };
 
     animationFrameId.current = requestAnimationFrame(animate);
   };
 
   useEffect(() => {
     return () => {
-      if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+      if (animationFrameId.current)
+        cancelAnimationFrame(animationFrameId.current);
     };
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full max-w-[420px] h-full flex flex-col items-center justify-center gap-6">
-      <canvas
-        ref={canvasRef}
-        width={canvasSize}
-        height={canvasSize}
-        className="rounded-full drop-shadow-[0_0_30px_rgba(0,0,0,0.8)]"
-      />
-      <Button
-        onClick={spin}
-        disabled={isSpinning}
-        variant="outline"
-        className="w-48 bg-[#111010] border-2 border-black hover:border-white hover:bg-[#111010] text-white font-['Unbounded'] font-black text-lg disabled:opacity-50"
+    <>
+      <div
+        ref={containerRef}
+        className="w-full max-w-[420px] h-full flex flex-col items-center justify-center gap-6 relative"
       >
-        {isSpinning ? "Kręci się..." : "ZAKRĘĆ"}
-      </Button>
-    </div>
+        <canvas
+          ref={canvasRef}
+          width={canvasSize}
+          height={canvasSize}
+          className="rounded-full drop-shadow-[0_0_30px_rgba(0,0,0,0.8)]"
+        />
+        <Button
+          onClick={spin}
+          disabled={isSpinning}
+          variant="outline"
+          className="w-48 bg-[#111010] border-2 border-black hover:border-white hover:bg-[#111010] text-white font-['Unbounded'] font-black text-lg disabled:opacity-50"
+        >
+          {isSpinning ? "Kręci się..." : "ZAKRĘĆ"}
+        </Button>
+      </div>
+
+      <AnimatePresence>
+        {showPopup && result && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="flex flex-col items-center gap-4 p-8 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl max-w-sm w-full text-center"
+            >
+              <span className="font-['Unbounded'] text-[10px] uppercase tracking-widest text-white/40">
+                Twój wynik to
+              </span>
+              <h2
+                className="font-['Unbounded'] text-4xl text-white my-2"
+                style={{
+                  color: result.color !== "#1a1a1a" ? result.color : "white",
+                }}
+              >
+                {result.label}
+              </h2>
+              <button
+                onClick={() => setShowPopup(false)}
+                className="mt-4 w-full py-3 px-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-300 font-['Unbounded'] text-xs uppercase tracking-widest text-white"
+              >
+                Zamknij
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

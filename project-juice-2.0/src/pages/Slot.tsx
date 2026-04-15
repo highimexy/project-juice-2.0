@@ -1,29 +1,29 @@
 import Navigation from "../components/Navigation.tsx";
-import WheelCustom from "../components/Wheel/Wheel.tsx";
+import WheelCustom, { type Segment } from "../components/Wheel/Wheel.tsx";
 import Text3D from "../components/Text3d.tsx";
 import Transition from "../Transition.tsx";
 
-const segments = [
-  { label: "- 10%", color: "#585580" },
-  { label: "Nic", color: "#1a1a1a" },
-  { label: "+10ml", color: "#804141" },
-  { label: "Nic", color: "#1a1a1a" },
-  { label: "- 15%", color: "#640577" },
-  { label: "Nic", color: "#1a1a1a" },
-  { label: "+10ml", color: "#585580" },
-  { label: "Nic", color: "#1a1a1a" },
-  { label: "- 5%", color: "#804141" },
-  { label: "Nic", color: "#1a1a1a" },
-  { label: "+10ml", color: "#640577" },
-  { label: "Nic", color: "#1a1a1a" },
+const segments: Segment[] = [
+  { label: "- 10%", color: "#585580", weight: 7 },
+  { label: "Suchar", color: "#1a1a1a", weight: 10 },
+  { label: "+10ml", color: "#804141", weight: 6 },
+  { label: "Suchar", color: "#1a1a1a", weight: 10 },
+  { label: "- 15%", color: "#640577", weight: 3 },
+  { label: "Suchar", color: "#1a1a1a", weight: 10 },
+  { label: "+10ml", color: "#585580", weight: 6 },
+  { label: "Suchar", color: "#1a1a1a", weight: 10 },
+  { label: "- 5%", color: "#804141", weight: 12 },
+  { label: "Suchar", color: "#1a1a1a", weight: 10 },
+  { label: "+10ml", color: "#640577", weight: 6 },
+  { label: "Suchar", color: "#1a1a1a", weight: 10 },
 ];
 
 function Slot() {
   return (
-    <div className="h-screen overflow-hidden flex flex-col pt-36 lg:pt-24">
+    <div className="h-screen overflow-hidden flex flex-col pt-36 lg:pt-24 relative">
       <Navigation />
+
       <div className="flex flex-col flex-1 min-h-0 w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pb-10">
-        {/* Tytuł 3D */}
         <div className="text-center w-full mb-8">
           <div className="w-full flex justify-center mb-4">
             <Text3D
@@ -35,7 +35,6 @@ function Slot() {
               className="w-full max-w-3xl h-auto"
             />
           </div>
-
           <p className="text-white/80 text-xl font-['Space_Grotesk'] font-bold mb-1">
             Zakręć kołem i spróbuj wygrać zniżkę!
           </p>
