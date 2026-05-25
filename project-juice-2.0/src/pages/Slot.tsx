@@ -4,18 +4,18 @@ import Text3D from "../components/Text3d.tsx";
 import Transition from "../Transition.tsx";
 
 const segments: Segment[] = [
-  { label: "- 10%", color: "#585580", weight: 7 },
-  { label: "Suchar", color: "#1a1a1a", weight: 10 },
-  { label: "+10ml", color: "#804141", weight: 6 },
-  { label: "Suchar", color: "#1a1a1a", weight: 10 },
-  { label: "- 15%", color: "#640577", weight: 3 },
-  { label: "Suchar", color: "#1a1a1a", weight: 10 },
-  { label: "+10ml", color: "#585580", weight: 6 },
-  { label: "Suchar", color: "#1a1a1a", weight: 10 },
-  { label: "- 5%", color: "#804141", weight: 12 },
-  { label: "Suchar", color: "#1a1a1a", weight: 10 },
-  { label: "+10ml", color: "#640577", weight: 6 },
-  { label: "Suchar", color: "#1a1a1a", weight: 10 },
+  { label: "- 10%", color: "#585580", weight: 2 },
+  { label: "Pudło!", color: "#1a1a1a", weight: 14 },
+  { label: "+10ml", color: "#804141", weight: 2 },
+  { label: "Pudło!", color: "#1a1a1a", weight: 14 },
+  { label: "- 15%", color: "#640577", weight: 1 },
+  { label: "Pudło!", color: "#1a1a1a", weight: 14 },
+  { label: "+10ml", color: "#585580", weight: 2 },
+  { label: "Pudło!", color: "#1a1a1a", weight: 14 },
+  { label: "- 5%", color: "#804141", weight: 4 },
+  { label: "Pudło!", color: "#1a1a1a", weight: 15 },
+  { label: "+10ml", color: "#640577", weight: 2 },
+  { label: "Pudło!", color: "#1a1a1a", weight: 14 },
 ];
 
 function Slot() {
