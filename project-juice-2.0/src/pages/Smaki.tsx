@@ -30,6 +30,7 @@ import banan from "../assets/premium/Banan.webp";
 import czerwo from "../assets/premium/czerwo.webp";
 import Question from "../assets/Q.webp";
 import Transition from "../Transition.tsx";
+import { tr } from "framer-motion/client";
 
 const premiumItems = [
   {
@@ -37,6 +38,7 @@ const premiumItems = [
     img: p1,
     title: "P | 1",
     details: "Kwaśne cukierkowe zielone jabłko",
+    soldOut: false,
   },
   { id: "P-2", img: p2, title: "P | 2", details: "Kremowy banan z truskawką" },
   {
@@ -44,92 +46,119 @@ const premiumItems = [
     img: p3,
     title: "P | 3",
     details: "Limonka i cytrusy z mroźnym",
+    soldOut: false,
   },
   {
     id: "P-4",
     img: p4,
     title: "P | 4",
     details: "Złote kiwi, truskawka i granat z mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-5",
     img: p5,
     title: "P | 5",
     details: "Arbuz i cytryna z nutą maliny i mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-6",
     img: p6,
     title: "P | 6",
     details: "Czerwone owoce i lukrecja z delikatnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-7",
     img: p7,
     title: "P | 7",
     details: "Ananas i liczi z mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-8",
     img: p8,
     title: "P | 8",
     details: "Napój typu cola z mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-9",
     img: p9,
     title: "P | 9",
     details: "Mieszanka czerwonych owoców (jagody, truskawki, maliny)",
+    soldOut: false,
   },
   {
     id: "P-10",
     img: p10,
     title: "P | 10",
     details: "Różowy grejpfrut z truskawką i nutą orzeźwienia",
+    soldOut: false,
   },
-  { id: "P-11", img: p11, title: "P | 11", details: "Soczyste mango" },
+  {
+    id: "P-11",
+    img: p11,
+    title: "P | 11",
+    details: "Soczyste mango",
+    soldOut: false,
+  },
   {
     id: "P-12",
     img: p12,
     title: "P | 12",
     details: "Słodki melon z bardzo mocnym orzeźwieniem",
+    soldOut: false,
   },
-  { id: "P-13", img: p13, title: "P | 13", details: "Smoczy owoc z truskawką" },
+  {
+    id: "P-13",
+    img: p13,
+    title: "P | 13",
+    details: "Smoczy owoc z truskawką",
+    soldOut: true,
+  },
   {
     id: "P-14",
     img: p14,
     title: "P | 14",
     details: "Smoczy owoc, guawa, kiwi i truskawka",
+    soldOut: false,
   },
   {
     id: "P-15",
     img: p15,
     title: "P | 15",
     details: "Granat i truskawka z mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-16",
     img: p16,
     title: "P | 16",
     details: "Egzotyczne mango z orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-17",
     img: p17,
     title: "P | 17",
     details: "Malina z kruchym ciasteczkiem",
+    soldOut: false,
   },
   {
     id: "P-18",
     img: p18,
     title: "P | 18",
-    details: "SOLD OUT",
+    details: "Kaktus, czerwone owoce i cytryna z orzeźwieniem",
+    soldOut: true,
   },
   {
     id: "P-19",
     img: banan,
     title: "P | 19",
     details: "Kiwi i banan z orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-20",
@@ -137,42 +166,49 @@ const premiumItems = [
     title: "P | 20",
     details:
       "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-21",
     img: czerwo,
     title: "P | 21",
     details: "Czerwone owoce i mango z mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-22",
     img: p20,
     title: "P | 22",
     details: "Brzoskwinia, malina i kiwi",
+    soldOut: false,
   },
   {
     id: "P-23",
     img: p21,
     title: "P | 23",
     details: "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-24",
     img: p22,
     title: "P | 24",
     details: "Wiśnia i truskawka z orzeźwieniem",
+    soldOut: true,
   },
   {
     id: "P-25",
     img: p23,
     title: "P | 25",
     details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem",
+    soldOut: false,
   },
   {
     id: "P-26",
     img: Question,
     title: "???",
     details: "Każdy dowolny smak | Na zamówienie",
+    soldOut: false,
   },
 ];
 

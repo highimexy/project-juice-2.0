@@ -8,6 +8,7 @@ interface Item {
   img: string;
   title?: string;
   details?: string;
+  soldOut?: boolean;
 }
 
 interface FlavorGridProps {
@@ -49,7 +50,14 @@ function FlavorGrid({
               className="relative flex flex-col w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)] xl:w-[calc(20%-13px)]"
               animate={
                 isActive
-                  ? { y: [0, -10, 0], transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" } }
+                  ? {
+                      y: [0, -10, 0],
+                      transition: {
+                        duration: 2.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
+                    }
                   : { y: 0 }
               }
             >
@@ -57,11 +65,24 @@ function FlavorGrid({
                 <motion.div
                   className="absolute -top-12 left-0 right-0 flex justify-center pointer-events-none z-10"
                   animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
-                  style={{ filter: "drop-shadow(0 0 8px rgba(255,255,255,0.8)) drop-shadow(0 0 16px rgba(255,255,255,0.4))" }}
+                  transition={{
+                    duration: 1.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  style={{
+                    filter:
+                      "drop-shadow(0 0 8px rgba(255,255,255,0.8)) drop-shadow(0 0 16px rgba(255,255,255,0.4))",
+                  }}
                 >
                   <svg width="44" height="44" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3 L12 18 M5 11 L12 21 L19 11" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M12 3 L12 18 M5 11 L12 21 L19 11"
+                      stroke="white"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </motion.div>
               )}
@@ -94,7 +115,11 @@ function FlavorGrid({
                   </div>
 
                   <p className="text-white/80 text-xl text-center leading-snug font-['Space_Grotesk'] font-bold px-1 shrink-0">
-                    {item.details || "Nowe smaki incoming!"}
+                    {item.soldOut ? (
+                      <span className="text-red-500">SOLD OUT</span>
+                    ) : (
+                      item.details || "Nowe smaki incoming!"
+                    )}
                   </p>
                 </CardContent>
               </Card>
