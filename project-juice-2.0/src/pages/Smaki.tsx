@@ -30,7 +30,6 @@ import banan from "../assets/premium/Banan.webp";
 import czerwo from "../assets/premium/czerwo.webp";
 import Question from "../assets/Q.webp";
 import Transition from "../Transition.tsx";
-import { tr } from "framer-motion/client";
 
 const premiumItems = [
   {
