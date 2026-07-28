@@ -80,7 +80,7 @@ const premiumItems = [
     img: p8,
     title: "P | 8",
     details: "Napój typu cola z mroźnym orzeźwieniem",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-9",
