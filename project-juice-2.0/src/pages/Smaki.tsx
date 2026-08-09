@@ -29,6 +29,8 @@ import p23 from "../assets/premium/23.webp";
 import banan from "../assets/premium/Banan.webp";
 import czerwo from "../assets/premium/czerwo.webp";
 import Question from "../assets/Q.webp";
+import p26 from "../assets/premium/26.webp";
+
 import Transition from "../Transition.tsx";
 
 const premiumItems = [
@@ -204,6 +206,13 @@ const premiumItems = [
   },
   {
     id: "P-26",
+    img: p26,
+    title: "P | 26",
+    details: "Słodko-kwaśna tarta cytrynowo-limonkowa",
+    soldOut: false,
+  },
+  {
+    id: "P-27",
     img: Question,
     title: "???",
     details: "Każdy dowolny smak | Na zamówienie",
