@@ -1,18 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import gradientSvg from "../assets/gradient.svg?url";
-
-interface Item {
-  id: string;
-  img: string;
-}
-
-interface NavbarProps {
-  items?: Item[];
-  selectedId?: string | null;
-  onRandomSelect?: (id: string) => void;
-}
+import Logo from "./Logo.tsx";
+import { useAppReady } from "../lib/appReady.ts";
 
 const navLinks = [
   { to: "/smaki", label: "Smaki" },
@@ -20,119 +10,26 @@ const navLinks = [
   { to: "/secret", label: "???" },
 ];
 
-/** Logo 3D na łuku — warstwy głębi SVG + białe lico */
-function LogoArc3D({
-  id,
-  width,
-  fontSize,
-}: {
-  id: string;
-  width: number;
-  fontSize: number;
-}) {
-  const patternId = `logo3d-grad-${id}`;
-  const filterId = `logo3d-shadow-${id}`;
-  const arcId = `arc-path-${id}`;
-  const depth = 8;
-
-  return (
-    <svg
-      style={{
-        width: `${width}px`,
-        height: "auto",
-        marginBottom: "-12px",
-        overflow: "visible",
-      }}
-      viewBox="0 0 300 100"
-      overflow="visible"
-    >
-      <defs>
-        <pattern
-          id={patternId}
-          patternUnits="userSpaceOnUse"
-          x="0"
-          y="0"
-          width="300"
-          height="100"
-        >
-          <image
-            href={gradientSvg}
-            x="0"
-            y="0"
-            width="300"
-            height="100"
-            preserveAspectRatio="none"
-          />
-        </pattern>
-        <filter id={filterId} x="-15%" y="-30%" width="130%" height="200%">
-          <feDropShadow
-            dx="0"
-            dy="4"
-            stdDeviation="8"
-            floodColor="#7090ab"
-            floodOpacity="0.7"
-          />
-        </filter>
-        {/* Ścieżki łuku dla każdej warstwy — przesunięte o translate */}
-        <path id={arcId} d="M 20,80 Q 150,0 280,80" />
-      </defs>
-
-      {/* Warstwy głębi 3D — każda w osobnym <g transform="translate"> */}
-      {Array.from({ length: depth }, (_, i) => {
-        const offset = depth - i; // depth→1
-        return (
-          <g key={i} transform={`translate(${offset * 0.5}, ${offset})`}>
-            <text
-              fontSize={fontSize}
-              fontWeight="800"
-              letterSpacing="1"
-              opacity={0.45 + (i / depth) * 0.55}
-            >
-              <textPath
-                href={`#${arcId}`}
-                startOffset="50%"
-                textAnchor="middle"
-                fill={`url(#${patternId})`}
-              >
-                JUiiCE.PL
-              </textPath>
-            </text>
-          </g>
-        );
-      })}
-
-      {/* Białe lico na wierzchu */}
-      <text
-        fontSize={fontSize}
-        fontWeight="800"
-        letterSpacing="1"
-        filter={`url(#${filterId})`}
-      >
-        <textPath
-          href={`#${arcId}`}
-          startOffset="50%"
-          textAnchor="middle"
-          fill="white"
-        >
-          JUiiCE.PL
-        </textPath>
-      </text>
-    </svg>
-  );
-}
-
-function Navigation({ items = [], onRandomSelect }: NavbarProps) {
+function Navigation() {
   const location = useLocation();
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
+  const ready = useAppReady();
+
+  // Po zmianie trasy czyścimy hover, żeby kropka nie wisiała na starym linku
+  useEffect(() => {
+    setHoveredTab(null);
+  }, [location.pathname]);
+
+  // Nawigacja pojawia się dopiero po zakończeniu loading animacji
+  if (!ready) return null;
 
   const isActive = (to: string) =>
-    location.pathname.toLowerCase() === to.toLowerCase();
+    location.pathname.toLowerCase().replace(/\/+$/, "") ===
+    to.toLowerCase().replace(/\/+$/, "");
 
   const handleRandomClick = () => {
-    if (items.length > 0 && onRandomSelect) {
-      const randomItem = items[Math.floor(Math.random() * items.length)];
-      onRandomSelect(randomItem.id);
-    }
+    // Nawigacja żyje poza stroną Smaki — komunikacja przez event
+    window.dispatchEvent(new CustomEvent("juiice:random"));
   };
 
   const NavDot = ({
@@ -168,44 +65,59 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
     </div>
   );
 
+  const linkClass = (active: boolean) =>
+    `font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap ${
+      active ? "text-white" : "text-white/40 group-hover:text-white/70"
+    }`;
+
+  const mobileLinkClass = (active: boolean) =>
+    `font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 whitespace-nowrap ${
+      active ? "text-white" : "text-white/40 group-hover:text-white/70"
+    }`;
+
   return (
     <>
       {/* ================= DESKTOP ================= */}
-      <div className="hidden lg:flex fixed top-8 left-8 z-50 flex-col items-start gap-3 w-56">
+      <motion.div
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+        className="hidden lg:flex fixed top-8 left-8 z-50 flex-col items-start gap-3 w-56"
+      >
         <div
-          className="flex flex-col items-start gap-1 p-4 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl w-full"
+          className="flex flex-col items-start gap-1 p-4 rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl w-full"
           onMouseLeave={() => setHoveredTab(null)}
         >
           <Link
             to="/"
             className="flex justify-center w-full pb-4 border-b border-white/10 mb-2"
           >
-            <LogoArc3D id="desktop" width={170} fontSize={38} />
+            <Logo id="desktop" variant="arc" width={170} fontSize={38} />
           </Link>
 
-          {navLinks.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              onMouseEnter={() => setHoveredTab(item.to)}
-              className="relative flex items-center gap-3 py-2.5 px-3 w-full group"
-            >
-              <NavDot
-                active={isActive(item.to)}
-                hovered={hoveredTab === item.to}
-                layoutId="activeDotDesktop"
-              />
-              <span
-                className={`font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap ${isActive(item.to) ? "text-white" : "text-white/40 group-hover:text-white/70"}`}
+          {navLinks.map((item) => {
+            const active = isActive(item.to);
+            return (
+              <Link
+                key={item.to}
+                to={item.to}
+                aria-current={active ? "page" : undefined}
+                onMouseEnter={() => setHoveredTab(item.to)}
+                className="relative flex items-center gap-3 py-2.5 px-3 w-full group"
               >
-                {item.label}
-              </span>
-            </Link>
-          ))}
+                <NavDot
+                  active={active}
+                  hovered={hoveredTab === item.to}
+                  layoutId="activeDotDesktop"
+                />
+                <span className={linkClass(active)}>{item.label}</span>
+              </Link>
+            );
+          })}
         </div>
 
         {isActive("/smaki") && (
-          <div className="flex rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl items-center w-full overflow-hidden">
+          <div className="flex rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl items-center w-full overflow-hidden">
             <button
               onClick={handleRandomClick}
               className="flex items-center justify-center py-4 px-7 w-full group bg-transparent cursor-pointer"
@@ -216,36 +128,41 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
             </button>
           </div>
         )}
-      </div>
+      </motion.div>
 
       {/* ================= MOBILE ================= */}
-      <div className="lg:hidden fixed z-50 top-4 left-0 right-0 flex flex-col items-center gap-2 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        className="lg:hidden fixed z-50 top-4 left-0 right-0 flex flex-col items-center gap-2 px-4"
+      >
         <div className="flex flex-col items-center w-full gap-1">
           <Link to="/">
-            <LogoArc3D id="mobile" width={220} fontSize={42} />
+            <Logo id="mobile" variant="arc" width={220} fontSize={42} />
           </Link>
 
-          <nav className="flex items-center gap-0.5 p-1.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl mt-2">
-            {navLinks.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onMouseEnter={() => setHoveredTab(item.to)}
-                onMouseLeave={() => setHoveredTab(null)}
-                className="relative flex items-center gap-1.5 py-2 px-3 group"
-              >
-                <NavDot
-                  active={isActive(item.to)}
-                  hovered={hoveredTab === item.to}
-                  layoutId="activeDotMobile"
-                />
-                <span
-                  className={`font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 whitespace-nowrap ${isActive(item.to) ? "text-white" : "text-white/40 group-hover:text-white/70"}`}
+          <nav className="flex items-center gap-0.5 p-1.5 rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl mt-2">
+            {navLinks.map((item) => {
+              const active = isActive(item.to);
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  aria-current={active ? "page" : undefined}
+                  onMouseEnter={() => setHoveredTab(item.to)}
+                  onMouseLeave={() => setHoveredTab(null)}
+                  className="relative flex items-center gap-1.5 py-2 px-3 group"
                 >
-                  {item.label}
-                </span>
-              </Link>
-            ))}
+                  <NavDot
+                    active={active}
+                    hovered={hoveredTab === item.to}
+                    layoutId="activeDotMobile"
+                  />
+                  <span className={mobileLinkClass(active)}>{item.label}</span>
+                </Link>
+              );
+            })}
           </nav>
         </div>
 
@@ -256,7 +173,7 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
           >
             <button
               onClick={handleRandomClick}
-              className="flex items-center px-6 py-2.5 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl group transition-all"
+              className="flex items-center px-6 py-2.5 rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl group transition-all"
             >
               <span className="font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 text-white/40 group-hover:text-white/70">
                 Wylosuj smak
@@ -264,7 +181,7 @@ function Navigation({ items = [], onRandomSelect }: NavbarProps) {
             </button>
           </div>
         )}
-      </div>
+      </motion.div>
     </>
   );
 }

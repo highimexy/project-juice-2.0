@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Text3D from "../components/Text3d.tsx";
+import { useEffect, useState } from "react";
 import FlavorGrid from "../components/FlavorGrid/FlavorGrid.tsx";
-import Navigation from "../components/Navigation.tsx";
+import Logo from "../components/Logo.tsx";
+import PageHeader from "../components/PageHeader.tsx";
 
 import p1 from "../assets/premium/1.webp";
 import p2 from "../assets/premium/2.webp";
@@ -223,33 +223,48 @@ const premiumItems = [
 function Smaki() {
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
+  // Nawigacja („Wylosuj smak") żyje poza stroną — komunikacja przez event
+  useEffect(() => {
+    const onRandom = () => {
+      const randomItem =
+        premiumItems[Math.floor(Math.random() * premiumItems.length)];
+      setActiveCardId(randomItem.id);
+    };
+    window.addEventListener("juiice:random", onRandom);
+    return () => window.removeEventListener("juiice:random", onRandom);
+  }, []);
+
   return (
     <>
-      <Navigation
-        items={premiumItems}
-        selectedId={activeCardId}
-        onRandomSelect={setActiveCardId}
-      />
-
       <div className="flex flex-col pt-48 lg:pt-24 pb-4 px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px]">
-        <div className="text-center mb-8">
-          <div className="mb-6 w-full flex justify-center">
-            <Text3D
-              text="PR0J3CT - JUiiCE"
-              viewBoxWidth={1200}
-              viewBoxHeight={100}
-              fontSize={72}
-              depth={12}
-              className="w-full max-w-4xl h-auto"
+        <PageHeader
+          heading={
+            <Logo
+              id="hero"
+              variant="flat"
+              text="JUIICE.PL"
+              fontSize={96}
+              className="w-full max-w-4xl h-auto animate-logo-float"
             />
-          </div>
-          <p className="text-white/80 text-xl md:text-2xl font-['Space_Grotesk'] font-bold mb-4 max-w-2xl mx-auto">
-            Starannie skomponowane liquidy premium — intensywne smaki, gęsta
-            para
-            <br className="hidden md:block" />i najwyższa jakość składników w
-            każdej butelce.
-          </p>
-        </div>
+          }
+          description={
+            <>
+              <span className="text-white/90">
+                Gęsta para. Dzikie smaki. Czysta przyjemność.
+              </span>
+              <br className="hidden md:block" />
+              <span className="text-white/55 text-base md:text-lg">
+                Nie możesz się zdecydować? Wylosujemy za Ciebie! 🎲
+              </span>
+            </>
+          }
+          chips={[
+            "27 smaków premium",
+            "15 / 30 ml",
+            "12 / 18 mg",
+            "Trójmiasto · InPost",
+          ]}
+        />
       </div>
 
       <FlavorGrid

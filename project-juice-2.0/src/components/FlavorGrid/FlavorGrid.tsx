@@ -87,12 +87,12 @@ function FlavorGrid({
                 </motion.div>
               )}
               <Card
-                className={`group relative overflow-hidden bg-[#111010] border-2 py-0 gap-0 transition-all duration-300 rounded-lg h-full
-                  hover:shadow-[0_0_24px_rgba(255,255,255,0.1)] hover:-translate-y-1
+                className={`group relative overflow-hidden bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 py-0 gap-0 transition-all duration-300 rounded-lg h-full
+                  hover:shadow-[0_0_24px_rgba(255,255,255,0.12)] hover:-translate-y-1
                   ${
                     isActive
                       ? "border-[#7090ab] shadow-[0_0_40px_8px_rgba(112,144,171,0.8),0_0_80px_rgba(112,144,171,0.4)]"
-                      : "border-black hover:border-white/50"
+                      : "border-white/10 hover:border-white/30"
                   }`}
               >
                 <CardContent className="p-3 flex flex-col items-center gap-2 h-full">

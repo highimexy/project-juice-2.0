@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import loading from "./assets/loading.gif";
+import { setAppReady } from "./lib/appReady.ts";
 
 // Zmienna poza komponentem zapobiega powtarzaniu GIF-a
 let isFirstLoad = true;
@@ -16,6 +17,7 @@ const Transition = <P extends object>(OgComponent: React.ComponentType<P>) => {
     useEffect(() => {
       if (isFirstLoad) {
         const timer = setTimeout(() => {
+          setAppReady();
           setIsLoading(false);
           isFirstLoad = false;
         }, gifDuration);

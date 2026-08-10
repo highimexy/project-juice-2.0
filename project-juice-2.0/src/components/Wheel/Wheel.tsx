@@ -208,7 +208,7 @@ const WheelCustom = ({ segments }: WheelCustomProps) => {
           onClick={spin}
           disabled={isSpinning}
           variant="outline"
-          className="w-48 bg-[#111010] border-2 border-black hover:border-white hover:bg-[#111010] text-white font-['Unbounded'] font-black text-lg disabled:opacity-50"
+          className="w-48 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 hover:border-[#7090ab] hover:bg-[#000]/45 hover:shadow-[0_0_24px_rgba(112,144,171,0.45)] hover:text-white text-white font-['Unbounded'] font-black text-lg disabled:opacity-50"
         >
           {isSpinning ? "Kręci się..." : "ZAKRĘĆ"}
         </Button>
