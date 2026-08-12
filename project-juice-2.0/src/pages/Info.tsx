@@ -54,7 +54,7 @@ function Info() {
         <section className="grow flex items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl w-full">
             {/* KOLUMNA: POJEMNOŚCI */}
-            <div className="space-y-6">
+            <div className="space-y-6 flex flex-col">
               <div className="space-y-2">
                 <h2 className="font-['Unbounded'] font-bold text-xl uppercase tracking-widest">
                   Pojemności i Moc
@@ -67,7 +67,7 @@ function Info() {
               {VOLUMES.map((v) => (
                 <Card
                   key={v.label}
-                  className={`bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 transition-all duration-300
+                  className={`flex-1 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 transition-all duration-300
                     ${
                       v.theme === "blue"
                         ? "hover:border-[#7090ab] hover:shadow-[0_0_24px_rgba(112,144,171,0.4)]"
