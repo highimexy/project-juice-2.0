@@ -83,10 +83,17 @@ function Info() {
                   </CardContent>
                 </Card>
               ))}
+
+              <p
+                className="invisible text-white/30 text-xs font-['Space_Grotesk'] text-right"
+                aria-hidden="true"
+              >
+                Odpowiadamy najszybciej jak to możliwe.
+              </p>
             </div>
 
             {/* KOLUMNA: KONTAKT I DOSTAWA */}
-            <div className="space-y-6">
+            <div className="space-y-6 flex flex-col">
               <div className="space-y-2">
                 <h2 className="font-['Unbounded'] font-bold text-xl uppercase tracking-widest">
                   Kontakt / Dostawa
@@ -100,9 +107,9 @@ function Info() {
                 href={CONTACT_INFO.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="block flex-1"
               >
-                <Card className="bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 hover:border-[#229ED9] hover:shadow-[0_0_28px_rgba(34,158,217,0.35)] transition-all duration-300">
+                <Card className="h-full bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 hover:border-[#229ED9] hover:shadow-[0_0_28px_rgba(34,158,217,0.35)] transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex flex-col">
                       <span className="font-['Unbounded'] text-2xl font-bold text-[#229ED9]">
@@ -116,7 +123,7 @@ function Info() {
                 </Card>
               </a>
 
-              <Card className="bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 hover:border-[#640577]/70 hover:shadow-[0_0_24px_rgba(100,5,119,0.35)] transition-all duration-300">
+              <Card className="flex-1 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 hover:border-[#640577]/70 hover:shadow-[0_0_24px_rgba(100,5,119,0.35)] transition-all duration-300">
                 <CardContent className="p-6 space-y-2">
                   <span className="font-['Unbounded'] text-lg font-bold text-[#640577] uppercase tracking-wider">
                     Dostawa
