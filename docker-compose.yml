@@ -1,9 +1,20 @@
-version: "3.8"
+version: '3.8'
 
 services:
   app:
-    image: project-juice:latest
-    build: ./project-juice-2.0
+    image: ghcr.io/highimexy/project-juice:latest
     restart: always
     ports:
-      - "8081:80" # Twoja strona będzie dostępna dla Nginxa na tym porcie
+      # Loopback only: host nginx terminates TLS and proxies here. The old
+      # 0.0.0.0 binding served the shop on http://<public-ip>:8081, bypassing
+      # nginx and TLS entirely (same story as s-tar before its fix).
+      - '127.0.0.1:8081:80'
+
+  api:
+    image: ghcr.io/highimexy/project-juice-api:latest
+    restart: always
+    # Credentials live in .env (0600, gitignored) — the Gmail app password
+    # used to be hardcoded here and is now in git history.
+    env_file: .env
+    ports:
+      - '127.0.0.1:5000:3000'

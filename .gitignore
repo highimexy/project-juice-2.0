@@ -1,0 +1,3 @@
+# Secrets — never commit. Backend reads EMAIL_* from .env (0600 on the VPS).
+.env
+**/.env
