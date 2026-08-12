@@ -1,12 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Tło ASCII — puszyste chmurki dryfujące po ekranie (zamiennik fali).
+ * Tło ASCII — klasyczne chmurki dryfujące po ekranie.
  *
- * - każda chmurka to wiązka "bąbelków" gaussowskich (PUFFS) z miękko
- *   ditherowanymi krawędziami (macierz Bayera 4×4, rampa ` .:-=+xX#8`)
- * - chmurki płyną poziomo (z zawijaniem) z różnymi prędkościami
- *   (paralaksa) i delikatnie kołyszą się w pionie
+ * Kształt jak z ikonki pogody: 3 garby (środkowy najwyższy, boczne niższe)
+ * + małe "skrajne" bąbelki, osadzone na szerokiej, płaskiej podstawie.
+ * Każda chmurka to suma-union gaussowskich elips (max zamiast sumy,
+ * dzięki czemu doliny między garbami są wyraźne), krawędzie ditheringowane
+ * macierzą Bayera 4×4, rampa ` .:-=+xX#8`.
+ *
+ * - chmurki płyną poziomo (z zawijaniem) z różnymi prędkościami (paralaksa)
+ *   i delikatnie kołyszą się w pionie
+ * - dwa kształty: "classic" i "wide" dla urozmaicenia
  * - aktualizacja ~10 fps, pauza przy ukrytej karcie / reduced motion
  */
 
@@ -21,10 +26,12 @@ const BAYER = [
 interface Puff {
   dx: number;
   dy: number;
-  r: number;
+  rx: number; // poziomy promień elipsy
+  ry: number; // pionowy promień elipsy
 }
 
 interface CloudDef {
+  puffs: Puff[]; // kształt chmurki
   y: number; // 0..1 — pionowa pozycja środka chmurki
   x0: number; // 0..1 — startowa pozycja pozioma
   speed: number; // ułamek szerokości ekranu na sekundę
@@ -33,27 +40,35 @@ interface CloudDef {
   bobSpeed: number; // szybkość kołysania (rad/s)
 }
 
-/** "Bąbelki" układające się w puszysty kształt chmurki */
-const PUFFS: Puff[] = [
-  { dx: 0, dy: 0, r: 2.2 },
-  { dx: -2.6, dy: 0.6, r: 1.5 },
-  { dx: 2.7, dy: 0.5, r: 1.6 },
-  { dx: -1.3, dy: -0.8, r: 1.4 },
-  { dx: 1.2, dy: -0.9, r: 1.5 },
-  { dx: 4.6, dy: 1.1, r: 1.0 },
-  { dx: -4.6, dy: 1.2, r: 1.0 },
-  { dx: 0.2, dy: 0.9, r: 1.9 },
+/** Klasyczna chmurka: 3 garby + skraje, płaska podstawa */
+const PUFFS_CLASSIC: Puff[] = [
+  { dx: 0, dy: 1.7, rx: 6.0, ry: 1.1 }, // szeroka płaska podstawa
+  { dx: 0, dy: -0.6, rx: 2.4, ry: 2.4 }, // wysoki garb środkowy
+  { dx: -3.0, dy: -0.7, rx: 1.9, ry: 1.9 }, // garb lewy
+  { dx: 3.0, dy: -0.7, rx: 1.9, ry: 1.9 }, // garb prawy
+  { dx: -5.7, dy: 0.5, rx: 1.1, ry: 1.1 }, // skraj lewy
+  { dx: 5.7, dy: 0.5, rx: 1.1, ry: 1.1 }, // skraj prawy
+];
+
+/** Szeroka, niższa chmurka — urozmaicenie */
+const PUFFS_WIDE: Puff[] = [
+  { dx: 0, dy: 1.9, rx: 8.0, ry: 1.0 }, // długa płaska podstawa
+  { dx: 0, dy: -0.5, rx: 2.8, ry: 2.0 }, // garb środkowy
+  { dx: -4.0, dy: -0.3, rx: 2.2, ry: 1.7 }, // garb lewy
+  { dx: 4.0, dy: -0.3, rx: 2.2, ry: 1.7 }, // garb prawy
+  { dx: -7.0, dy: 0.9, rx: 1.2, ry: 1.0 }, // skraj lewy
+  { dx: 7.0, dy: 0.9, rx: 1.2, ry: 1.0 }, // skraj prawy
 ];
 
 /** Chmurki na różnych wysokościach, z różnymi prędkościami (paralaksa) */
 const CLOUDS: CloudDef[] = [
-  { y: 0.13, x0: 0.0, speed: 0.016, scale: 1.5, bobAmp: 0.7, bobSpeed: 0.14 },
-  { y: 0.28, x0: 0.5, speed: 0.01, scale: 2.1, bobAmp: 1.0, bobSpeed: 0.1 },
-  { y: 0.42, x0: 0.78, speed: 0.022, scale: 1.2, bobAmp: 0.5, bobSpeed: 0.19 },
-  { y: 0.2, x0: 0.3, speed: 0.013, scale: 1.7, bobAmp: 0.8, bobSpeed: 0.12 },
-  { y: 0.5, x0: 0.1, speed: 0.019, scale: 1.4, bobAmp: 0.6, bobSpeed: 0.16 },
-  { y: 0.35, x0: 0.88, speed: 0.026, scale: 1.1, bobAmp: 0.5, bobSpeed: 0.21 },
-  { y: 0.58, x0: 0.4, speed: 0.008, scale: 2.4, bobAmp: 1.2, bobSpeed: 0.08 },
+  { puffs: PUFFS_CLASSIC, y: 0.13, x0: 0.0, speed: 0.016, scale: 1.5, bobAmp: 0.7, bobSpeed: 0.14 },
+  { puffs: PUFFS_WIDE, y: 0.28, x0: 0.5, speed: 0.01, scale: 1.4, bobAmp: 1.0, bobSpeed: 0.1 },
+  { puffs: PUFFS_CLASSIC, y: 0.42, x0: 0.78, speed: 0.022, scale: 1.2, bobAmp: 0.5, bobSpeed: 0.19 },
+  { puffs: PUFFS_WIDE, y: 0.2, x0: 0.3, speed: 0.013, scale: 1.2, bobAmp: 0.8, bobSpeed: 0.12 },
+  { puffs: PUFFS_CLASSIC, y: 0.5, x0: 0.1, speed: 0.019, scale: 1.4, bobAmp: 0.6, bobSpeed: 0.16 },
+  { puffs: PUFFS_CLASSIC, y: 0.35, x0: 0.88, speed: 0.026, scale: 1.1, bobAmp: 0.5, bobSpeed: 0.21 },
+  { puffs: PUFFS_WIDE, y: 0.58, x0: 0.4, speed: 0.008, scale: 1.8, bobAmp: 1.2, bobSpeed: 0.08 },
 ];
 
 const clamp = (v: number, lo: number, hi: number) =>
@@ -62,13 +77,14 @@ const clamp = (v: number, lo: number, hi: number) =>
 function renderFrame(cols: number, rows: number, time: number): string {
   // pozycje chmur w tym kadrze — liczone raz na klatkę
   const clouds = CLOUDS.map((cl) => {
-    const width = 13 * cl.scale;
+    const width = 18 * cl.scale;
     const span = cols + width * 2;
     return {
+      puffs: cl.puffs,
       cx: (((cl.x0 + time * cl.speed) % 1) * span) - width,
       cy: cl.y * rows + Math.sin(time * cl.bobSpeed) * cl.bobAmp,
       scale: cl.scale,
-      maxDy: 4.5 * cl.scale,
+      maxDy: 6 * cl.scale,
     };
   });
 
@@ -79,17 +95,19 @@ function renderFrame(cols: number, rows: number, time: number): string {
       for (const cl of clouds) {
         const dy = r - cl.cy;
         if (dy > cl.maxDy || dy < -cl.maxDy) continue;
-        for (const p of PUFFS) {
-          const pr = p.r * cl.scale;
-          const pdx = c - (cl.cx + p.dx * cl.scale);
-          if (Math.abs(pdx) > pr * 2.4) continue;
-          const pdy = dy - p.dy * cl.scale;
-          if (Math.abs(pdy) > pr * 2.4) continue;
-          v += Math.exp(-(pdx * pdx + pdy * pdy) / (pr * pr));
+        // union bąbelków — max zamiast sumy, żeby doliny między garbami były widoczne
+        for (const p of cl.puffs) {
+          const prx = p.rx * cl.scale;
+          const pry = p.ry * cl.scale;
+          const pdx = (c - (cl.cx + p.dx * cl.scale)) / prx;
+          const pdy = (dy - p.dy * cl.scale) / pry;
+          if (Math.abs(pdx) > 2.4 || Math.abs(pdy) > 2.4) continue;
+          const g = Math.exp(-(pdx * pdx + pdy * pdy));
+          if (g > v) v = g;
         }
       }
 
-      let a = clamp(v / 1.7, 0, 1);
+      let a = clamp(v / 0.35, 0, 1);
       if (a < 0.05) a = 0;
       const scaled = a * 9; // rampa ma 10 znaków (0..9)
       const idx = Math.min(
