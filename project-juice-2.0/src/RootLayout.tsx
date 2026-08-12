@@ -1,15 +1,15 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Navigation from "./components/Navigation.tsx";
-import AsciiWave from "./components/AsciiWave.tsx";
+import AsciiClouds from "./components/AsciiClouds.tsx";
 
 const RootLayout = () => {
   const location = useLocation();
 
   return (
     <>
-      {/* Tło: fala ASCII rozchodząca się od logo */}
-      <AsciiWave />
+      {/* Tło: chmurki ASCII dryfujące po ekranie */}
+      <AsciiClouds />
 
       {/* Siatka kropek jak w hero na openclaw.ai — wygaszana ku dołowi */}
       <div
