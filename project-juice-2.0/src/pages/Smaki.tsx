@@ -109,7 +109,7 @@ const premiumItems = [
     img: p11,
     title: "P | 11",
     details: "Soczyste mango",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-12",
@@ -130,7 +130,7 @@ const premiumItems = [
     img: p14,
     title: "P | 14",
     details: "Smoczy owoc, guawa, kiwi i truskawka",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-15",
