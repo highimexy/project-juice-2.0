@@ -39,9 +39,15 @@ const premiumItems = [
     img: p1,
     title: "P | 1",
     details: "Kwaśne cukierkowe zielone jabłko",
-    soldOut: false,
+    soldOut: true,
   },
-  { id: "P-2", img: p2, title: "P | 2", details: "Kremowy banan z truskawką" },
+  {
+    id: "P-2",
+    img: p2,
+    title: "P | 2",
+    details: "Kremowy banan z truskawką",
+    soldOut: true,
+  },
   {
     id: "P-3",
     img: p3,
