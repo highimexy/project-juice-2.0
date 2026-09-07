@@ -114,12 +114,11 @@ function FlavorGrid({
                     />
                   </div>
 
-                  <p className="text-white/80 text-xl text-center leading-snug font-['Space_Grotesk'] font-bold px-1 shrink-0">
-                    {item.soldOut ? (
+                  <p className="text-white/80 text-xl text-center leading-snug font-['Space_Grotesk'] font-bold px-1 shrink-0 flex flex-col">
+                    {item.soldOut && (
                       <span className="text-red-500">SOLD OUT</span>
-                    ) : (
-                      item.details || "Nowe smaki incoming!"
                     )}
+                    {item.details || "Nowe smaki incoming!"}
                   </p>
                 </CardContent>
               </Card>
