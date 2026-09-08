@@ -91,9 +91,13 @@ const Transition = <P extends object>(OgComponent: React.ComponentType<P>) => {
               key="initial-loader"
               className="fixed inset-0 z-10000 flex justify-center items-center overflow-hidden bg-[#0a0a0d]"
               exit={{
+                // Sam opacity + scale: animowane na kompozytorze (GPU),
+                // bez filter: blur — blur na pełnym ekranie wymuszał
+                // przemalowanie całej warstwy co klatkę i to lagowało
+                // dokładnie w momencie zejścia loadera.
                 opacity: 0,
-                filter: "blur(8px)",
-                transition: { duration: 0.5, ease: avvrEase },
+                scale: 1.04,
+                transition: { duration: 0.4, ease: avvrEase },
               }}
             >
               {/* Ta sama siatka kropek co w RootLayout — wygaszana ku dołowi */}
@@ -276,8 +280,11 @@ const Transition = <P extends object>(OgComponent: React.ComponentType<P>) => {
                   animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
                   transition={{ duration: 0.9, ease: avvrEase }}
                 >
-                  <div className="md:scale-[1.45] origin-center">
-                    <Logo id="loader" variant="arc" width={260} fontSize={44} />
+                  <div className="md:hidden w-[min(300px,70vw)]">
+                    <Logo id="loader" variant="flat" text="JUIICE.PL" fontSize={120} />
+                  </div>
+                  <div className="hidden md:block w-[min(560px,60vw)]">
+                    <Logo id="loader-flat" variant="flat" text="JUIICE.PL" fontSize={120} />
                   </div>
                 </motion.div>
               </div>
@@ -285,7 +292,8 @@ const Transition = <P extends object>(OgComponent: React.ComponentType<P>) => {
           )}
         </AnimatePresence>
 
-        {/* ENTRY: Szybsze odsłanianie (0.8s zamiast 1.1s) */}
+        {/* ENTRY: startuje dopiero gdy loader znika (delay 0.25),
+            żeby zejście loadera i odsłonięcie nie walczyły o tę samą klatkę */}
         {!isLoading &&
           panels.map((panel, i) => (
             <motion.div
@@ -301,7 +309,7 @@ const Transition = <P extends object>(OgComponent: React.ComponentType<P>) => {
               transition={{
                 duration: 0.3,
                 ease: avvrEase,
-                delay: i * 0.05, // Mniejszy odstęp między panelami
+                delay: 0.25 + i * 0.06,
               }}
             />
           ))}
