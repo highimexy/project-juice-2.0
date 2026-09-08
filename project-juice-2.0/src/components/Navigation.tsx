@@ -138,10 +138,6 @@ function Navigation() {
         className="lg:hidden fixed z-50 top-4 left-0 right-0 flex flex-col items-center gap-2 px-4"
       >
         <div className="flex flex-col items-center w-full gap-1">
-          <Link to="/">
-            <Logo id="mobile" variant="arc" width={220} fontSize={42} />
-          </Link>
-
           <nav className="flex items-center gap-0.5 p-1.5 rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl mt-2">
             {navLinks.map((item) => {
               const active = isActive(item.to);
