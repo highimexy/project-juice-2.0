@@ -9,6 +9,45 @@ interface Item {
   title?: string;
   details?: string;
   soldOut?: boolean;
+  accent?: string;
+}
+
+const FLAVOR_ACCENTS: Record<string, string> = {
+  "Kwaśne cukierkowe zielone jabłko": "#76D629",
+  "Kremowy banan z truskawką": "#F4C430",
+  "Limonka i cytrusy z mroźnym": "#A4D10D",
+  "Złote kiwi, truskawka i granat z mroźnym orzeźwieniem": "#E0115F",
+  "Arbuz i cytryna z nutą maliny i mroźnym orzeźwieniem": "#FF6B81",
+  "Czerwone owoce i lukrecja z delikatnym orzeźwieniem": "#4A0404",
+  "Ananas i liczi z mroźnym orzeźwieniem": "#FFD700",
+  "Napój typu cola z mroźnym orzeźwieniem": "#3C1F0B",
+  "Mieszanka czerwonych owoców (jagody, truskawki, maliny)": "#8B0000",
+  "Różowy grejpfrut z truskawką i nutą orzeźwienia": "#FF91A4",
+  "Soczyste mango": "#FF8C00",
+  "Słodki melon z bardzo mocnym orzeźwieniem": "#FFA500",
+  "Smoczy owoc z truskawką": "#FF1493",
+  "Smoczy owoc, guawa, kiwi i truskawka": "#FB607F",
+  "Granat i truskawka z mroźnym orzeźwieniem": "#DC143C",
+  "Egzotyczne mango z orzeźwieniem": "#FFB300",
+  "Malina z kruchym ciasteczkiem": "#CD5C5C",
+  "Kaktus, czerwone owoce i cytryna z orzeźwieniem": "#2E8B57",
+  "Kiwi i banan z orzeźwieniem": "#ADFF2F",
+  "Mieszanka czerwonych owoców (głównie truskawki i jeżyny) z mroźnym orzeźwieniem":
+    "#990000",
+  "Czerwone owoce i mango z mroźnym orzeźwieniem": "#FF4500",
+  "Brzoskwinia, malina i kiwi": "#FF9966",
+  "Kwaśne cukierkowe zielone jabłko z mroźnym orzeźwieniem": "#66FF00",
+  "Wiśnia i truskawka z orzeźwieniem": "#D2042D",
+  "Cukierkowa niebieska malina z mroźnym orzeźwieniem": "#00BFFF",
+  "Słodko-kwaśna tarta cytrynowo-limonkowa": "#D4E157",
+};
+
+function getFlavorAccent(item: Item): string {
+  if (item.accent) return item.accent;
+  if (item.details && FLAVOR_ACCENTS[item.details]) {
+    return FLAVOR_ACCENTS[item.details];
+  }
+  return "#FFFFFF";
 }
 
 interface FlavorGridProps {
@@ -43,11 +82,12 @@ function FlavorGrid({
       <div className="flex flex-wrap justify-center gap-4">
         {items.map((item) => {
           const isActive = item.id === activeCardId;
+          const accent = getFlavorAccent(item);
           return (
             <motion.div
               key={item.id}
               data-id={item.id}
-              className="relative flex flex-col w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)] xl:w-[calc(20%-13px)]"
+              className="relative flex flex-col w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)] xl:w-[calc(20%-13px)] cursor-default"
               animate={
                 isActive
                   ? {
@@ -87,7 +127,7 @@ function FlavorGrid({
                 </motion.div>
               )}
               <Card
-                className={`group relative overflow-hidden bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 py-0 gap-0 transition-all duration-300 rounded-lg h-full
+                className={`group relative overflow-hidden bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 py-0 gap-0 transition-all duration-300 rounded-lg h-full cursor-default
                   hover:shadow-[0_0_24px_rgba(255,255,255,0.12)] hover:-translate-y-1
                   ${
                     isActive
@@ -95,22 +135,28 @@ function FlavorGrid({
                       : "border-white/10 hover:border-white/30"
                   }`}
               >
-                <CardContent className="p-3 flex flex-col items-center gap-2 h-full">
+                <CardContent className="p-3 flex flex-col items-center gap-2 h-full cursor-default">
                   <div className="w-full flex justify-start">
                     <Badge
                       variant="outline"
+                      style={{
+                        color: "#FFFFFF",
+                        borderColor: `${accent}66`,
+                        backgroundColor: `${accent}14`,
+                        boxShadow: isActive ? `0 0 12px ${accent}55` : undefined,
+                      }}
                       className={`font-['Unbounded'] text-lg px-3 py-1 transition-colors duration-300 shrink-0
-                        ${isActive ? "text-white border-2 border-white" : "text-white border-2 border-white/40"}`}
+                        ${isActive ? "border-2" : "border-2"}`}
                     >
                       {item.title || item.id}
                     </Badge>
                   </div>
 
-                  <div className="flex-1 flex items-center justify-center w-full overflow-hidden">
+                  <div className="flex-1 flex items-center justify-center w-full overflow-hidden cursor-default">
                     <img
                       src={item.img}
                       alt={item.title || item.id}
-                      className="max-w-full max-h-40 object-contain transition-transform duration-300 group-hover:scale-110"
+                      className="max-w-full max-h-40 object-contain transition-transform duration-300 group-hover:scale-110 cursor-default"
                     />
                   </div>
 
