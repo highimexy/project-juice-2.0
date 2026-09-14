@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import FlavorGrid from "../components/FlavorGrid/FlavorGrid.tsx";
 import Logo from "../components/Logo.tsx";
 import PageHeader from "../components/PageHeader.tsx";
@@ -226,19 +226,28 @@ const premiumItems = [
   },
 ];
 
+type AvailabilityFilter = "all" | "available" | "soldout";
+
 function Smaki() {
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
+  const [filter, setFilter] = useState<AvailabilityFilter>("all");
+
+  const filteredItems = useMemo(() => {
+    if (filter === "available") return premiumItems.filter((i) => !i.soldOut);
+    if (filter === "soldout") return premiumItems.filter((i) => i.soldOut);
+    return premiumItems;
+  }, [filter]);
 
   // Nawigacja („Wylosuj smak") żyje poza stroną — komunikacja przez event
   useEffect(() => {
     const onRandom = () => {
-      const randomItem =
-        premiumItems[Math.floor(Math.random() * premiumItems.length)];
+      const pool = filteredItems.length > 0 ? filteredItems : premiumItems;
+      const randomItem = pool[Math.floor(Math.random() * pool.length)];
       setActiveCardId(randomItem.id);
     };
     window.addEventListener("juiice:random", onRandom);
     return () => window.removeEventListener("juiice:random", onRandom);
-  }, []);
+  }, [filteredItems]);
 
   return (
     <>
@@ -273,8 +282,44 @@ function Smaki() {
         />
       </div>
 
+      <div className="w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pb-4 flex justify-center">
+        <div
+          role="tablist"
+          aria-label="Filtruj smaki po dostępności"
+          className="inline-flex items-center gap-1 p-1 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/10"
+        >
+          {(
+            [
+              { id: "all", label: `Wszystkie (${premiumItems.length})` },
+              {
+                id: "available",
+                label: `Dostępne (${premiumItems.filter((i) => !i.soldOut).length})`,
+              },
+              {
+                id: "soldout",
+                label: `Sold out (${premiumItems.filter((i) => i.soldOut).length})`,
+              },
+            ] as { id: AvailabilityFilter; label: string }[]
+          ).map((tab) => (
+            <button
+              key={tab.id}
+              role="tab"
+              aria-selected={filter === tab.id}
+              onClick={() => setFilter(tab.id)}
+              className={`px-4 py-2 rounded-full text-sm md:text-base font-['Space_Grotesk'] font-bold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                filter === tab.id
+                  ? "bg-white text-black shadow-[0_0_16px_rgba(255,255,255,0.25)]"
+                  : "text-white/60 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <FlavorGrid
-        items={premiumItems}
+        items={filteredItems}
         activeCardId={activeCardId}
         onActiveCardChange={setActiveCardId}
       />
