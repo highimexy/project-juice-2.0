@@ -60,7 +60,7 @@ const premiumItems = [
     img: p4,
     title: "P | 4",
     details: "Złote kiwi, truskawka i granat z mroźnym orzeźwieniem",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-5",
