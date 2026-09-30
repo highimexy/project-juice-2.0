@@ -39,7 +39,7 @@ const premiumItems = [
     img: p1,
     title: "P | 1",
     details: "Kwaśne cukierkowe zielone jabłko",
-    soldOut: true,
+    soldOut: false,
   },
   {
     id: "P-2",
@@ -95,21 +95,21 @@ const premiumItems = [
     img: p9,
     title: "P | 9",
     details: "Mieszanka czerwonych owoców (jagody, truskawki, maliny)",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-10",
     img: p10,
     title: "P | 10",
     details: "Różowy grejpfrut z truskawką i nutą orzeźwienia",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-11",
     img: p11,
     title: "P | 11",
     details: "Soczyste mango",
-    soldOut: true,
+    soldOut: false,
   },
   {
     id: "P-12",
@@ -137,14 +137,14 @@ const premiumItems = [
     img: p15,
     title: "P | 15",
     details: "Granat i truskawka z mroźnym orzeźwieniem",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-16",
     img: p16,
     title: "P | 16",
     details: "Egzotyczne mango z orzeźwieniem",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-17",
@@ -187,7 +187,7 @@ const premiumItems = [
     img: p20,
     title: "P | 22",
     details: "Brzoskwinia, malina i kiwi",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-23",
@@ -208,7 +208,7 @@ const premiumItems = [
     img: p23,
     title: "P | 25",
     details: "Cukierkowa niebieska malina z mroźnym orzeźwieniem",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-26",
