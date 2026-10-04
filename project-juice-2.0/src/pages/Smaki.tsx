@@ -267,7 +267,7 @@ function Smaki() {
               <span className="text-white/90">
                 Gęsta para. Dzikie smaki. Czysta przyjemność.
               </span>
-              <br className="hidden md:block" />
+              <br />
               <span className="text-white/55 text-base md:text-lg">
                 Nie możesz się zdecydować? Wylosujemy za Ciebie! 🎲
               </span>
