@@ -109,7 +109,7 @@ const premiumItems = [
     img: p11,
     title: "P | 11",
     details: "Soczyste mango",
-    soldOut: false,
+    soldOut: true,
   },
   {
     id: "P-12",
