@@ -45,7 +45,7 @@ function Navigation() {
       {active && (
         <motion.div
           layoutId={layoutId}
-          className="absolute w-1.5 h-1.5 rounded-full bg-[#7090ab]"
+          className="absolute w-2.5 h-2.5 rounded-full bg-[#7090ab]"
           style={{
             boxShadow: "0 0 8px #7090ab, 0 0 16px rgba(112,144,171,0.5)",
           }}
@@ -58,7 +58,7 @@ function Navigation() {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.5 }}
             exit={{ scale: 0, opacity: 0 }}
-            className="absolute w-1 h-1 rounded-full bg-[#7090ab]"
+            className="absolute w-2 h-2 rounded-full bg-[#7090ab]"
           />
         )}
       </AnimatePresence>
@@ -66,12 +66,12 @@ function Navigation() {
   );
 
   const linkClass = (active: boolean) =>
-    `font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap ${
+    `font-['Space_Grotesk'] font-bold text-sm uppercase tracking-wide transition-colors duration-300 whitespace-nowrap ${
       active ? "text-white" : "text-white/40 group-hover:text-white/70"
     }`;
 
   const mobileLinkClass = (active: boolean) =>
-    `font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 whitespace-nowrap ${
+    `font-['Space_Grotesk'] font-bold text-xs uppercase tracking-wide transition-colors duration-300 whitespace-nowrap ${
       active ? "text-white" : "text-white/40 group-hover:text-white/70"
     }`;
 
@@ -85,7 +85,7 @@ function Navigation() {
         className="hidden lg:flex fixed top-8 left-8 z-50 flex-col items-start gap-3 w-56"
       >
         <div
-          className="flex flex-col items-start gap-1 p-4 rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl w-full"
+          className="flex flex-col items-start gap-1 p-4 juice-surface w-full"
           onMouseLeave={() => setHoveredTab(null)}
         >
           <Link
@@ -117,12 +117,12 @@ function Navigation() {
         </div>
 
         {isActive("/smaki") && (
-          <div className="flex rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl items-center w-full overflow-hidden">
+          <div className="flex items-center w-full">
             <button
               onClick={handleRandomClick}
-              className="flex items-center justify-center py-4 px-7 w-full group bg-transparent cursor-pointer"
+              className="juice-chip juice-control min-h-12 px-7 py-3 w-full group"
             >
-              <span className="font-['Unbounded'] text-sm uppercase tracking-[0.2em] transition-colors duration-300 whitespace-nowrap text-white/40 group-hover:text-white/70">
+              <span className="font-['Space_Grotesk'] font-bold text-sm uppercase tracking-wide transition-colors duration-300 whitespace-nowrap text-white/40 group-hover:text-white/70">
                 Wylosuj smak
               </span>
             </button>
@@ -138,7 +138,7 @@ function Navigation() {
         className="lg:hidden fixed z-50 top-4 left-0 right-0 flex flex-col items-center gap-2 px-4"
       >
         <div className="flex flex-col items-center w-full gap-1">
-          <nav className="flex items-center gap-0.5 p-1.5 rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl mt-2">
+          <nav className="flex items-center gap-0.5 p-1.5 juice-surface mt-2">
             {navLinks.map((item) => {
               const active = isActive(item.to);
               return (
@@ -169,9 +169,9 @@ function Navigation() {
           >
             <button
               onClick={handleRandomClick}
-              className="flex items-center px-6 py-2.5 rounded-2xl border border-white/10 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl group transition-all"
+              className="juice-chip juice-control min-h-10 px-6 py-2 group"
             >
-              <span className="font-['Unbounded'] text-[10px] uppercase tracking-widest transition-colors duration-300 text-white/40 group-hover:text-white/70">
+              <span className="font-['Space_Grotesk'] font-bold text-xs uppercase tracking-wide transition-colors duration-300 text-white/40 group-hover:text-white/70">
                 Wylosuj smak
               </span>
             </button>

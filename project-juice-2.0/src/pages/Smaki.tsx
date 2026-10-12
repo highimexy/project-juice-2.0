@@ -286,7 +286,7 @@ function Smaki() {
         <div
           role="tablist"
           aria-label="Filtruj smaki po dostępności"
-          className="grid grid-cols-3 w-full min-w-0 sm:w-auto sm:inline-flex items-center gap-1 p-1 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/10"
+          className="grid grid-cols-3 w-full min-w-0 sm:w-auto sm:inline-flex items-center gap-1 p-1 juice-surface"
         >
           {(
             [
@@ -306,10 +306,10 @@ function Smaki() {
               role="tab"
               aria-selected={filter === tab.id}
               onClick={() => setFilter(tab.id)}
-              className={`min-w-0 min-h-11 px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm md:text-base font-['Space_Grotesk'] font-bold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+              className={`min-w-0 min-h-11 px-2 sm:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base font-['Space_Grotesk'] font-bold transition-all duration-200 cursor-pointer whitespace-nowrap ${
                 filter === tab.id
-                  ? "bg-white text-black shadow-[0_0_16px_rgba(255,255,255,0.25)]"
-                  : "text-white/60 hover:text-white hover:bg-white/10"
+                  ? "juice-selected"
+                  : "juice-control text-white/60"
               }`}
             >
               {tab.label}

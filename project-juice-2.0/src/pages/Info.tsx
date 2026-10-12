@@ -1,3 +1,4 @@
+import { ArrowUpRight, Droplets, FlaskConical, MapPin, Package, Send } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Text3D from "../components/Text3d.tsx";
 import PageHeader from "../components/PageHeader.tsx";
@@ -5,13 +6,17 @@ import Transition from "../Transition.tsx";
 
 const VOLUMES = [
   {
-    label: "15ml / 30ml",
-    theme: "blue",
+    label: "15 ml / 30 ml",
+    caption: "Buteleczki Gorilla",
+    icon: FlaskConical,
+    accent: "blue",
     description: "Wysokiej jakości buteleczki PET z dozownikiem typu Gorilla.",
   },
   {
-    label: "12mg / 18mg",
-    theme: "purple",
+    label: "12 mg / 18 mg",
+    caption: "Wybierz swoją moc",
+    icon: Droplets,
+    accent: "purple",
     description: "Dostępne z nikotyną lub solą nikotynową.",
   },
 ];
@@ -44,7 +49,7 @@ function Info() {
               <span className="text-white/90">
                 Wszystko, co musisz wiedzieć przed zamówieniem.
               </span>
-              <br className="hidden md:block" />
+              <br />
               <span className="text-white/55 text-base md:text-lg">
                 Pojemności, moc i dostawa w pigułce.
               </span>
@@ -59,108 +64,51 @@ function Info() {
           ]}
         />
 
-        {/* CENTROWANA ZAWARTOŚĆ */}
-        <section className="grow flex items-center justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl w-full">
-            {/* KOLUMNA: POJEMNOŚCI */}
-            <div className="space-y-6 flex flex-col">
-              <div className="space-y-2">
-                <h2 className="font-['Unbounded'] font-bold text-xl uppercase tracking-widest">
-                  Pojemności i Moc
-                </h2>
-                <p className="text-white/70 text-base font-['Space_Grotesk'] font-bold">
-                  Dostępne warianty naszych produktów:
-                </p>
+        <section aria-label="Produkty, kontakt i dostawa" className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+          {VOLUMES.map(({ label, description, caption, icon: Icon, accent }) => (
+            <Card key={label} className={`juice-surface juice-card info-feature info-feature-${accent} gap-0 py-0`}>
+              <CardContent className="juice-info-content relative z-10 flex h-full flex-col gap-5 p-6 sm:p-8">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="juice-chip info-icon h-11 w-11"><Icon size={20} strokeWidth={1.5} aria-hidden="true" /></span>
+                  <span className="text-xs font-bold tracking-wider text-white/40 uppercase">{caption}</span>
+                </div>
+                <h2 className="font-['Space_Grotesk'] text-3xl font-bold tracking-tight text-white/90 sm:text-4xl">{label}</h2>
+                <p className="max-w-sm text-base text-white/60">{description}</p>
+              </CardContent>
+            </Card>
+          ))}
+
+          <a href={CONTACT_INFO.href} target="_blank" rel="noopener noreferrer" className="info-contact group block rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a9bfd1]">
+            <Card className="juice-surface juice-card info-feature info-feature-telegram h-full gap-0 py-0">
+              <CardContent className="juice-info-content relative z-10 flex h-full flex-col gap-5 p-6 sm:p-8">
+                <div className="flex items-center justify-between">
+                  <span className="juice-chip info-icon h-11 w-11"><Send size={20} strokeWidth={1.5} aria-hidden="true" /></span>
+                  <span className="juice-chip px-3 py-2 text-xs">Porozmawiajmy <ArrowUpRight size={14} aria-hidden="true" /></span>
+                </div>
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="font-['Space_Grotesk'] text-3xl font-bold tracking-tight text-white/90 sm:text-4xl">{CONTACT_INFO.name}</h2>
+                  <ArrowUpRight size={28} strokeWidth={1.5} className="text-[#8fbdd4] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+                </div>
+                <p className="text-base text-white/60">Masz pytanie lub chcesz zamówić? Napisz do nas.</p>
+                <span className="font-['Space_Grotesk'] text-sm font-bold text-[#8fbdd4]">{CONTACT_INFO.handle}</span>
+              </CardContent>
+            </Card>
+          </a>
+
+          <Card className="juice-surface juice-card info-feature info-feature-delivery gap-0 py-0">
+            <CardContent className="juice-info-content relative z-10 flex h-full flex-col gap-5 p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-3">
+                <span className="juice-chip info-icon h-11 w-11"><Package size={20} strokeWidth={1.5} aria-hidden="true" /></span>
+                <span className="text-xs font-bold tracking-wider text-white/40 uppercase">Po drodze do Ciebie</span>
               </div>
-
-              {VOLUMES.map((v) => (
-                <Card
-                  key={v.label}
-                  className={`flex-1 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 transition-all duration-300
-                    ${
-                      v.theme === "blue"
-                        ? "hover:border-[#7090ab] hover:shadow-[0_0_24px_rgba(112,144,171,0.4)]"
-                        : "hover:border-[#585580] hover:shadow-[0_0_24px_rgba(88,85,128,0.4)]"
-                    }`}
-                >
-                  <CardContent className="p-6">
-                    <span
-                      className={`font-['Unbounded'] text-4xl font-bold ${v.theme === "blue" ? "text-[#7090ab]" : "text-[#585580]"}`}
-                    >
-                      {v.label}
-                    </span>
-                    {v.description && (
-                      <p className="mt-3 text-white/70 text-base font-['Space_Grotesk'] font-bold">
-                        {v.description}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-
-              <p
-                className="invisible text-white/30 text-xs font-['Space_Grotesk'] text-right"
-                aria-hidden="true"
-              >
-                Odpowiadamy najszybciej jak to możliwe.
-              </p>
-            </div>
-
-            {/* KOLUMNA: KONTAKT I DOSTAWA */}
-            <div className="space-y-6 flex flex-col">
-              <div className="space-y-2">
-                <h2 className="font-['Unbounded'] font-bold text-xl uppercase tracking-widest">
-                  Kontakt / Dostawa
-                </h2>
-                <p className="text-white/70 text-base font-['Space_Grotesk'] font-bold">
-                  Pisz do nas bezpośrednio:
-                </p>
+              <h2 className="font-['Space_Grotesk'] text-3xl font-bold tracking-tight text-white/90 sm:text-4xl">Dostawa</h2>
+              <p className="max-w-sm text-base text-white/60">Spotkajmy się w Trójmieście lub odbierz przesyłkę w Paczkomacie InPost.</p>
+              <div className="mt-auto flex flex-wrap gap-2">
+                <span className="juice-chip px-3 py-2 text-xs"><MapPin size={14} aria-hidden="true" />Trójmiasto</span>
+                <span className="juice-chip px-3 py-2 text-xs"><Package size={14} aria-hidden="true" />InPost</span>
               </div>
-
-              <a
-                href={CONTACT_INFO.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block flex-1"
-              >
-                <Card className="h-full bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 hover:border-[#229ED9] hover:shadow-[0_0_28px_rgba(34,158,217,0.35)] transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col">
-                      <span className="font-['Unbounded'] text-2xl font-bold text-[#229ED9]">
-                        {CONTACT_INFO.name}
-                      </span>
-                      <span className="text-white/50 text-sm font-['Space_Grotesk'] mt-1">
-                        {CONTACT_INFO.handle}
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
-
-              <Card className="flex-1 bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 border-white/10 hover:border-[#640577]/70 hover:shadow-[0_0_24px_rgba(100,5,119,0.35)] transition-all duration-300">
-                <CardContent className="p-6 space-y-2">
-                  <span className="font-['Unbounded'] text-lg font-bold text-[#640577] uppercase tracking-wider">
-                    Dostawa
-                  </span>
-                  <p className="text-white/80 text-base font-['Space_Grotesk'] font-bold leading-snug">
-                    Działamy na terenie{" "}
-                    <span className="text-white underline decoration-[#640577]">
-                      Trójmiasta
-                    </span>{" "}
-                    — dostawa osobista. Możliwy również{" "}
-                    <span className="text-white underline decoration-blue-500">
-                      Paczkomat InPost
-                    </span>
-                    .
-                  </p>
-                </CardContent>
-              </Card>
-
-              <p className="text-white/30 text-xs font-['Space_Grotesk'] text-right">
-                Odpowiadamy najszybciej jak to możliwe.
-              </p>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </section>
       </main>
     </div>

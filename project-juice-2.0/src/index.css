@@ -83,6 +83,103 @@ h1 {
   cursor: default;
 }
 
+/* Powierzchnie i kontrolki oparte na chipach z hero. */
+.juice-chip,
+.juice-surface {
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 12px;
+  background: rgb(0 0 0 / 0.4);
+  backdrop-filter: blur(12px);
+  color: rgb(255 255 255 / 0.65);
+}
+
+.juice-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.juice-chip > span { line-height: 1; }
+
+.info-feature {
+  --info-accent: 112 144 171;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.info-feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 100% 0%, rgb(var(--info-accent) / 0.16), transparent 65%);
+  pointer-events: none;
+}
+
+.info-feature-purple { --info-accent: 153 133 190; }
+.info-feature-telegram { --info-accent: 98 169 204; }
+.info-feature-delivery { --info-accent: 192 165 113; }
+.info-icon { color: rgb(var(--info-accent)); border-color: rgb(var(--info-accent) / 0.25); }
+.info-contact:hover .juice-card { border-color: rgb(98 169 204 / 0.4); }
+
+.wheel-shell {
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(0 0 0 / 0.4);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 60px rgb(112 144 171 / 0.1);
+}
+
+.wheel-result { background-color: rgb(10 10 13 / 0.92); }
+.wheel-result-description { line-height: 1.5; }
+
+.juice-card,
+.juice-control {
+  transition: background-color 200ms, border-color 200ms, color 200ms, box-shadow 200ms;
+}
+
+.juice-card:hover,
+.juice-control:hover:not(:disabled) {
+  border-color: rgb(255 255 255 / 0.2);
+  background-color: rgb(255 255 255 / 0.04);
+  color: rgb(255 255 255 / 0.9);
+}
+
+.juice-control { cursor: pointer; }
+
+.juice-flavor-card,
+.juice-flavor-card * { cursor: default; }
+
+.juice-control:focus-visible,
+.juice-surface a:focus-visible {
+  outline: 2px solid #a9bfd1;
+  outline-offset: 4px;
+}
+
+.juice-selected,
+.juice-selected:hover {
+  border-color: rgb(169 191 209 / 0.45);
+  background: rgb(112 144 171 / 0.12);
+  color: #e1ebf2;
+  box-shadow: 0 0 24px rgb(112 144 171 / 0.1);
+}
+
+.juice-sold-out {
+  color: #ff5252;
+  border-color: rgb(255 82 82 / 0.4);
+  background-color: rgb(255 82 82 / 0.08);
+}
+
+.juice-flavor-description,
+.juice-info-content p { line-height: 1.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .juice-card, .juice-control { transition: none; }
+}
+
 /* Wspólna poświata nagłówków hero i 404 w kolorach logo. */
 .hero-heading-glow::before,
 .not-found-halo {

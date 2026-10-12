@@ -127,27 +127,15 @@ function FlavorGrid({
                 </motion.div>
               )}
               <Card
-                className={`group relative overflow-hidden bg-[#000]/35 bg-linear-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-xl border-2 py-0 gap-0 transition-all duration-300 rounded-lg h-full cursor-default
-                  hover:shadow-[0_0_24px_rgba(255,255,255,0.12)] hover:-translate-y-1
-                  ${
-                    isActive
-                      ? "border-[#7090ab] shadow-[0_0_40px_8px_rgba(112,144,171,0.8),0_0_80px_rgba(112,144,171,0.4)]"
-                      : "border-white/10 hover:border-white/30"
-                  }`}
+                className={`juice-surface juice-card juice-flavor-card group relative overflow-hidden py-0 gap-0 h-full cursor-default ${isActive ? "juice-selected" : ""}`}
               >
-                <CardContent className="p-3 flex flex-col items-center gap-2 h-full cursor-default">
+                <CardContent className="p-4 flex flex-col items-center gap-4 h-full cursor-default">
                   <div className="w-full flex justify-start">
                     <Badge
                       variant="outline"
-                      style={{
-                        color: "#FFFFFF",
-                        borderColor: `${accent}66`,
-                        backgroundColor: `${accent}14`,
-                        boxShadow: isActive ? `0 0 12px ${accent}55` : undefined,
-                      }}
-                      className={`font-['Unbounded'] text-lg px-3 py-1 transition-colors duration-300 shrink-0
-                        ${isActive ? "border-2" : "border-2"}`}
+                      className="juice-chip px-3 py-1.5 text-sm"
                     >
+                      <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: accent }} aria-hidden="true" />
                       {item.title || item.id}
                     </Badge>
                   </div>
@@ -156,13 +144,14 @@ function FlavorGrid({
                     <img
                       src={item.img}
                       alt={item.title || item.id}
+                      draggable={false}
                       className="max-w-full max-h-40 object-contain transition-transform duration-300 group-hover:scale-110 cursor-default"
                     />
                   </div>
 
-                  <p className="text-white/80 text-xl text-center leading-snug font-['Space_Grotesk'] font-bold px-1 shrink-0 flex flex-col">
+                  <p className="juice-flavor-description text-white/70 text-base text-center leading-snug font-['Space_Grotesk'] font-bold px-1 shrink-0 flex flex-col">
                     {item.soldOut && (
-                      <span className="text-red-500">SOLD OUT</span>
+                      <span className="juice-chip juice-sold-out self-center mb-2 px-2.5 py-1 text-[10px] tracking-wider">SOLD OUT</span>
                     )}
                     {item.details || "Nowe smaki incoming!"}
                   </p>

@@ -34,7 +34,7 @@ function PageHeader({ heading, description, chips }: PageHeaderProps) {
           {chips.map((chip) => (
             <span
               key={chip}
-              className="px-4 py-2 rounded-xl border border-white/10 bg-black/40 backdrop-blur-md text-white/60 font-['Space_Grotesk'] font-bold text-sm tracking-wide whitespace-nowrap"
+              className="juice-chip px-4 py-2 text-sm tracking-wide whitespace-nowrap"
             >
               {chip}
             </span>
