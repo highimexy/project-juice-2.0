@@ -4,23 +4,23 @@ import PageHeader from "../components/PageHeader.tsx";
 import Transition from "../Transition.tsx";
 
 const segments: Segment[] = [
-  { label: "- 10%", color: "#585580", weight: 2 },
+  { label: "- 10%", color: "#343544", weight: 2 },
   { label: "Pudło!", color: "#1a1a1a", weight: 14 },
-  { label: "+10ml", color: "#804141", weight: 2 },
+  { label: "+10ml", color: "#3d3038", weight: 2 },
   { label: "Pudło!", color: "#1a1a1a", weight: 14 },
-  { label: "- 15%", color: "#640577", weight: 1 },
+  { label: "- 15%", color: "#343041", weight: 1 },
   { label: "Pudło!", color: "#1a1a1a", weight: 14 },
-  { label: "+10ml", color: "#585580", weight: 2 },
+  { label: "+10ml", color: "#343544", weight: 2 },
   { label: "Pudło!", color: "#1a1a1a", weight: 14 },
-  { label: "- 5%", color: "#804141", weight: 4 },
+  { label: "- 5%", color: "#3d3038", weight: 4 },
   { label: "Pudło!", color: "#1a1a1a", weight: 15 },
-  { label: "+10ml", color: "#640577", weight: 2 },
+  { label: "+10ml", color: "#343041", weight: 2 },
   { label: "Pudło!", color: "#1a1a1a", weight: 14 },
 ];
 
 function Slot() {
   return (
-    <div className="h-screen overflow-hidden flex flex-col pt-36 lg:pt-24 relative">
+    <div className="h-svh min-h-[760px] sm:min-h-[700px] flex flex-col pt-36 lg:pt-24 relative">
 
       <div className="flex flex-col flex-1 min-h-0 w-full box-border px-4 md:px-8 lg:px-[62px] xl:px-[104px] 2xl:px-[200px] pb-10">
         <PageHeader
