@@ -4,8 +4,16 @@ import PageHeader from "../components/PageHeader.tsx";
 import Transition from "../Transition.tsx";
 
 const VOLUMES = [
-  { label: "15ml / 30ml", theme: "blue" },
-  { label: "12mg / 18mg", theme: "purple" },
+  {
+    label: "15ml / 30ml",
+    theme: "blue",
+    description: "Wysokiej jakości buteleczki PET z dozownikiem typu Gorilla.",
+  },
+  {
+    label: "12mg / 18mg",
+    theme: "purple",
+    description: "Dostępne z nikotyną lub solą nikotynową.",
+  },
 ];
 
 const CONTACT_INFO = {
@@ -45,6 +53,7 @@ function Info() {
           chips={[
             "15 ml / 30 ml",
             "12 mg / 18 mg",
+            "Nikotyna / sól nikotynowa",
             "Dostawa osobista",
             "InPost",
           ]}
@@ -80,6 +89,11 @@ function Info() {
                     >
                       {v.label}
                     </span>
+                    {v.description && (
+                      <p className="mt-3 text-white/70 text-base font-['Space_Grotesk'] font-bold">
+                        {v.description}
+                      </p>
+                    )}
                   </CardContent>
                 </Card>
               ))}

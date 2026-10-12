@@ -274,9 +274,9 @@ function Smaki() {
             </>
           }
           chips={[
-            "27 smaków premium",
             "15 / 30 ml",
             "12 / 18 mg",
+            "Nikotyna / sól nikotynowa",
             "Trójmiasto · InPost",
           ]}
         />
