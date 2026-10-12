@@ -17,7 +17,11 @@ interface PageHeaderProps {
 function PageHeader({ heading, description, chips }: PageHeaderProps) {
   return (
     <header className="text-center mb-10 shrink-0">
-      {heading && <div className="mb-5 w-full flex justify-center">{heading}</div>}
+      {heading && (
+        <div className="hero-heading-glow relative isolate mb-5 w-full flex justify-center">
+          {heading}
+        </div>
+      )}
 
       {description && (
         <p className="text-white/75 text-lg md:text-xl font-['Space_Grotesk'] font-bold leading-relaxed max-w-2xl mx-auto">

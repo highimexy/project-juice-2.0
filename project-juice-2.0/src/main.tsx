@@ -34,6 +34,10 @@ const router = createBrowserRouter([
         element: <Slot />,
       },
       {
+        path: "404",
+        element: <NotFoundPage />,
+      },
+      {
         path: "*",
         element: <NotFoundPage />,
       },

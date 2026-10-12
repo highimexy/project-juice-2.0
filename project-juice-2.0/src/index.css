@@ -83,6 +83,43 @@ h1 {
   cursor: default;
 }
 
+/* Wspólna poświata nagłówków hero i 404 w kolorach logo. */
+.hero-heading-glow::before,
+.not-found-halo {
+  background: radial-gradient(ellipse at center, #7090ab40 0%, #58558030 30%, #7090ab10 50%, transparent 72%);
+}
+
+.hero-heading-glow::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(100%, 1000px);
+  height: clamp(180px, 28vw, 360px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.not-found-halo {
+  inset: -20% -10%;
+  z-index: 0;
+}
+
+.not-found-art {
+  aspect-ratio: 740 / 340;
+  animation: not-found-float 7s ease-in-out infinite;
+}
+
+@keyframes not-found-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-art { animation: none; }
+}
+
 p {
   line-height: 1;
   cursor: default;
